@@ -349,9 +349,6 @@ namespace BTitles
                 {
                     return GetCustomZoneName("Radon Moss");
                 }
-            }
-            if (ModLoader.TryGetMod("Aequus", out targetmod))
-            {
                 if (targetmod.TryFind<ModBiome>("CrabCreviceBiome", out modbiome) && player.InModBiome(modbiome))
                 {
                     return GetCustomZoneName("Crab Crevice");
