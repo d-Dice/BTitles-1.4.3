@@ -1,0 +1,49 @@
+This is a QOL (Quality of Life) RPG-like mod which Displays the Biome's name for a few seconds when entering a biome.
+
+As of now it supports all biomes and sub-biomes for Vanilla, Thorium, Verdant, Remnants, The Stars Above, Calamity, Mod of Redemption, Spirit Mod, Arbour, Spooky, The Depths and Confection Rebaked (suggest more in the comments)
+
+1.4.4
+
+V2.1 - Added Starlight River support
+     - Added the option to change the delay between titles (The default is 0, but you might want to change it if you're playing on a small world)
+
+v2.0 - Ported to 1.4.4
+(I will continue updating the 1.4.3 version as well)
+
+1.4.3
+
+v1.2.9 - Added Aequus and Friends, Funiture and Fun support
+
+v1.2.8 - Added Bob Blender support
+
+v1.2.7 - Added the option to change the delay between titles (The default is 0, but you might want to change it if you're playing on a small world)
+
+v1.2.6 - Added The Depths and Confection Rebaked support
+           - Added the option to rename any title
+
+v1.2.5 - Added Arbour and Spooky support
+       - Improved Title Scale config
+       
+v1.2.4 - Added Spirit Mod support
+       - Bug fixes
+
+v1.2.3 - Added Calamity and Mod of Redemption support
+       - Fixed RPGstyle going off screen
+
+v1.2 - Massive update adding colors (toggleable from config) and showing from which mod the biome is.
+
+v1.1.1 - Added Remnants support
+
+v1.1 - Added biome support for the following mods:
+       Thorium
+       Verdant
+       Stars Above
+     - Improved configuration
+
+v0.3 - Fixed Multiplayer
+     - The mod is now client-side
+
+v0.2 - Minor bug fixes
+
+v0.1 - Released
+[quote=tModLoader]Developed By MGT[/quote]
