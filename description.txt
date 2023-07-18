@@ -1,49 +1,93 @@
-This is a QOL (Quality of Life) RPG-like mod which Displays the Biome's name for a few seconds when entering a biome.
+[b]This is a QOL (Quality of Life) RPG-like mod which Displays the Biome's name for a few seconds when entering a biome.[/b]
 
-As of now it supports all biomes and sub-biomes for Vanilla, Thorium, Verdant, Remnants, The Stars Above, Calamity, Mod of Redemption, Spirit Mod, Arbour, Spooky, The Depths and Confection Rebaked (suggest more in the comments)
+Supports all biomes and sub-biomes for the following:
+[*] Vanilla
+[*] Thorium
+[*] Verdant
+[*] Remnants
+[*] The Stars Above
+[*] Calamity
+[*] Mod of Redemption
+[*] Spirit Mod
+[*] Arbour
+[*] Spooky
+[*] The Depths
+[*] Confection Rebaked
+[*] Starlight River
+[*] Bob Blender
+[*] Aequus
+[*] Friends, Furniture and Fun
+[*] Calamity Infernum
 
-1.4.4
+Join our discord: https://discord.gg/te6MPuWbtD
 
-V2.1 - Added Starlight River support
-     - Added the option to change the delay between titles (The default is 0, but you might want to change it if you're playing on a small world)
+[i]"Don't use frame skip subtle with the mod enabled"[/i]
 
-v2.0 - Ported to 1.4.4
+[b]1.4.4 Changelog[/b]
+
+[*] [b]v2.2[/b]
+- Added Aequus support
+
+[*] [b]v2.1[/b]
+- Added Starlight River support
+- Added the option to change the delay between titles (Default is 0)
+
+[*] [b]v2.0[/b]
+- Ported to 1.4.4
 (I will continue updating the 1.4.3 version as well)
 
-1.4.3
+[b]1.4.3 Changelog[/b]
 
-v1.2.9 - Added Aequus and Friends, Funiture and Fun support
+[*] [b]v1.3.0[/b]
+- Added Calamity Infernum support
 
-v1.2.8 - Added Bob Blender support
+[*] [b]v1.2.9[/b]
+- Added Aequus and Friends, Furniture and Fun support
 
-v1.2.7 - Added the option to change the delay between titles (The default is 0, but you might want to change it if you're playing on a small world)
+[*] [b]v1.2.8[/b]
+- Added Bob Blender support
 
-v1.2.6 - Added The Depths and Confection Rebaked support
-           - Added the option to rename any title
+[*] [b]v1.2.7[/b]
+- Added the option to change the delay between titles (Default is 0)
 
-v1.2.5 - Added Arbour and Spooky support
-       - Improved Title Scale config
-       
-v1.2.4 - Added Spirit Mod support
-       - Bug fixes
+[*] [b]v1.2.6[/b]
+- Added The Depths and Confection Rebaked support
+- Added the option to rename any title
 
-v1.2.3 - Added Calamity and Mod of Redemption support
-       - Fixed RPGstyle going off screen
+[*] [b]v1.2.5[/b]
+- Added Arbour and Spooky support
+- Improved Title Scale config
 
-v1.2 - Massive update adding colors (toggleable from config) and showing from which mod the biome is.
+[*] [b]v1.2.4[/b]
+- Added Spirit Mod support
+- Bug fixes
 
-v1.1.1 - Added Remnants support
+[*] [b]v1.2.3[/b]
+- Added Calamity and Mod of Redemption support
+- Fixed RPGstyle going off screen
 
-v1.1 - Added biome support for the following mods:
-       Thorium
-       Verdant
-       Stars Above
-     - Improved configuration
+[*] [b]v1.2[/b]
+- Massive update adding colors (toggleable from config) and showing from which mod the biome is.
 
-v0.3 - Fixed Multiplayer
-     - The mod is now client-side
+[*] [b]v1.1.1[/b]
+- Added Remnants support
 
-v0.2 - Minor bug fixes
+[*] [b]v1.1[/b]
+- Added biome support for the following mods:
+  Thorium
+  Verdant
+  Stars Above
+- Improved configuration
 
-v0.1 - Released
-[quote=tModLoader]Developed By MGT[/quote]
+[*] [b]v0.3[/b]
+- Fixed Multiplayer
+- The mod is now client-side
+
+[*] [b]v0.2[/b]
+- Minor bug fixes
+
+[*] [b]v0.1[/b]
+- Released
+
+[*] You can find my other mod here: [b]Boss Intros[/b]
+https://steamcommunity.com/sharedfiles/filedetails/?id=3003323203

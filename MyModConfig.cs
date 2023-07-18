@@ -68,7 +68,7 @@ namespace BTitles
 
         [Label("Enable Custom (Draggable) Title")]
         [Tooltip("Enable or disable draggable title position.")]
-        [DefaultValue(false)]
+        [DefaultValue(true)] // Set to true to enable dragging by default
         public bool EnableDraggableTitle { get; set; }
 
         [Label("Lock Title Position")]
