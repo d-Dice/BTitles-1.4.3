@@ -202,6 +202,10 @@ namespace BTitles
                     return (Color.Orange, Color.Black);
                 case "Moonstone":
                     return (Color.Silver, Color.Black);
+                case "Lost Colosseum":
+                    return (Color.DarkGoldenrod, Color.Black);
+                case "Profaned Temple":
+                    return (Color.IndianRed, Color.Black);
                 case "Overgrow":
                     return (Color.DarkGreen, Color.Black);
                 case "Permafrost Temple":
@@ -419,6 +423,11 @@ namespace BTitles
                 case "Permafrost Temple":
                 case "Vitric Temple":
                     return "Starlight River";
+
+                // Infernum biomes
+                case "Lost Colosseum":
+                case "Profaned Temple":
+                    return "Calamity Infernum";
 
                 // Terraria biomes
                 case "Glowing Mushroom":

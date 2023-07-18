@@ -22,6 +22,7 @@ namespace BTitles
         private const float FadeTime = 3f; // 3 seconds for fade in/out
         private Mod _calamityMod;
         private bool _isDragging;
+        private float _elapsedTime;
         public ZoneDisplayUI()
         {
             LoadBiomeIcons();
@@ -37,6 +38,13 @@ namespace BTitles
                 return currentZone;
             }
         }
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+            UpdateDragging();
+        }
+
+        // not implemented feature yet
         private void LoadBiomeIcons()
         {
             _biomeIcons = new Dictionary<string, Texture2D>
@@ -100,6 +108,8 @@ namespace BTitles
                 {
                     config.CustomTitlePosition.X = mousePosition.X;
                     config.CustomTitlePosition.Y = mousePosition.Y;
+                    _zoneText.Left.Set(mousePosition.X, 0f);
+                    _zoneText.Top.Set(mousePosition.Y, 0f);
                 }
                 else
                 {
@@ -174,6 +184,7 @@ namespace BTitles
 
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
+            UpdateDragging();
             MyModConfig config = ModContent.GetInstance<MyModConfig>();
 
             // Update the biome check timer
@@ -263,7 +274,7 @@ namespace BTitles
             if (_calamityModInstalled)
             {
                 if (GetInCalamityZone(player, "crags")) zone = AddZone(zone, GetCustomZoneName("Brimstone Crag"));
-                if (GetInCalamityZone(player, "astral")) zone = AddZone(zone, GetCustomZoneName ("Astral Infection"));
+                if (GetInCalamityZone(player, "astral")) zone = AddZone(zone, GetCustomZoneName("Astral Infection"));
                 if (GetInCalamityZone(player, "sunkensea")) zone = AddZone(zone, GetCustomZoneName("Sunken Sea"));
                 if (GetInCalamityZone(player, "sulphursea")) zone = AddZone(zone, GetCustomZoneName("Sulphurous Sea"));
                 if (GetInCalamityZone(player, "abyss")) zone = AddZone(zone, GetCustomZoneName("Abyss"));
@@ -362,8 +373,8 @@ namespace BTitles
                     return GetCustomZoneName("Arbour Island");
                 }
             }
-                // Verdant biomes checks
-                if (ModLoader.TryGetMod("Verdant", out targetmod))
+            // Verdant biomes checks
+            if (ModLoader.TryGetMod("Verdant", out targetmod))
             {
                 if (targetmod.TryFind<ModBiome>("VerdantBiome", out modbiome) && Main.LocalPlayer.InModBiome(modbiome))
                 {
@@ -484,6 +495,18 @@ namespace BTitles
                 if (targetmod.TryFind<ModBiome>("SeaOfStarsBiome", out modbiome) && Main.LocalPlayer.InModBiome(modbiome))
                 {
                     return GetCustomZoneName("Sea of Stars");
+                }
+            }
+            // Infernum checks
+            if (ModLoader.TryGetMod("InfernumMode", out targetmod))
+            {
+                if (targetmod.TryFind<ModBiome>("LostColosseumBiome", out modbiome) && Main.LocalPlayer.InModBiome(modbiome))
+                {
+                    return GetCustomZoneName("Lost Colosseum");
+                }
+                if (targetmod.TryFind<ModBiome>("ProfanedTempleBiome", out modbiome) && Main.LocalPlayer.InModBiome(modbiome))
+                {
+                    return GetCustomZoneName("Profaned Temple");
                 }
             }
             // Bob Blender checks
