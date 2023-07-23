@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace BTitles.BuiltinModSupport;
 
-public class BuiltinCosmicVariety : AutoImplementedModSupport
+public class BuiltinCosmeticVariety : AutoImplementedModSupport
 {
     protected override string GetTargetModName() => "CosmeticVariety";
 

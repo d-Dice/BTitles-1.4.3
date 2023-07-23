@@ -37,7 +37,7 @@ namespace BTitles
 
         private void ImplementVanillaBiomes()
         {
-            Biomes info = new Biomes
+            Biomes biomes = new Biomes
             {
                 BiomeEntries = new Dictionary<string, BiomeEntry>(),
                 
@@ -102,7 +102,7 @@ namespace BTitles
             {
                 string iconPath = "BTitles/Resources/Textures/BiomeIcons/" + title.Replace(" ", "_");
             
-                info.BiomeEntries.Add(title, new BiomeEntry
+                biomes.BiomeEntries.Add(title, new BiomeEntry
                 {
                     Title = title,
                     SubTitle = "Terraria",
@@ -148,7 +148,8 @@ namespace BTitles
             registerBiome("Glowing Mushroom",             Color.Blue,           Color.Black);
             registerBiome("Forest",                       Color.Green,          Color.Black);
 
-            RegisterBiomes(info);
+            BiomeTitlesMod.Log("Log", "Vanilla Support", $"Registering biomes for vanilla");
+            RegisterBiomes(biomes);
         }
         
         private void ScanBiomesFromOtherMods()
@@ -277,6 +278,7 @@ namespace BTitles
                 
                 if (biomes.MiniBiomeChecker == null && biomes.BiomeChecker == null && (biomes.BiomeEntries?.Count ?? 0) == 0) continue;
 
+                BiomeTitlesMod.Log("Log", "Native Support", $"Registering biomes for mod {mod.Name}");
                 RegisterBiomes(biomes);
                 _implementedMods.Add(mod);
             }
@@ -284,34 +286,53 @@ namespace BTitles
 
         private void ImplementBuiltinSupport()
         {
-            GetType().Assembly.GetTypes()
-                .Where(type => type.IsSubclassOf(typeof(ModSupport)) && !type.IsAbstract)
-                .Select(type => Activator.CreateInstance(type) as ModSupport)
-                .Where(support => support != null && support.GetTargetMod() != null && !_implementedMods.Contains(support.GetTargetMod()))
-                .Select(support => support.Implement())
-                .Where(modInfo => modInfo != null)
-                .ToList()
-                .ForEach(RegisterBiomes);
+            foreach (Type type in GetType().Assembly.GetTypes())
+            {
+                if (!type.IsSubclassOf(typeof(ModSupport)) || type.IsAbstract) continue;
+
+                ModSupport supportInstance = (ModSupport)Activator.CreateInstance(type);
+
+                var targetMod = supportInstance?.GetTargetMod();
+                
+                if (targetMod == null || _implementedMods.Contains(targetMod)) continue;
+
+                Biomes biomes = supportInstance.Implement();
+                
+                if (biomes == null) continue;
+                
+                BiomeTitlesMod.Log("Log", "Builtin Support", $"Registering biomes for mod {targetMod.Name}");
+                RegisterBiomes(biomes);
+            }
         }
 
-        private void RegisterBiomes(Biomes info)
+        private void RegisterBiomes(Biomes biomes)
         {
-            if (info.BiomeEntries != null)
+            if ((biomes.BiomeEntries?.Count ?? 0) == 0 && biomes.MiniBiomeChecker == null && biomes.BiomeChecker == null)
             {
-                foreach (var entry in info.BiomeEntries)
+                BiomeTitlesMod.Log("Fail", "Register Biomes", $"Nothing to register");
+                return;
+            }
+            
+            if (biomes.BiomeEntries != null)
+            {
+                foreach (var entry in biomes.BiomeEntries)
                 {
-                    _zoneDisplayUi.BiomeDictionary.Add(entry.Key, entry.Value);
+                    bool overriding = _zoneDisplayUi.BiomeDictionary.ContainsKey(entry.Key);
+                    BiomeTitlesMod.Log("Log", "Register Biomes", $"{(overriding ? "Overriding" : "Registering")} biome {entry.Key}");
+                    _zoneDisplayUi.BiomeDictionary[entry.Key] = entry.Value;
                 }
             }
 
-            if (info.MiniBiomeChecker != null)
+            if (biomes.MiniBiomeChecker != null)
             {
-                _zoneDisplayUi.MiniBiomeCheckFunctions.Insert(0, info.MiniBiomeChecker);
+                BiomeTitlesMod.Log("Log", "Register Biomes", $"Registering mini-biome check function");
+                _zoneDisplayUi.MiniBiomeCheckFunctions.Insert(0, biomes.MiniBiomeChecker);
             }
             
-            if (info.BiomeChecker != null)
+            if (biomes.BiomeChecker != null)
             {
-                _zoneDisplayUi.BiomeCheckFunctions.Insert(0, info.BiomeChecker);
+                BiomeTitlesMod.Log("Log", "Register Biomes", $"Registering biome check function");
+                _zoneDisplayUi.BiomeCheckFunctions.Insert(0, biomes.BiomeChecker);
             }
         }
 
@@ -327,7 +348,7 @@ namespace BTitles
 
         private void Draw(On.Terraria.Main.orig_DrawInterface_30_Hotbar orig, Terraria.Main self)
         {
-            if (!Terraria.Main.gameMenu)
+            if (!Main.gameMenu)
             {
                 _zoneDisplayUi.Draw(Terraria.Main.spriteBatch);
             }
@@ -337,7 +358,7 @@ namespace BTitles
 
         private void Update(On.Terraria.Main.orig_Update orig, Terraria.Main self, GameTime gameTime)
         {
-            if (!Terraria.Main.gameMenu)
+            if (!Main.gameMenu)
             {
                 _zoneDisplayUi.Update(gameTime);
             }
@@ -347,21 +368,6 @@ namespace BTitles
             }
 
             orig(self, gameTime);
-        }
-
-        public override object Call(params object[] args)
-        {
-            if (args.Length < 1) return null;
-
-            string method = args[0] as string;
-            switch (method)
-            {
-                case "RegisterBiome":
-
-                    break;
-            }
-
-            return null;
         }
 
         // Example of weak inter-mod implementation
@@ -403,5 +409,10 @@ namespace BTitles
             biomeChecker = player => "";
         }
         */
+        
+        internal static void Log(string type, string category, object message)
+        {
+            Console.WriteLine($"[BiomeTitles] [{type}] [{category}] {message}");
+        }
     }
 }

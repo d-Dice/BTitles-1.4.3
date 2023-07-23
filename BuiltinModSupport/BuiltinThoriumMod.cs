@@ -43,12 +43,12 @@ public class BuiltinThoriumMod : ModSupport
                     return "";
                 },
                 
-                BiomeChecker = player =>
+                BiomeChecker = depthsBiome != null ? player =>
                 {
                     if (player.InModBiome(depthsBiome) && player.position.Y > Main.worldSurface * 16) return "DepthsBiome";
 
                     return "";
-                }
+                } : null
             };
         }
         

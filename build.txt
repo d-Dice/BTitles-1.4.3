@@ -4,3 +4,4 @@ displayName = Biome Titles
 hideCode = false
 hideResources = true
 side = Client
+sortAfter = Aequus, Arbour, BobBlender2, CalamityMod, ConfectionRebirth, CosmeticVariety, InfernumMode, Redemption, Remnants, SpiritMod, Spooky, StarsAbove, TheDepths, ThoriumMod, Verdant
