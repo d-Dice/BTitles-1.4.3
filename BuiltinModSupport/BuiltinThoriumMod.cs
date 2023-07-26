@@ -19,6 +19,8 @@ public class BuiltinThoriumMod : ModSupport
     {
         if (ModLoader.TryGetMod(ModName, out Mod mod))
         {
+            var test = mod.GetContent<ModBiome>();
+            
             var depthsBiome = mod.FindOrDefault<ModBiome>("DepthsBiome");
             
             return new Biomes

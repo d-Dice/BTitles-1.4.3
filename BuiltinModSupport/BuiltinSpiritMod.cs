@@ -11,19 +11,16 @@ public class BuiltinSpiritMod : AutoImplementedModSupport
     {
         miniBiomes = new Dictionary<string, BiomeEntry>
         {
-            {"AsteroidBiome",    new BiomeEntry{ Title = "Asteroid",     SubTitle = "Spirit Mod", TitleColor = Color.Black,     StrokeColor = Color.DarkGray }},
-            {"JellyDelugeBiome", new BiomeEntry{ Title = "Jelly Deluge", SubTitle = "Spirit Mod", TitleColor = Color.LightBlue, StrokeColor = Color.Black    }},
-            {"MysticMoonBiome",  new BiomeEntry{ Title = "Mystic Moon",  SubTitle = "Spirit Mod", TitleColor = Color.Cyan,      StrokeColor = Color.Black    }},
+            {"AsteroidBiome",         new BiomeEntry{ Title = "Asteroid Field", SubTitle = "Spirit Mod", TitleColor = Color.Black,      StrokeColor = Color.DarkGray }},
+            {"SynthwaveSurfaceBiome", new BiomeEntry{ Title = "Hyperspace",     SubTitle = "Spirit Mod", TitleColor = Color.DarkViolet, StrokeColor = Color.Black    }},
         };
 
         biomes = new Dictionary<string, BiomeEntry>
         {
-            {"BriarSurfaceBiome",      new BiomeEntry{ Title = "Briar Surface",      SubTitle = "Spirit Mod", TitleColor = Color.DarkGreen,   StrokeColor = Color.Black }},
-            {"BriarUndergroundBiome",  new BiomeEntry{ Title = "Briar Underground",  SubTitle = "Spirit Mod", TitleColor = Color.ForestGreen, StrokeColor = Color.Black }},
+            {"BriarSurfaceBiome",      new BiomeEntry{ Title = "Briar Forest",       SubTitle = "Spirit Mod", TitleColor = Color.DarkGreen,   StrokeColor = Color.Black }},
+            {"BriarUndergroundBiome",  new BiomeEntry{ Title = "Briar Caves",        SubTitle = "Spirit Mod", TitleColor = Color.ForestGreen, StrokeColor = Color.Black }},
             {"SpiritSurfaceBiome",     new BiomeEntry{ Title = "Spirit Surface",     SubTitle = "Spirit Mod", TitleColor = Color.DeepSkyBlue, StrokeColor = Color.Black }},
             {"SpiritUndergroundBiome", new BiomeEntry{ Title = "Spirit Underground", SubTitle = "Spirit Mod", TitleColor = Color.SkyBlue,     StrokeColor = Color.Black }},
-            {"SynthwaveSurfaceBiome",  new BiomeEntry{ Title = "Synthwave",          SubTitle = "Spirit Mod", TitleColor = Color.DarkViolet,  StrokeColor = Color.Black }},
-            {"TideBiome",              new BiomeEntry{ Title = "Tide",               SubTitle = "Spirit Mod", TitleColor = Color.BlueViolet,  StrokeColor = Color.Black }},
         };
     }
 }

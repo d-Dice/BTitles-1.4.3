@@ -29,8 +29,11 @@ public static class TitleAnimations
         if (time < config.InTime)
         {
             float alpha = time / config.InTime;
-            
-            title.Opacity = alpha;
+
+            if (title != null)
+            {
+                title.Opacity = alpha;
+            }
 
             if (subtitle != null)
             {
@@ -41,7 +44,10 @@ public static class TitleAnimations
         {
             //float alpha = (time - config.InTime) / (config.Duration - config.InTime - config.OutTime);
 
-            title.Opacity = 1;
+            if (title != null)
+            {
+                title.Opacity = 1;
+            }
 
             if (subtitle != null)
             {
@@ -51,8 +57,11 @@ public static class TitleAnimations
         else
         {
             float alpha = (time - (config.Duration - config.InTime)) / config.OutTime;
-            
-            title.Opacity = 1 - alpha;
+
+            if (title != null)
+            {
+                title.Opacity = 1 - alpha;
+            }
 
             if (subtitle != null)
             {
@@ -73,10 +82,13 @@ public static class TitleAnimations
         if (time < config.InTime)
         {
             float alpha = time / config.InTime;
-            
-            title.Opacity = alpha;
-            title.MarginLeft = MathHelper.Lerp(P0, P1, alpha);
-            title.Recalculate();
+
+            if (title != null)
+            {
+                title.Opacity = alpha;
+                title.MarginLeft = MathHelper.Lerp(P0, P1, alpha);
+                title.Recalculate();
+            }
 
             if (subtitle != null)
             {
@@ -89,9 +101,12 @@ public static class TitleAnimations
         {
             float alpha = infiniteStay ? 0 : (time - config.InTime) / (config.Duration - config.InTime - config.OutTime);
 
-            title.Opacity = 1;
-            title.MarginLeft = MathHelper.Lerp(P1, P2, alpha);
-            title.Recalculate();
+            if (title != null)
+            {
+                title.Opacity = 1;
+                title.MarginLeft = MathHelper.Lerp(P1, P2, alpha);
+                title.Recalculate();
+            }
 
             if (subtitle != null)
             {
@@ -103,10 +118,13 @@ public static class TitleAnimations
         else
         {
             float alpha = (time - (config.Duration - config.InTime)) / config.OutTime;
-            
-            title.Opacity = 1 - alpha;
-            title.MarginLeft = MathHelper.Lerp(P2, P3, alpha);
-            title.Recalculate();
+
+            if (title != null)
+            {
+                title.Opacity = 1 - alpha;
+                title.MarginLeft = MathHelper.Lerp(P2, P3, alpha);
+                title.Recalculate();
+            }
 
             if (subtitle != null)
             {
