@@ -52,8 +52,8 @@ namespace BTitles
                     if (player.ZoneHive) return "Hive";
                     
                     // Small
-                    if (player.ZoneDungeon) return "Dungeon";
-                    if (player.ZoneLihzhardTemple || tileAtPlayeCenter.WallType == 87) return "Lihzhard Temple"; // 87 is natural temple wall
+                    if (player.ZoneDungeon) return "The Dungeon";
+                    if (player.ZoneLihzhardTemple || tileAtPlayeCenter.WallType == 87) return "The Temple"; // 87 is natural temple wall
                     
                     // Rare
                     if (player.ZoneTowerNebula) return "Nebula Pillar";
@@ -115,7 +115,7 @@ namespace BTitles
                     if (player.ZoneUnderworldHeight) return "Hell";
                     
                     // Non-underground infection-independent
-                    if (player.ZoneJungle) return "Jungle";
+                    if (player.ZoneJungle) return "The Jungle";
                     
                     // Non-underground infectable biomes
                     if (player.ZoneDesert)
@@ -133,7 +133,7 @@ namespace BTitles
                     {
                         if (player.ZoneCorrupt) return "Corruption";
                         if (player.ZoneCrimson) return "Crimson";
-                        if (player.ZoneHallow) return "Hallow";
+                        if (player.ZoneHallow) return "The Hallow";
                     }
 
                     // ... other Terraria biome checks ...
@@ -165,8 +165,8 @@ namespace BTitles
             registerBiome("Graveyard",                    Color.Gray,           Color.Black);
             registerBiome("Hive",                         Color.Orange,         Color.Black);
             
-            registerBiome("Dungeon",                      Color.DarkBlue,       Color.Black);
-            registerBiome("Lihzhard Temple",              Color.OrangeRed,      Color.Black);
+            registerBiome("The Dungeon",                  Color.DarkBlue,       Color.Black);
+            registerBiome("The Temple",                   Color.OrangeRed,      Color.Black);
             
             registerBiome("Nebula Pillar",                Color.Magenta,        Color.Black);
             registerBiome("Solar Pillar",                 Color.Orange,         Color.Black);
@@ -204,7 +204,7 @@ namespace BTitles
             registerBiome("Caverns",                      Color.DarkSlateGray,  Color.Black);
             registerBiome("Hell",                         Color.Red,            Color.Black);
             
-            registerBiome("Jungle",                       Color.LimeGreen,      Color.Black);
+            registerBiome("The Jungle",                   Color.LimeGreen,      Color.Black);
             
             registerBiome("Corrupt Desert",               Color.Peru,           Color.Black);
             registerBiome("Crimson Desert",               Color.OrangeRed,      Color.Black);
@@ -215,7 +215,7 @@ namespace BTitles
             
             registerBiome("Corruption",                   Color.Purple,         Color.Black);
             registerBiome("Crimson",                      Color.Red,            Color.Black);
-            registerBiome("Hallow",                       Color.LightBlue,      Color.Black);
+            registerBiome("The Hallow",                   Color.LightBlue,      Color.Black);
 
             registerBiome("Forest",                       Color.Green,          Color.Black);
 
