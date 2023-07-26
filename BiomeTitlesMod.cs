@@ -115,7 +115,7 @@ namespace BTitles
                     if (player.ZoneUnderworldHeight) return "Hell";
                     
                     // Non-underground infection-independent
-                    if (player.ZoneJungle) return "The Jungle";
+                    if (player.ZoneJungle) return "Jungle";
                     
                     // Non-underground infectable biomes
                     if (player.ZoneDesert)
@@ -133,7 +133,7 @@ namespace BTitles
                     {
                         if (player.ZoneCorrupt) return "Corruption";
                         if (player.ZoneCrimson) return "Crimson";
-                        if (player.ZoneHallow) return "The Hallow";
+                        if (player.ZoneHallow) return "Hallow";
                     }
 
                     // ... other Terraria biome checks ...
@@ -204,7 +204,7 @@ namespace BTitles
             registerBiome("Caverns",                      Color.DarkSlateGray,  Color.Black);
             registerBiome("Hell",                         Color.Red,            Color.Black);
             
-            registerBiome("The Jungle",                   Color.LimeGreen,      Color.Black);
+            registerBiome("Jungle",                       Color.LimeGreen,      Color.Black);
             
             registerBiome("Corrupt Desert",               Color.Peru,           Color.Black);
             registerBiome("Crimson Desert",               Color.OrangeRed,      Color.Black);
@@ -215,7 +215,7 @@ namespace BTitles
             
             registerBiome("Corruption",                   Color.Purple,         Color.Black);
             registerBiome("Crimson",                      Color.Red,            Color.Black);
-            registerBiome("The Hallow",                   Color.LightBlue,      Color.Black);
+            registerBiome("Hallow",                       Color.LightBlue,      Color.Black);
 
             registerBiome("Forest",                       Color.Green,          Color.Black);
 
