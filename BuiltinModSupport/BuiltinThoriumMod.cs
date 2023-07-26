@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -22,12 +24,15 @@ public class BuiltinThoriumMod : ModSupport
             var test = mod.GetContent<ModBiome>();
             
             var depthsBiome = mod.FindOrDefault<ModBiome>("DepthsBiome");
+            var depthsBiomeIcon = ModContent.HasAsset(depthsBiome.BestiaryIcon)
+                ? ModContent.Request<Texture2D>(depthsBiome.BestiaryIcon, AssetRequestMode.ImmediateLoad).Value
+                : null;
             
             return new Biomes
             {
                 BiomeEntries = new Dictionary<string, BiomeEntry>
                 {
-                    {"DepthsBiome",  new BiomeEntry{ Title = "Aquatic Depths", SubTitle = "Thorium Mod", TitleColor = Color.Cyan, StrokeColor = Color.Black }},
+                    {"DepthsBiome",  new BiomeEntry{ Title = "Aquatic Depths", SubTitle = "Thorium Mod", TitleColor = Color.Cyan, StrokeColor = Color.Black, Icon = depthsBiomeIcon}},
                     {"BloodChamber", new BiomeEntry{ Title = "Blood Chamber",  SubTitle = "Thorium Mod", TitleColor = Color.Red,  StrokeColor = Color.Black }},
                 },
                 
