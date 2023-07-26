@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria.ModLoader;
 
 namespace BTitles.BuiltinModSupport;
@@ -28,6 +30,8 @@ public abstract class AutoImplementedModSupport : ModSupport
     {
         if (ModLoader.TryGetMod(GetTargetModName(), out Mod mod))
         {
+            var test = mod.GetContent<ModBiome>();
+            
             GetData(out Dictionary<string, BiomeEntry> miniBiomes, out Dictionary<string, BiomeEntry> biomes);
             
             List<ConfirmedBiomeEntry> miniBiomesFound = FetchBiomes(miniBiomes, mod).ToList();
@@ -73,6 +77,12 @@ public abstract class AutoImplementedModSupport : ModSupport
                 {
                     BiomeTitlesMod.Log("Fail", "Auto-Implement", $"Biome {pair.Key} was not found in mod {mod.Name}");
                     continue;
+                }
+                
+                string iconPath = biome.BestiaryIcon;
+                if (ModContent.HasAsset(iconPath))
+                {
+                    pair.Value.Icon = ModContent.Request<Texture2D>(iconPath, AssetRequestMode.ImmediateLoad).Value;
                 }
 
                 yield return new ConfirmedBiomeEntry

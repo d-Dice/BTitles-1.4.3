@@ -43,18 +43,27 @@ namespace BTitles
                 
                 MiniBiomeChecker = player =>
                 {
-                    if (player.ZoneDungeon) return "Dungeon";
-                    if (player.ZoneLihzhardTemple) return "Lihzhard Temple";
-                    if (player.ZoneGranite) return "Granite";
-                    if (player.ZoneMarble) return "Marble";
-                    if (player.ZoneBeach) return "Ocean";
+                    Point playerTilePosition = player.Center.ToTileCoordinates();
+                    var tileAtPlayeCenter = Main.tile[playerTilePosition.X, playerTilePosition.Y];
+                    
+                    // Extra-small
                     if (player.ZoneMeteor) return "Meteor Crash Site";
+                    if (player.ZoneGraveyard) return "Graveyard";
+                    if (player.ZoneHive) return "Hive";
+                    
+                    // Small
+                    if (player.ZoneDungeon) return "The Dungeon";
+                    if (player.ZoneLihzhardTemple || tileAtPlayeCenter.WallType == 87) return "The Temple"; // 87 is natural temple wall
+                    
+                    // Rare
                     if (player.ZoneTowerNebula) return "Nebula Pillar";
                     if (player.ZoneTowerSolar) return "Solar Pillar";
                     if (player.ZoneTowerStardust) return "Stardust Pillar";
                     if (player.ZoneTowerVortex) return "Vortex Pillar";
-                    if (player.ZoneGraveyard) return "Graveyard";
-                    if (player.ZoneHive) return "Hive";
+                    
+                    // Misc
+                    if (player.ZoneGranite) return "Granite Cave";
+                    if (player.ZoneMarble) return "Marble Cave";
 
                     if (player.ZoneDirtLayerHeight || player.ZoneRockLayerHeight)
                     {
@@ -70,28 +79,63 @@ namespace BTitles
                 {
                     if (player.ZoneDirtLayerHeight || player.ZoneRockLayerHeight)
                     {
-                        if (player.ZoneCorrupt) return "Underground Corruption";
-                        if (player.ZoneCrimson) return "Underground Crimson";
-                        if (player.ZoneHallow) return "Underground Hallow";
-                        
-                        if (player.ZoneDesert) return "Underground Desert";
-                        if (player.ZoneSnow) return "Underground Tundra";
+                        // Underground infection-independent
                         if (player.ZoneJungle) return "Underground Jungle";
+                    
+                        // Underground infectable biomes
+                        if (player.ZoneDesert)
+                        {
+                            if (player.ZoneCorrupt) return "Corrupt Cave Desert";
+                            if (player.ZoneCrimson) return "Crimson Cave Desert";
+                            if (player.ZoneHallow) return "Hallow Cave Desert";
+                            return "Cave Desert";
+                        }
+                        else if (player.ZoneSnow)
+                        {
+                            if (player.ZoneCorrupt) return "Corrupt Ice Caves";
+                            if (player.ZoneCrimson) return "Crimson Ice Caves";
+                            if (player.ZoneHallow) return "Hallow Ice Caves";
+                            return "Ice Caves";
+                        }
+                        else
+                        {
+                            if (player.ZoneCorrupt) return "Underground Corruption";
+                            if (player.ZoneCrimson) return "Underground Crimson";
+                            if (player.ZoneHallow) return "Underground Hallow";
+                        }
                     }
+                    
+                    // Layer-independent
+                    if (player.ZoneBeach) return "Ocean";
 
+                    // Layers
                     if (player.ZoneSkyHeight) return "Sky";
                     if (player.ZoneDirtLayerHeight) return "Underground";
                     if (player.ZoneRockLayerHeight) return "Caverns";
                     if (player.ZoneUnderworldHeight) return "Hell";
                     
-                    if (player.ZoneCorrupt) return "Corruption";
-                    if (player.ZoneCrimson) return "Crimson";
-                    if (player.ZoneHallow) return "Hallow";
-
-                    if (player.ZoneDesert) return "Desert";
-                    if (player.ZoneSnow) return "Tundra";
+                    // Non-underground infection-independent
                     if (player.ZoneJungle) return "Jungle";
-                    if (player.ZoneForest) return "Forest";
+                    
+                    // Non-underground infectable biomes
+                    if (player.ZoneDesert)
+                    {
+                        if (player.ZoneCorrupt) return "Corrupt Desert";
+                        if (player.ZoneCrimson) return "Crimson Desert";
+                        if (player.ZoneHallow) return "Hallow Desert";
+                        return "Desert";
+                    }
+                    else if (player.ZoneSnow)
+                    {
+                        return "Tundra";
+                    }
+                    else
+                    {
+                        if (player.ZoneCorrupt) return "Corruption";
+                        if (player.ZoneCrimson) return "Crimson";
+                        if (player.ZoneHallow) return "Hallow";
+                    }
+
                     // ... other Terraria biome checks ...
 
                     return "Forest";
@@ -110,42 +154,69 @@ namespace BTitles
                     TitleColor = titleColor,
                     StrokeColor = strokeColor
                 });
+
+                if (!ModContent.HasAsset(iconPath))
+                {
+                    BiomeTitlesMod.Log("Fail", "Icons", $"Failed to find icon for biome {title}");
+                }
             };
             
-            registerBiome("Dungeon",                      Color.DarkBlue,       Color.Black);
-            registerBiome("Lihzhard Temple",              Color.OrangeRed,      Color.Black);
-            registerBiome("Granite",                      Color.DarkSlateBlue,  Color.Black);
-            registerBiome("Marble",                       Color.LightGray,      Color.Black);
-            registerBiome("Ocean",                        Color.DeepSkyBlue,    Color.Black);
             registerBiome("Meteor Crash Site",            Color.OrangeRed,      Color.Black);
+            registerBiome("Graveyard",                    Color.Gray,           Color.Black);
+            registerBiome("Hive",                         Color.Orange,         Color.Black);
+            
+            registerBiome("The Dungeon",                  Color.DarkBlue,       Color.Black);
+            registerBiome("The Temple",                   Color.OrangeRed,      Color.Black);
+            
             registerBiome("Nebula Pillar",                Color.Magenta,        Color.Black);
             registerBiome("Solar Pillar",                 Color.Orange,         Color.Black);
             registerBiome("Stardust Pillar",              Color.Yellow,         Color.Black);
             registerBiome("Vortex Pillar",                Color.LightBlue,      Color.Black);
-            registerBiome("Graveyard",                    Color.Gray,           Color.Black);
-            registerBiome("Hive",                         Color.Orange,         Color.Black);
+            
+            registerBiome("Granite Cave",                 Color.DarkSlateBlue,  Color.Black);
+            registerBiome("Marble Cave",                  Color.LightGray,      Color.Black);
+            
+            registerBiome("Underground Glowing Mushroom", Color.MediumBlue,     Color.Black);
+            registerBiome("Glowing Mushroom",             Color.Blue,           Color.Black);
 
-            registerBiome("Underground Desert",           Color.Yellow,         Color.Black);
+
+
             registerBiome("Underground Jungle",           Color.LimeGreen,      Color.Black);
-            registerBiome("Underground Tundra",           Color.LightCyan,      Color.Black);
+            
+            registerBiome("Corrupt Cave Desert",          Color.Peru,           Color.Black);
+            registerBiome("Crimson Cave Desert",          Color.OrangeRed,      Color.Black);
+            registerBiome("Hallow Cave Desert",           Color.PapayaWhip,     Color.Black);
+            registerBiome("Cave Desert",                  Color.Yellow,         Color.Black);
+            
+            registerBiome("Corrupt Ice Caves",            Color.Orchid,         Color.Black);
+            registerBiome("Crimson Ice Caves",            Color.LightCoral,     Color.Black);
+            registerBiome("Hallow Ice Caves",             Color.PowderBlue,     Color.Black);
+            registerBiome("Ice Caves",                    Color.LightCyan,      Color.Black);
+            
             registerBiome("Underground Corruption",       Color.Purple,         Color.Black);
             registerBiome("Underground Crimson",          Color.Red,            Color.Black);
             registerBiome("Underground Hallow",           Color.LightBlue,      Color.Black);
-            registerBiome("Underground Glowing Mushroom", Color.MediumBlue,     Color.Black);
             
+            registerBiome("Ocean",                        Color.DeepSkyBlue,    Color.Black);
+
             registerBiome("Sky",                          Color.CornflowerBlue, Color.Black);
-            registerBiome("Caverns",                      Color.DarkSlateGray,  Color.Black);
             registerBiome("Underground",                  Color.SaddleBrown,    Color.Black);
+            registerBiome("Caverns",                      Color.DarkSlateGray,  Color.Black);
             registerBiome("Hell",                         Color.Red,            Color.Black);
+            
+            registerBiome("Jungle",                       Color.LimeGreen,      Color.Black);
+            
+            registerBiome("Corrupt Desert",               Color.Peru,           Color.Black);
+            registerBiome("Crimson Desert",               Color.OrangeRed,      Color.Black);
+            registerBiome("Hallow Desert",                Color.PapayaWhip,     Color.Black);
+            registerBiome("Desert",                       Color.Yellow,         Color.Black);
+            
+            registerBiome("Tundra",                       Color.LightCyan,      Color.Black);
             
             registerBiome("Corruption",                   Color.Purple,         Color.Black);
             registerBiome("Crimson",                      Color.Red,            Color.Black);
             registerBiome("Hallow",                       Color.LightBlue,      Color.Black);
-            
-            registerBiome("Desert",                       Color.Yellow,         Color.Black);
-            registerBiome("Tundra",                       Color.LightCyan,      Color.Black);
-            registerBiome("Jungle",                       Color.LimeGreen,      Color.Black);
-            registerBiome("Glowing Mushroom",             Color.Blue,           Color.Black);
+
             registerBiome("Forest",                       Color.Green,          Color.Black);
 
             BiomeTitlesMod.Log("Log", "Vanilla Support", $"Registering biomes for vanilla");

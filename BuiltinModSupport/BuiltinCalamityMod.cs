@@ -1,63 +1,29 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
 
 namespace BTitles.BuiltinModSupport;
 
-public class BuiltinCalamityMod : ModSupport
+public class BuiltinCalamityMod : AutoImplementedModSupport
 {
-    public static readonly string ModName = "CalamityMod";
-    
-    public override Mod GetTargetMod()
-    {
-        if (ModLoader.TryGetMod(ModName, out Mod mod)) return mod;
-        return null;
-    }
+    protected override string GetTargetModName() => "CalamityMod";
 
-    public override Biomes Implement()
+    protected override void GetData(out Dictionary<string, BiomeEntry> miniBiomes, out Dictionary<string, BiomeEntry> biomes)
     {
-        if (ModLoader.TryGetMod(ModName, out Mod mod))
+        miniBiomes = null;
+
+        biomes = new Dictionary<string, BiomeEntry>
         {
-            return new Biomes
-            {
-                BiomeEntries = new Dictionary<string, BiomeEntry>
-                {
-                    {"crags",      new BiomeEntry{ Title = "Brimstone Crags",  SubTitle = "Calamity Mod", TitleColor = Color.OrangeRed,     StrokeColor = Color.Black }},
-                    {"astral",     new BiomeEntry{ Title = "Astral Infection", SubTitle = "Calamity Mod", TitleColor = Color.DarkViolet,    StrokeColor = Color.Black }},
-                    {"sunkensea",  new BiomeEntry{ Title = "Sunken Sea",       SubTitle = "Calamity Mod", TitleColor = Color.Teal,          StrokeColor = Color.Black }},
-                    {"sulphursea", new BiomeEntry{ Title = "Sulphurous Sea",   SubTitle = "Calamity Mod", TitleColor = Color.LightSeaGreen, StrokeColor = Color.Black }},
-                    {"abyss1",     new BiomeEntry{ Title = "Abyss - Layer 1",  SubTitle = "Calamity Mod", TitleColor = Color.DarkSlateBlue, StrokeColor = Color.Black }},
-                    {"abyss2",     new BiomeEntry{ Title = "Abyss - Layer 2",  SubTitle = "Calamity Mod", TitleColor = Color.DarkSlateBlue, StrokeColor = Color.Black }},
-                    {"abyss3",     new BiomeEntry{ Title = "Abyss - Layer 3",  SubTitle = "Calamity Mod", TitleColor = Color.DarkSlateBlue, StrokeColor = Color.Black }},
-                    {"abyss4",     new BiomeEntry{ Title = "Abyss - Layer 4",  SubTitle = "Calamity Mod", TitleColor = Color.DarkSlateBlue, StrokeColor = Color.Black }},
-                },
-                
-                MiniBiomeChecker = player =>
-                {
-                    if ((bool)mod.Call("GetInZone", player, "sulphursea")) return "sulphursea";
-                    
-                    if ((bool)mod.Call("GetInZone", player, "abyss"))
-                    {
-                        if ((bool)mod.Call("GetInZone", player, "layer1")) return "abyss1";
-                        if ((bool)mod.Call("GetInZone", player, "layer2")) return "abyss2";
-                        if ((bool)mod.Call("GetInZone", player, "layer3")) return "abyss3";
-                        if ((bool)mod.Call("GetInZone", player, "layer4")) return "abyss4";
-                    }
-
-                    return "";
-                },
-                
-                BiomeChecker = player =>
-                {
-                    if ((bool)mod.Call("GetInZone", player, "crags")) return "crags";
-                    if ((bool)mod.Call("GetInZone", player, "astral")) return "astral";
-                    if ((bool)mod.Call("GetInZone", player, "sunkensea")) return "sunkensea";
-
-                    return "";
-                }
-            };
-        }
-        
-        return null;
+            {"UndergroundAstralBiome",       new BiomeEntry{ Title = "Astral Underground", SubTitle = "Calamity Mod", TitleColor = Color.Indigo,        StrokeColor = Color.Black }},
+            {"AbovegroundAstralDesertBiome", new BiomeEntry{ Title = "Astral Desert",      SubTitle = "Calamity Mod", TitleColor = Color.BlueViolet,    StrokeColor = Color.Black }},
+            {"AbovegroundAstralSnowBiome",   new BiomeEntry{ Title = "Astral Tundra",      SubTitle = "Calamity Mod", TitleColor = Color.Orchid,        StrokeColor = Color.Black }},
+            {"AbovegroundAstralBiome",       new BiomeEntry{ Title = "Astral Infection",   SubTitle = "Calamity Mod", TitleColor = Color.DarkViolet,    StrokeColor = Color.Black }},
+            {"BrimstoneCragsBiome",          new BiomeEntry{ Title = "Brimstone Crags",    SubTitle = "Calamity Mod", TitleColor = Color.OrangeRed,     StrokeColor = Color.Black }},
+            {"SulphurousSeaBiome",           new BiomeEntry{ Title = "Sulphurous Sea",     SubTitle = "Calamity Mod", TitleColor = Color.LightSeaGreen, StrokeColor = Color.Black }},
+            {"SunkenSeaBiome",               new BiomeEntry{ Title = "Sunken Sea",         SubTitle = "Calamity Mod", TitleColor = Color.Teal,          StrokeColor = Color.Black }},
+            {"AbyssLayer1Biome",             new BiomeEntry{ Title = "Sulphuric Depths",   SubTitle = "Calamity Mod", TitleColor = Color.DarkSlateBlue, StrokeColor = Color.Black }},
+            {"AbyssLayer2Biome",             new BiomeEntry{ Title = "Murky Waters",       SubTitle = "Calamity Mod", TitleColor = Color.DarkSlateBlue, StrokeColor = Color.Black }},
+            {"AbyssLayer3Biome",             new BiomeEntry{ Title = "Thermal Vents",      SubTitle = "Calamity Mod", TitleColor = Color.DarkSlateBlue, StrokeColor = Color.Black }},
+            {"AbyssLayer4Biome",             new BiomeEntry{ Title = "The Void",           SubTitle = "Calamity Mod", TitleColor = Color.DarkSlateBlue, StrokeColor = Color.Black }},
+        };
     }
 }
