@@ -32,8 +32,8 @@ public class BuiltinThoriumMod : ModSupport
             {
                 BiomeEntries = new Dictionary<string, BiomeEntry>
                 {
-                    {"DepthsBiome",  new BiomeEntry{ Title = "Aquatic Depths", SubTitle = "Thorium Mod", TitleColor = Color.Cyan, StrokeColor = Color.Black, Icon = depthsBiomeIcon}},
-                    {"BloodChamber", new BiomeEntry{ Title = "Blood Chamber",  SubTitle = "Thorium Mod", TitleColor = Color.Red,  StrokeColor = Color.Black }},
+                    {"DepthsBiome",  new BiomeEntry{ Title = "Aquatic Depths", SubTitle = "Thorium Mod", TitleColor = Color.Cyan, StrokeColor = Color.Black, Icon = depthsBiomeIcon, LocalizationScope = "ThoriumMod"}},
+                    {"BloodChamber", new BiomeEntry{ Title = "Blood Chamber",  SubTitle = "Thorium Mod", TitleColor = Color.Red,  StrokeColor = Color.Black,                         LocalizationScope = "ThoriumMod"}},
                 },
                 
                 MiniBiomeChecker = player =>

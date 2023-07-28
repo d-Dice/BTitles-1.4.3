@@ -36,6 +36,9 @@ namespace BTitles
 
     public enum TitleAnimationType
     {
+        [Label("No animation")]
+        None,
+        
         [Label("Show/Fade")]
         ShowFade,
         
@@ -149,7 +152,7 @@ namespace BTitles
         public float TransitionOutDuration;
 
         [JsonIgnore]
-        private Dictionary<string, object> _cachedData = new Dictionary<string, object>();
+        private Dictionary<string, int> _cachedDataHashes = new Dictionary<string, int>();
 
         public override void OnChanged()
         {
@@ -157,11 +160,11 @@ namespace BTitles
                 .GetFields()
                 .Where(field => field.GetCustomAttribute(typeof(LabelAttribute)) != null)
                 .Select(field => new { Name = field.Name, Value = field.GetValue(this) })
-                .Where(field => !_cachedData.TryGetValue(field.Name, out object value) || value != field.Value)
+                .Where(field => !_cachedDataHashes.TryGetValue(field.Name, out int hash) || hash != field.Value.GetHashCode())
                 .ToList()
                 .ForEach(field =>
                 {
-                    _cachedData[field.Name] = field.Value;
+                    _cachedDataHashes[field.Name] = field.Value.GetHashCode();
                     if (OnPropertyChanged != null) 
                         OnPropertyChanged(field.Name);
                 });

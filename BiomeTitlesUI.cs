@@ -9,10 +9,11 @@ using System.Collections.Generic;
 using ReLogic.Content;
 using ReLogic.Graphics;
 using Terraria.GameContent;
+using Terraria.Localization;
 
 namespace BTitles
 {
-    public class ZoneDisplayUI : UIState
+    public class BiomeTitlesUI : UIState
     {
         public GeneralConfig Config { get; private set; }
 
@@ -20,9 +21,9 @@ namespace BTitles
         private Vector2 _dragStartCustomPosition;
 
         // Data storage
-        internal Dictionary<string, BiomeEntry> BiomeDictionary = new Dictionary<string, BiomeEntry>();
-        internal List<Func<Player, string>> MiniBiomeCheckFunctions = new List<Func<Player, string>>();
-        internal List<Func<Player, string>> BiomeCheckFunctions = new List<Func<Player, string>>();
+        internal Dictionary<string, BiomeEntry> BiomeDictionary;
+        internal List<Func<Player, string>> MiniBiomeCheckFunctions;
+        internal List<Func<Player, string>> BiomeCheckFunctions;
 
         // Widgets
         private BiomeTitle _biomeTitle;
@@ -33,11 +34,11 @@ namespace BTitles
         private BiomeTitle _biomeSubTitleDefault;
 
         // Animation stuff
-        private Action<float, AnimationConfig, BiomeTitle, BiomeTitle> _animateFunc = TitleAnimations.AnimateShowFade;
+        private Action<float, AnimationConfig, BiomeTitle, BiomeTitle> _animateFunc;
         private AnimationConfig _animationConfig = new AnimationConfig();
         
         // UI State
-        private string _currentZone;
+        private string _currentBiome;
         private bool _isDragging;
         private float _displayTimer;
         private float _biomeCheckTimer = float.PositiveInfinity;
@@ -48,13 +49,16 @@ namespace BTitles
 
         private Vector2 _debugStringPos;
 
-        public ZoneDisplayUI()
+        public BiomeTitlesUI()
         {
             Config = ModContent.GetInstance<GeneralConfig>();
             Config.OnPropertyChanged += ConfigPropertyChanged;
             
             switch (Config.TitleAnimation)
             {
+                case TitleAnimationType.None:
+                    _animateFunc = TitleAnimations.AnimateNone;
+                    break;
                 case TitleAnimationType.ShowFade:
                     _animateFunc = TitleAnimations.AnimateShowFade;
                     break;
@@ -184,9 +188,9 @@ namespace BTitles
             }
         }
 
-        public void ResetZone()
+        public void ResetBiome()
         {
-            _currentZone = "";
+            _currentBiome = "";
         }
 
         protected override void DrawSelf(SpriteBatch spriteBatch)
@@ -226,7 +230,7 @@ namespace BTitles
 
             if (_biomeCheckTimer >= Config.BiomeCheckDelay)
             {
-                CheckNewZone();
+                CheckNewBiome();
             }
 
             if (_displayTimer < _animationConfig.Duration || _animationConfig.Duration <= 0)
@@ -294,19 +298,17 @@ namespace BTitles
             Config.CustomPositionY = _dragStartCustomPosition.Y + (Main.mouseY - _dragStartMousePosition.Y) / (float)Main.screenHeight;
         }
 
-        private void CheckNewZone()
+        private void CheckNewBiome()
         {
             _biomeCheckTimer = 0;
+            
+            string newBiome = GetCurrentBiome();
 
-            DateTime biomeCheckStart = DateTime.Now;
-            string newZone = GetCurrentZone();
-            _debugLastBiomeCheckDuration = (DateTime.Now - biomeCheckStart).TotalMilliseconds;
-
-            if (newZone != _currentZone)
+            if (newBiome != _currentBiome && newBiome != "")
             {
                 _displayTimer = 0;
 
-                _currentZone = newZone;
+                _currentBiome = newBiome;
 
                 RespawnTitle();
                 RespawnSubTitle();
@@ -319,7 +321,7 @@ namespace BTitles
 
         private void RespawnTitle()
         {
-            if (BiomeDictionary.TryGetValue(_currentZone, out BiomeEntry currentZoneEntry))
+            if (BiomeDictionary.TryGetValue(_currentBiome, out BiomeEntry currentBiomeEntry))
             {
                 if (_biomeTitle != null)
                 {
@@ -329,7 +331,7 @@ namespace BTitles
 
                 if (_displayTimer < Config.VisibilityDuration || Config.VisibilityDuration == 0)
                 {
-                    _biomeTitle = currentZoneEntry.TitleWidget ?? _biomeTitleDefault;
+                    _biomeTitle = currentBiomeEntry.TitleWidget ?? _biomeTitleDefault;
                     _biomeTitle.Reset();
                     Append(_biomeTitle);
                 }
@@ -338,7 +340,7 @@ namespace BTitles
 
         private void RespawnSubTitle()
         {
-            if (BiomeDictionary.TryGetValue(_currentZone, out BiomeEntry currentZoneEntry))
+            if (BiomeDictionary.TryGetValue(_currentBiome, out BiomeEntry currentBiomeEntry))
             {
                 if (_biomeSubTitle != null)
                 {
@@ -348,7 +350,7 @@ namespace BTitles
                 
                 if (Config.DisplaySubtitle && (_displayTimer < Config.VisibilityDuration || Config.VisibilityDuration == 0))
                 {
-                    _biomeSubTitle = currentZoneEntry.SubTitleWidget ?? _biomeSubTitleDefault;
+                    _biomeSubTitle = currentBiomeEntry.SubTitleWidget ?? _biomeSubTitleDefault;
                     _biomeSubTitle.Reset();
                     Append(_biomeSubTitle);
                 }
@@ -400,15 +402,15 @@ namespace BTitles
             
             float offset = 10 * exactScale;
 
-            if (!BiomeDictionary.TryGetValue(_currentZone, out BiomeEntry currentZoneEntry)) return;
+            if (!BiomeDictionary.TryGetValue(_currentBiome, out BiomeEntry currentBiomeEntry)) return;
 
             if (_biomeTitle != null)
             {
                 _biomeTitle.HAlign = 0.5f;
-                _biomeTitle.Text = Config.CustomBiomeNames.FirstOrDefault(mapping => mapping.CurrentName == currentZoneEntry.Title)?.NewName ?? currentZoneEntry.Title;
-                _biomeTitle.TextColor = Config.UseCustomTextColors ? currentZoneEntry.TitleColor : Color.White;
-                _biomeTitle.TextStrokeColor = Config.UseCustomTextColors ? currentZoneEntry.StrokeColor : Color.Black;
-                _biomeTitle.Icon = Config.ShowIcons ? currentZoneEntry.Icon : null;
+                _biomeTitle.Text = GetActualTitleName(currentBiomeEntry);
+                _biomeTitle.TextColor = Config.UseCustomTextColors ? currentBiomeEntry.TitleColor : Color.White;
+                _biomeTitle.TextStrokeColor = Config.UseCustomTextColors ? currentBiomeEntry.StrokeColor : Color.Black;
+                _biomeTitle.Icon = Config.ShowIcons ? currentBiomeEntry.Icon : null;
                 _biomeTitle.FontScale = 1.4f;
                 _biomeTitle.Scale = exactScale;
                 _biomeTitle.SetBackgroundEnabled(Config.EnableBackgrounds);
@@ -420,7 +422,7 @@ namespace BTitles
             {
                 _biomeSubTitle.Top.Set(_biomeTitle != null ? _biomeTitle.GetDimensions().Height + offset : 0, 0);
                 _biomeSubTitle.HAlign = 0.5f;
-                _biomeSubTitle.Text = currentZoneEntry.SubTitle;
+                _biomeSubTitle.Text = currentBiomeEntry.SubTitle;
                 _biomeSubTitle.TextColor = Color.White;
                 _biomeSubTitle.TextStrokeColor = Color.Black;
                 _biomeSubTitle.Scale = exactScale;
@@ -432,23 +434,50 @@ namespace BTitles
             Width.Set(Math.Max(_biomeTitle?.GetDimensions().Width ?? 0, _biomeSubTitle?.GetDimensions().Width ?? 0), 0);
             Height.Set((_biomeTitle?.GetDimensions().Height ?? 0) + (_biomeSubTitle?.GetDimensions().Height ?? 0) + (_biomeTitle != null && _biomeSubTitle != null ? offset : 0), 0);
         }
-        
-        private string GetCurrentZone()
+
+        private string GetActualTitleName(BiomeEntry biomeEntry)
+        {
+            string customName = Config.CustomBiomeNames.FirstOrDefault(name => name.CurrentName == biomeEntry.Title)?.NewName;
+
+            if (customName != null) return customName;
+
+            if (Language.ActiveCulture.Name != "en-US")
+            {
+                string translationKey = $"Mods.BiomeTitles.Title.{biomeEntry.LocalizationScope}.{biomeEntry.Key.Replace(" ", "_")}";
+
+                if (Language.Exists(translationKey))
+                {
+                    string translatedName = Language.GetTextValue(translationKey);
+            
+                    customName = Config.CustomBiomeNames.FirstOrDefault(name => name.CurrentName == translatedName)?.NewName;
+
+                    return customName ?? translatedName;
+                }
+            }
+
+            return biomeEntry.Title;
+        }
+
+        private string GetCurrentBiome()
         {
             Player player = Main.LocalPlayer;
-            string zone = "";
+            string biome = "";
 
-            for (int i = 0; i < MiniBiomeCheckFunctions.Count && zone == ""; i++)
+            DateTime biomeCheckStart = DateTime.Now;
+            
+            for (int i = 0; i < MiniBiomeCheckFunctions.Count && biome == ""; i++)
             {
-                zone = MiniBiomeCheckFunctions[i](player);
+                biome = MiniBiomeCheckFunctions[i](player);
             }
             
-            for (int i = 0; i < BiomeCheckFunctions.Count && zone == ""; i++)
+            for (int i = 0; i < BiomeCheckFunctions.Count && biome == ""; i++)
             {
-                zone = BiomeCheckFunctions[i](player);
+                biome = BiomeCheckFunctions[i](player);
             }
+            
+            _debugLastBiomeCheckDuration = (DateTime.Now - biomeCheckStart).TotalMilliseconds;
 
-            return zone;
+            return biome;
         }
     }
 }

@@ -154,8 +154,6 @@ public class BasicBiomeTitle : BiomeTitle
     protected void PostDrawChildren(SpriteBatch spriteBatch)
     {
         var dimensions = GetDimensions();
-        
-        base.DrawSelf(spriteBatch);
 
         float contentX = dimensions.X + (dimensions.Width - CachedContentSize.X) / 2;
 
