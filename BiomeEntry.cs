@@ -8,6 +8,9 @@ namespace BTitles;
  */
 public class BiomeEntry
 {
+    // Stored copy of biome key
+    public string Key = "";
+    
     // Biome display title
     public string Title = "";
 
@@ -26,4 +29,7 @@ public class BiomeEntry
 
     // Biome icon to be rendered near title, null for none
     public Texture2D Icon = null;
+
+    // Namespace for title in localization file, examples - Terraria, CalamityMod, Verdant
+    public string LocalizationScope = "";
 }

@@ -11,7 +11,7 @@ public class BuiltinArbour : AutoImplementedModSupport
     {
         miniBiomes = new Dictionary<string, BiomeEntry>
         {
-            {"ArborBiome", new BiomeEntry{ Title = "Arbour island", SubTitle = "Arbour", TitleColor = Color.Orange, StrokeColor = Color.Black }},
+            {"ArborBiome", new BiomeEntry{ Title = "Arbour Island", SubTitle = "Arbour", TitleColor = Color.Orange, StrokeColor = Color.Black }},
         };
 
         biomes = null;

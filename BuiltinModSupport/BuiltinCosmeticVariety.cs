@@ -13,9 +13,9 @@ public class BuiltinCosmeticVariety : AutoImplementedModSupport
 
         biomes = new Dictionary<string, BiomeEntry>
         {
-            {"CelestialSurfaceBiome", new BiomeEntry{ Title = "Celestial Surface", SubTitle = "Cosmetic Variety", TitleColor = Color.Magenta,        StrokeColor = Color.Black }},
-            {"GardenBiome",           new BiomeEntry{ Title = "Garden",            SubTitle = "Cosmetic Variety", TitleColor = Color.MediumSeaGreen, StrokeColor = Color.Black }},
-            {"GardenSurfaceBiome",    new BiomeEntry{ Title = "Garden Surface",    SubTitle = "Cosmetic Variety", TitleColor = Color.ForestGreen,    StrokeColor = Color.Black }}
+            {"CelestialSurfaceBiome", new BiomeEntry{ Title = "Celestial Surface", SubTitle = "Details of Furniture, Food, and Fun", TitleColor = Color.Magenta,        StrokeColor = Color.Black }},
+            {"GardenBiome",           new BiomeEntry{ Title = "Garden",            SubTitle = "Details of Furniture, Food, and Fun", TitleColor = Color.MediumSeaGreen, StrokeColor = Color.Black }},
+            {"GardenSurfaceBiome",    new BiomeEntry{ Title = "Garden Surface",    SubTitle = "Details of Furniture, Food, and Fun", TitleColor = Color.ForestGreen,    StrokeColor = Color.Black }}
         };
     }
 }

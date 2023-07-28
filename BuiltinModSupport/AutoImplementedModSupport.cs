@@ -85,6 +85,8 @@ public abstract class AutoImplementedModSupport : ModSupport
                     pair.Value.Icon = ModContent.Request<Texture2D>(iconPath, AssetRequestMode.ImmediateLoad).Value;
                 }
 
+                pair.Value.LocalizationScope = mod.Name;
+
                 yield return new ConfirmedBiomeEntry
                 {
                     Biome = biome,

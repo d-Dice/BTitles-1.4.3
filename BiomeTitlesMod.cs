@@ -6,33 +6,57 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace BTitles
 {
     public class BiomeTitlesMod : Mod
     {
-        private ZoneDisplayUI _zoneDisplayUi;
+        private BiomeTitlesUI _biomeTitlesUi;
         public GeneralConfig Config { get; private set; }
 
         private HashSet<Mod> _implementedMods = new HashSet<Mod>();
-
+        
+        internal Dictionary<string, BiomeEntry> BiomeDictionary = new Dictionary<string, BiomeEntry>();
+        internal List<Func<Player, string>> MiniBiomeCheckFunctions = new List<Func<Player, string>>();
+        internal List<Func<Player, string>> BiomeCheckFunctions = new List<Func<Player, string>>();
+        
         public override void Load()
         {
             if (!Main.dedServ)
             {
-                _zoneDisplayUi = new ZoneDisplayUI();
-                _zoneDisplayUi.Activate(); // Call Activate here
+                _biomeTitlesUi = new BiomeTitlesUI();
+                _biomeTitlesUi.BiomeDictionary = BiomeDictionary;
+                _biomeTitlesUi.MiniBiomeCheckFunctions = MiniBiomeCheckFunctions;
+                _biomeTitlesUi.BiomeCheckFunctions = BiomeCheckFunctions;
+                
+                _biomeTitlesUi.Activate();
+                
                 On.Terraria.Main.DrawInterface_30_Hotbar += Draw;
                 On.Terraria.Main.Update += Update;
 
                 ImplementVanillaBiomes();
                 ScanBiomesFromOtherMods();
                 ImplementBuiltinSupport();
-                
             }
 
             Config = ModContent.GetInstance<GeneralConfig>();
+        }
+        
+        public override void Unload()
+        {
+            if (!Main.dedServ)
+            {
+                On.Terraria.Main.DrawInterface_30_Hotbar -= Draw;
+                On.Terraria.Main.Update -= Update;
+                
+                _biomeTitlesUi = null;
+                _implementedMods.Clear();
+                BiomeDictionary.Clear();
+                MiniBiomeCheckFunctions.Clear();
+                BiomeCheckFunctions.Clear();
+            }
         }
 
         private void ImplementVanillaBiomes()
@@ -152,7 +176,8 @@ namespace BTitles
                     SubTitle = "Terraria",
                     Icon = ModContent.HasAsset(iconPath) ? ModContent.Request<Texture2D>(iconPath, AssetRequestMode.ImmediateLoad).Value : null,
                     TitleColor = titleColor,
-                    StrokeColor = strokeColor
+                    StrokeColor = strokeColor,
+                    LocalizationScope = "Terraria"
                 });
 
                 if (!ModContent.HasAsset(iconPath))
@@ -388,32 +413,23 @@ namespace BTitles
             {
                 foreach (var entry in biomes.BiomeEntries)
                 {
-                    bool overriding = _zoneDisplayUi.BiomeDictionary.ContainsKey(entry.Key);
+                    bool overriding = _biomeTitlesUi.BiomeDictionary.ContainsKey(entry.Key);
                     BiomeTitlesMod.Log("Log", "Register Biomes", $"{(overriding ? "Overriding" : "Registering")} biome {entry.Key}");
-                    _zoneDisplayUi.BiomeDictionary[entry.Key] = entry.Value;
+                    entry.Value.Key = entry.Key;
+                    _biomeTitlesUi.BiomeDictionary[entry.Key] = entry.Value;
                 }
             }
 
             if (biomes.MiniBiomeChecker != null)
             {
                 BiomeTitlesMod.Log("Log", "Register Biomes", $"Registering mini-biome check function");
-                _zoneDisplayUi.MiniBiomeCheckFunctions.Insert(0, biomes.MiniBiomeChecker);
+                _biomeTitlesUi.MiniBiomeCheckFunctions.Insert(0, biomes.MiniBiomeChecker);
             }
             
             if (biomes.BiomeChecker != null)
             {
                 BiomeTitlesMod.Log("Log", "Register Biomes", $"Registering biome check function");
-                _zoneDisplayUi.BiomeCheckFunctions.Insert(0, biomes.BiomeChecker);
-            }
-        }
-
-        public override void Unload()
-        {
-            if (!Main.dedServ)
-            {
-                On.Terraria.Main.DrawInterface_30_Hotbar -= Draw;
-                On.Terraria.Main.Update -= Update;
-                _zoneDisplayUi = null;
+                _biomeTitlesUi.BiomeCheckFunctions.Insert(0, biomes.BiomeChecker);
             }
         }
 
@@ -421,7 +437,7 @@ namespace BTitles
         {
             if (!Main.gameMenu)
             {
-                _zoneDisplayUi.Draw(Terraria.Main.spriteBatch);
+                _biomeTitlesUi.Draw(Terraria.Main.spriteBatch);
             }
 
             orig(self);
@@ -431,11 +447,11 @@ namespace BTitles
         {
             if (!Main.gameMenu)
             {
-                _zoneDisplayUi.Update(gameTime);
+                _biomeTitlesUi.Update(gameTime);
             }
             else
             {
-                _zoneDisplayUi.ResetZone();
+                _biomeTitlesUi.ResetBiome();
             }
 
             orig(self, gameTime);

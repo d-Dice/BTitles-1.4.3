@@ -26,9 +26,6 @@ public class BuiltinBobBlender2 : AutoImplementedModSupport
             {"SurfaceBiome",            new BiomeEntry{ Title = "Strange Surface",    SubTitle = "Bob Blender", TitleColor = Color.Purple,         StrokeColor = Color.Black }},
         };
 
-        biomes = new Dictionary<string, BiomeEntry>
-        {
-
-        };
+        biomes = null;
     }
 }

@@ -22,6 +22,11 @@ public class AnimationConfig
  */
 public static class TitleAnimations
 {
+    public static void AnimateNone(float time, AnimationConfig config, BiomeTitle title, BiomeTitle subtitle)
+    {
+        // Nothing here
+    }
+    
     public static void AnimateShowFade(float time, AnimationConfig config, BiomeTitle title, BiomeTitle subtitle)
     {
         bool infiniteStay = config.Duration <= 0;
