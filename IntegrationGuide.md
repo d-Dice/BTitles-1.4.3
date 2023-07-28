@@ -13,63 +13,76 @@ Mini-biomes are biomes that can be located inside other modded biomes. Some exam
 
 ## Biome data
 ```csharp
-public bool BTitlesHook_GetBiome(int index, out string key, out string title, out string subTitle, out Color titleColor, out Color titleStroke, out Texture2D icon)
+public dynamic BTitlesHook_GetBiome(int index)
 ```
+Returned object may be instance of [`ExtendoObject`](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-6.0), [anonymous type](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/anonymous-types) or of any other regular C# class.
+<br>This function is called during load stage. Index parameter starts from 0  and increments on each call. You should put biome data into returning object or return null if provided index is not valid.
 
-This function is called during load stage. Index parameter starts from 0  and increments on each call. You should put biome data into out parameters and return true as long as index is valid.
+Following properties may be specified:
 
-This function is optional, which means that you can write a plugin that only implement biome checks.
+| Data type    | Property name    | Description                                             | Default          |
+|--------------|------------------|---------------------------------------------------------|------------------|
+| `string`     | `Key`            | Unique biome identifier                                 | Title            |
+| `string`     | `Title`          | Displayed biome name in english                         | Key              |
+| `string`     | `SubTitle`       | Displayed subtitle in english, usually mod display name | Mod display name |
+| `Color`      | `TitleColor`     | Title color                                             | `Color.White`    |
+| `Color`      | `TitleStroke`    | Title outline color                                     | `Color.Black`    |
+| `Texture2D`  | `Icon`           | Icon to be displayed near title                         | No icon          |
+| `BiomeTitle` | `TitleWidget`    | Title widget                                            | Golden plate     |
+| `BiomeTitle` | `SubTitleWidget` | Subtitle widget                                         | Silver plate     |
 
-Alternative to this function is
-```csharp
-public bool BTitlesHook_GetBiome(int index, out string key, out string title, out string subTitle, out Color titleColor, out Color titleStroke, out Texture2D icon, out BiomeTitle titleWidget, out BiomeTitle subTitleWidget)
-```
-As you can see, it have two new out parameters. If you want to customize title for specific biome, you can construct and provide new widget here. Providing null means that default widget will be used. See [Biome Title customization](BiomeTitleCustomization.md)
+At least `Key` or `Title` must be specified.
+
+For `BiomeTitle` see [biome title customization](BiomeTitleCustomization.md).
+
+## Localization
+Biome titles can be localized if localization with following key exists: `Mods.BiomeTitles.Title.{ModName}.{BiomeKey}` where `ModName` is mod internal name and `BiomeKey` is a value of `Key` property on biome entry.
 
 ## Example
 ```csharp
 public void BTitlesHook_SetupBiomeCheckers(out Func<Player, string> miniBiomeChecker, out Func<Player, string> biomeChecker)
 {
     miniBiomeChecker = player => {
-        if (player.IsInsideBiome1()) return "biome1";
+        if (player.IsInBiome1()) return "biome1";
         
         return "";
     };
     biomeChecker = player => {
-        if (player.IsInsideBiome2()) return "biome2";
+        if (player.IsInBiome2()) return "biome2";
+        if (player.IsInBiome3()) return "biome3";
         
         return "";
     };
 }
 
-public bool BTitlesHook_GetBiome(int index, out string key, out string title, out string subTitle, out Color titleColor, out Color titleStroke, out Texture2D icon)
+public dynamic BTitlesHook_GetBiome(int index)
 {
     switch (index)
     {
         case 0:
-            key = "biome1";
-            title = "Biome 1";
-            subTitle = "My Mod";
-            titleColor = Color.Goldenrod;
-            titleStroke = Color.Black;
-            icon = LoadIconForBiome1();
-            return true;
+            return new
+            {
+                Key = "biome1",
+                Title = "Biome 1",
+                SubTitle = "My Mod",
+                TitleColor = Color.White,
+                TitleStroke = Color.Black,
+            };
         case 1:
-            key = "biome2";
-            title = "Biome 2";
-            subTitle = "My Mod";
-            titleColor = Color.Cyan;
-            titleStroke = Color.Black;
-            icon = null;
-            return true;
+            return new
+            {
+                Key = "biome2",
+                Title = "Biome 2",
+                titleColor = Color.Red
+            };
+        case 3:
+            return new
+            {
+                Key = "biome3",
+                Title = "Biome 3"
+            }
         default:
-            key = "";
-            title = "";
-            subTitle = "";
-            titleColor = Color.White;
-            titleStroke = Color.Black;
-            icon = null;
-            return false;
+            return null;
     }
 }
 ```

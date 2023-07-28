@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Reflection;
 using Terraria.ModLoader;
@@ -57,5 +58,21 @@ public static class Extensions
         }
 
         return 1.0f;
+    }
+
+    public static T TryGetDynamicProperty<T>(dynamic obj, string propertyName, T defaultValue = default)
+    {
+        if (obj is ExpandoObject)
+        {
+            if (((IDictionary<string, object>)obj).TryGetValue(propertyName, out object value))
+                if (value is T castedDictValue)
+                    return castedDictValue;
+
+            return defaultValue;
+        }
+
+        if (obj.GetType().GetProperty(propertyName)?.GetValue(obj) is T castedPropValue) return castedPropValue;
+
+        return defaultValue;
     }
 }
