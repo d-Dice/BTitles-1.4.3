@@ -73,7 +73,7 @@ public dynamic BTitlesHook_GetBiome(int index)
             {
                 Key = "biome2",
                 Title = "Biome 2",
-                titleColor = Color.Red
+                TitleColor = Color.Red
             };
         case 3:
             return new
