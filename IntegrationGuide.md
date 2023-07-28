@@ -15,7 +15,7 @@ Mini-biomes are biomes that can be located inside other modded biomes. Some exam
 ```csharp
 public dynamic BTitlesHook_GetBiome(int index)
 ```
-Returned object may be instance of [`ExtendoObject`](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-6.0), [anonymous type](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/anonymous-types) or of any other regular C# class.
+Returned object may be instance of [`ExpandoObject`](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-6.0), [anonymous type](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/anonymous-types) or of any other regular C# class.
 <br>This function is called during load stage. Index parameter starts from 0  and increments on each call. You should put biome data into returning object or return null if provided index is not valid.
 
 Following properties may be specified:
