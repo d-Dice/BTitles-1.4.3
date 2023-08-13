@@ -9,36 +9,6 @@ namespace BTitles;
 
 public static class Extensions
 {
-    public class ParameterSignatureComparer : IEqualityComparer<ParameterInfo>
-    {
-        public bool Equals(ParameterInfo p1, ParameterInfo p2)
-        {
-            if (ReferenceEquals(p1, p2))
-                return true;
-
-            if (p2 is null || p1 is null)
-                return false;
-
-            return p1.CompareSignature(p2);
-        }
-
-        public int GetHashCode(ParameterInfo p) => p.GetHashCode();
-    }
-    
-    public static bool CompareSignature(this MethodInfo self, MethodInfo otherMethod)
-    {
-        return self.ReturnParameter.CompareSignature(otherMethod.ReturnParameter) &&
-               self.GetParameters().SequenceEqual(otherMethod.GetParameters(), new ParameterSignatureComparer());
-    }
-
-    public static bool CompareSignature(this ParameterInfo self, ParameterInfo otherParameter)
-    {
-        return self.ParameterType == otherParameter.ParameterType &&
-               self.IsIn == otherParameter.IsIn &&
-               self.IsOut == otherParameter.IsOut &&
-               self.IsRetval == otherParameter.IsRetval;
-    }
-
     public static T FindOrDefault<T>(this Mod mod, string name, T defaultValue = default) where T : IModType
     {
         if (mod.TryFind(name, out T found)) return found;
@@ -60,7 +30,7 @@ public static class Extensions
         return 1.0f;
     }
 
-    public static T TryGetDynamicProperty<T>(dynamic obj, string propertyName, T defaultValue = default)
+    public static T GetProperty<T>(object obj, string propertyName, T defaultValue = default)
     {
         if (obj is ExpandoObject)
         {
@@ -71,8 +41,35 @@ public static class Extensions
             return defaultValue;
         }
 
-        if (obj.GetType().GetProperty(propertyName)?.GetValue(obj) is T castedPropValue) return castedPropValue;
+        if (obj.GetType().GetField(propertyName)?.GetValue(obj) is T castedFieldValue) return castedFieldValue;
+        if (obj.GetType().GetProperty(propertyName)?.GetValue(obj) is T castedPropertyValue) return castedPropertyValue;
 
         return defaultValue;
+    }
+
+    public static MethodType ToMethod<MethodType, ThisType>(this MethodInfo methodInfo, ThisType This) where MethodType : Delegate
+    {
+        try
+        {
+            return (MethodType) Delegate.CreateDelegate(typeof(MethodType), This, methodInfo);
+        }
+        catch (Exception)
+        {
+            BiomeTitlesMod.Log(LogType.Fail, "Reflection", $"Failed to get method from MethodInfo {methodInfo}");
+            return null;
+        }
+    }
+    
+    public static MethodType ToMethod<MethodType>(this MethodInfo methodInfo) where MethodType : Delegate
+    {
+        try
+        {
+            return (MethodType) Delegate.CreateDelegate(typeof(MethodType), methodInfo);
+        }
+        catch (Exception)
+        {
+            BiomeTitlesMod.Log(LogType.Fail, "Reflection", $"Failed to get method from MethodInfo {methodInfo}");
+            return null;
+        }
     }
 }
