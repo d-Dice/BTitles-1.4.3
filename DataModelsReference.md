@@ -25,6 +25,7 @@ All data communications with BiomeTitles are done via data objects. When you see
 | `float`     | `MiddleSegmentSize`   | Percent of texture to be preserved from stretching in the middle | `44 / 514f`   |
 | `float`     | `LeftContentPadding`  | Amount of pixels to pad on left side | `44f`   |
 | `float`     | `RightContentPadding` | Amount of pixels to pad on right side | `44f`   |
+
 <label>* Required field.</label>
 
 ## Usage example
