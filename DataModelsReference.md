@@ -10,8 +10,8 @@ All data communications with BiomeTitles are done via data objects. When you see
 | `Color`                                                                | `TitleColor`         | Title color                                             | `Color.White`    |
 | `Color`                                                                | `TitleStroke`        | Title outline color                                     | `Color.Black`    |
 | `Texture2D`                                                            | `Icon`               | Icon to be displayed near title                         | No icon          |
-| `BiomeTitle`**<br>`Texture2D`<br>[`TitleBackgroundData`](#titlebackgrounddata) | `TitleBackground`    | Title widget                                            | Golden plate     |
-| `BiomeTitle`**<br>`Texture2D`<br>[`TitleBackgroundData`](#titlebackgrounddata) | `SubTitleBackground` | Subtitle widget                                         | Silver plate     |
+| `BiomeTitle`**<br>`Texture2D`<br>[`TitleBackgroundData`](#titlebackgrounddata) | `TitleBackground`    | Title background                                            | Golden plate     |
+| `BiomeTitle`**<br>`Texture2D`<br>[`TitleBackgroundData`](#titlebackgrounddata) | `SubTitleBackground` | Subtitle background                                         | Silver plate     |
 
 <label>* At least `Key` or `Title` must present.</label>
 <label>**For `BiomeTitle` see [biome title customization](BiomeTitleCustomization.md).</label>
