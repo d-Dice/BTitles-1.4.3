@@ -14,26 +14,15 @@ Mini-biomes are biomes that can be located inside other modded biomes. Some exam
 ## Biome data
 ```csharp
 public dynamic BTitlesHook_GetBiome(int index)
+public IEnumerable<dynamic> BTitlesHook_GetBiomes()
 ```
-Returned object may be instance of [`ExpandoObject`](https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-6.0), [anonymous type](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/anonymous-types) or of any other regular C# class.
-<br>This function is called during load stage. Index parameter starts from 0  and increments on each call. You should put biome data into returning object or return null if provided index is not valid.
+Returned must be valid single [`BiomeData`](DataModelsReference.md#biomedata) object or collection of them.
 
-Following properties may be specified:
+Biome data is requested during mod load stage. Your mod have to implement one of these two functions.
 
-| Data type    | Property name    | Description                                             | Default          |
-|--------------|------------------|---------------------------------------------------------|------------------|
-| `string`     | `Key`            | Unique biome identifier                                 | Title            |
-| `string`     | `Title`          | Displayed biome name in english                         | Key              |
-| `string`     | `SubTitle`       | Displayed subtitle in english, usually mod display name | Mod display name |
-| `Color`      | `TitleColor`     | Title color                                             | `Color.White`    |
-| `Color`      | `TitleStroke`    | Title outline color                                     | `Color.Black`    |
-| `Texture2D`  | `Icon`           | Icon to be displayed near title                         | No icon          |
-| `BiomeTitle` | `TitleWidget`    | Title widget                                            | Golden plate     |
-| `BiomeTitle` | `SubTitleWidget` | Subtitle widget                                         | Silver plate     |
+In first case, index parameter starts from 0  and increments on each call. You should return [`BiomeData`](DataModelsReference.md#biomedata) or return null if provided index is not valid.
 
-At least `Key` or `Title` must be specified.
-
-For `BiomeTitle` see [biome title customization](BiomeTitleCustomization.md).
+In second case you simply have to return collection of biomes.
 
 ## Localization
 Biome titles can be localized if localization with following key exists: `Mods.BiomeTitles.Title.{ModName}.{BiomeKey}` where `ModName` is mod internal name and `BiomeKey` is a value of `Key` property on biome entry.
@@ -55,34 +44,26 @@ public void BTitlesHook_SetupBiomeCheckers(out Func<Player, string> miniBiomeChe
     };
 }
 
-public dynamic BTitlesHook_GetBiome(int index)
+public IEnumerable<dynamic> BTitlesHook_GetBiomes()
 {
-    switch (index)
-    {
-        case 0:
-            return new
-            {
-                Key = "biome1",
-                Title = "Biome 1",
-                SubTitle = "My Mod",
-                TitleColor = Color.White,
-                TitleStroke = Color.Black,
-            };
-        case 1:
-            return new
-            {
-                Key = "biome2",
-                Title = "Biome 2",
-                TitleColor = Color.Red
-            };
-        case 3:
-            return new
-            {
-                Key = "biome3",
-                Title = "Biome 3"
-            }
-        default:
-            return null;
-    }
+    yield return new
+        {
+            Key = "biome1",
+            Title = "Biome 1",
+            SubTitle = "My Mod",
+            TitleColor = Color.White,
+            TitleStroke = Color.Black,
+        };
+    yield return new
+        {
+            Key = "biome2",
+            Title = "Biome 2",
+            TitleColor = Color.Red
+        };
+    yield return new
+        {
+            Key = "biome3",
+            Title = "Biome 3"
+        }
 }
 ```
