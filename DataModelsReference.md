@@ -14,7 +14,7 @@ All data communications with BiomeTitles are done via data objects. When you see
 | `BiomeTitle`**<br>`Texture2D`<br>[`TitleBackgroundData`](#titlebackgrounddata) | `SubTitleBackground` | Subtitle background                                         | Silver plate     |
 
 <label>* At least `Key` or `Title` must present.</label>
-<label>**For `BiomeTitle` see [biome title customization](BiomeTitleCustomization.md).</label>
+<br><label>** For `BiomeTitle` see [biome title customization](BiomeTitleCustomization.md).</label>
 
 ## TitleBackgroundData
 | Type(s)        | Property name         | Description                                                     | Default value |
