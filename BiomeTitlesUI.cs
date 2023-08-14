@@ -267,7 +267,7 @@ namespace BTitles
             _debugLastUpdateDuration = (DateTime.Now - updateStart).TotalMilliseconds;
         }
 
-        public override void MouseDown(UIMouseEvent evt)
+        public override void LeftMouseDown(UIMouseEvent evt)
         {
             if (Config.Position != PositionOption.Custom || !Config.EnableDraggableTitle) return;
             
@@ -281,7 +281,7 @@ namespace BTitles
                 _dragStartCustomPosition = new Vector2(Config.CustomPositionX, Config.CustomPositionY);
             }
             
-            base.MouseDown(evt);
+            base.LeftMouseDown(evt);
         }
 
         private void UpdateDragging()

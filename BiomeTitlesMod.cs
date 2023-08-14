@@ -32,8 +32,8 @@ namespace BTitles
                 
                 _biomeTitlesUi.Activate();
                 
-                On.Terraria.Main.DrawInterface_30_Hotbar += Draw;
-                On.Terraria.Main.Update += Update;
+                Terraria.On_Main.DrawInterface_30_Hotbar += Draw;
+                Terraria.On_Main.Update += Update;
 
                 ImplementVanillaBiomes();
                 ScanBiomesFromOtherMods();
@@ -47,8 +47,8 @@ namespace BTitles
         {
             if (!Main.dedServ)
             {
-                On.Terraria.Main.DrawInterface_30_Hotbar -= Draw;
-                On.Terraria.Main.Update -= Update;
+                Terraria.On_Main.DrawInterface_30_Hotbar -= Draw;
+                Terraria.On_Main.Update -= Update;
                 
                 _biomeTitlesUi = null;
                 _implementedMods.Clear();
@@ -485,7 +485,7 @@ namespace BTitles
             }
         }
 
-        private void Draw(On.Terraria.Main.orig_DrawInterface_30_Hotbar orig, Terraria.Main self)
+        private void Draw(Terraria.On_Main.orig_DrawInterface_30_Hotbar orig, Terraria.Main self)
         {
             if (!Main.gameMenu)
             {
@@ -495,7 +495,7 @@ namespace BTitles
             orig(self);
         }
 
-        private void Update(On.Terraria.Main.orig_Update orig, Terraria.Main self, GameTime gameTime)
+        private void Update(Terraria.On_Main.orig_Update orig, Terraria.Main self, GameTime gameTime)
         {
             if (!Main.gameMenu)
             {

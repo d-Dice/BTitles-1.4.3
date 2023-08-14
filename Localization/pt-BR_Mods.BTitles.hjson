@@ -1,0 +1,63 @@
+Configs: {
+	GeneralConfig: {
+		Headers: {
+		}
+
+		Position: {
+		}
+
+		// CustomPositionX.Tooltip: ""
+		// CustomPositionY.Tooltip: ""
+
+		Scale: {
+		}
+
+		UseCustomTextColors: {
+		}
+
+		ShowIcons: {
+		}
+
+		DisplaySubtitle: {
+		}
+
+		EnableBackgrounds: {
+		}
+
+		HideWhileInventoryOpen: {
+		}
+
+		CustomBiomeNames: {
+		}
+
+		EnableDraggableTitle: {
+		}
+
+		BiomeCheckDelay: {
+		}
+
+		TitleAnimation: {
+		}
+
+		VisibilityDuration: {
+		}
+
+		TransitionInDuration: {
+		}
+
+		TransitionOutDuration: {
+		}
+	}
+
+	PositionOption.Tooltip: ""
+	ScaleOption.Tooltip: ""
+	BiomeNameMapping.Tooltip: ""
+
+	CurrentName: {
+	}
+
+	NewName: {
+	}
+
+	TitleAnimationType.Tooltip: ""
+}

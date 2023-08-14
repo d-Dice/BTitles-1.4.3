@@ -1,0 +1,339 @@
+
+Mods: {
+	BiomeTitles: {
+		Title: {
+			Terraria: {
+				Meteor_Crash_Site: Meteor
+				Graveyard: Cmentarz
+				Hive: Gniazdo
+				The_Dungeon: Loch
+				The_Temple: Świątynia
+				Nebula_Pillar: Filar Mgławicy
+				Solar_Pillar: Filar Słońca
+				Stardust_Pillar: Filar Pyłu Gwiezdnego
+				Vortex_Pillar: Filar Wiru
+				Granite_Cave: Granit
+				Marble_Cave: Marmur
+				Underground_Glowing_Mushroom: Podziemny Grzyb
+				Glowing_Mushroom: Grzyb Powierzchniowy
+				Underground_Jungle: Podziemna Dżungla
+				Corrupt_Cave_Desert: Pustynia Jaskiniowa Zepsucia
+				Crimson_Cave_Desert: Szkarłatna Pustynia Jaskiniowa
+				Hallow_Cave_Desert: Bajkowa Pustynia Jaskiniowa
+				Cave_Desert: Podziemna Pustynia
+				Corrupt_Ice_Caves: Lód Zepsucia
+				Crimson_Ice_Caves: Szkarłatny Lód
+				Hallow_Ice_Caves: Bajkowy Lód
+				Ice_Caves: Podziemny Śnieg
+				Underground_Corruption: Podziemne Zepsucie
+				Underground_Crimson: Podziemny Szkarłat
+				Underground_Hallow: Podziemne Bajkowo
+				Ocean: Ocean
+				Sky: Niebo
+				Underground: Podziemie
+				Caverns: Jaskinie
+				Hell: Piekło
+				Jungle: Dżungla
+				Corrupt_Desert: Pustynia Korupcji
+				Crimson_Desert: Pustynia Szkarłatu
+				Hallow_Desert: Bajkowa Pustynia
+				Desert: Pustynia
+				Tundra: Śnieg
+				Corruption: Zepsucie
+				Crimson: Szkarłat
+				Hallow: Bajkowo
+				Forest: Powierzchnia
+			}
+
+			Aequus: {
+				GlowingMossBiome: Biom Świecącego Mchu
+				GoreNestBiome: Krwawe Gniazdo
+				RadonMossBiome: Radonowy Mech
+				CrabCreviceBiome: Szczelina Krabów
+				FakeUnderworldBiome: Sztuczny Podświat
+			}
+
+			Arbour.ArborBiome: Wyspa Altanki
+
+			BobBlender2: {
+				TreeBiome: Drzewny Biom
+				VoidBiome: Pustka
+				BobBiome: Biom Boba
+				BobsBobBiome: Wyspa Bobs Boba
+				BobTowerBiome: Wieża Boba
+				CorrodedBiome: Skorodowany Biom
+				CursedBiome: Przeklęty Biom
+				DarkmatterBiome: Biom Ciemnej Materii
+				MemeBiome: Biom Memów
+				StrangeBiome: Dziwaczny Biom
+				StrangeDungeonBiome: Dziwaczne Lochy
+				StrangeUndergroundBiome: Dziwaczne Podziemie
+				SurfaceBiome: Dziwaczna Powierzchnia
+			}
+
+			CalamityMod: {
+				UndergroundAstralBiome: Gwiezdne Podziemie
+				AbovegroundAstralDesertBiome: Gwiezdna Pustynia
+				AbovegroundAstralSnowBiome: Gwiezdna Tundra
+				AbovegroundAstralBiome: Gwiezdna Infekcja
+				BrimstoneCragsBiome: Siarkowe Urwiska
+				SulphurousSeaBiome: Siarkowe Morze
+				SunkenSeaBiome: Zatopione Morze
+				AbyssLayer1Biome: Siarkowa Otchłań
+				AbyssLayer2Biome: Mroczne Wody
+				AbyssLayer3Biome: Termiczne Otwory
+				AbyssLayer4Biome: Głębinowa Pustka
+			}
+
+			TheConfectionRebirth: {
+				IceConfectionUndergroundBiome: Jaskinia Lodów
+				SandConfectionUndergroundBiome: Czekoladowa Jaskinia
+				ConfectionUndergroundBiome: Podziemie Słodyczy
+				IceConfectionSurfaceBiome: Tundra Lodów
+				SandConfectionSurfaceBiome: Pustynia Czekolady
+				ConfectionBiomeSurface: Słodyczowy Biom
+			}
+
+			CosmeticVariety: {
+				CelestialSurfaceBiome: Nieziemska Powierzchnia
+				GardenBiome: Ogród
+				GardenSurfaceBiome: Nieziemski Ogród
+			}
+
+			InfernumMode: {
+				LostColosseumBiome: Utracone Koloseum
+				ProfanedTempleBiome: Sprofowana Świątynia
+			}
+
+			Redemption: {
+				BlazingBastionBiome: Płonący Bastion
+				LidenBiome: Liden
+				LidenBiomeAlpha: Alfa
+				LidenBiomeOmega: Omega
+				SlayerShipBiome: Statek Pogromcy
+				LabBiome: Opuszczone Laboratorium
+				SoullessBiome: Bezduszne Jaskinie
+				WastelandCorruptionBiome: Korupcyjne Pustkowia
+				WastelandCrimsonBiome: Szkarłat Pustkowia
+				WastelandDesertBiome: Pustynia Pustkowia
+				WastelandPurityBiome: Biom Czystego Pustkowia
+				WastelandSnowBiome: Biom Pustkowego Śniegu
+			}
+
+			Remnants: {
+				GoldenCity: Złote Miasto
+				Growth: Biom Rozwoju
+				OceanCave: Jaskinia Oceaniczna
+				Pyramid: Piramida
+				Hive: Duże Gniazdo
+				JungleTemple: Świątynia Dżungli
+				MarbleCave: Jaskinia Marmuru
+				Vault: Krypta
+			}
+
+			SpiritMod: {
+				AsteroidBiome: Gwiezdne Pole
+				SynthwaveSurfaceBiome: Hiperprzestrzeń
+				BriarSurfaceBiome: Las Briar
+				BriarUndergroundBiome: Jaskinie Briar
+				SpiritSurfaceBiome: Powierzchnia Ducha
+				SpiritUndergroundBiome: Podziemie Ducha
+			}
+
+			Spooky: {
+				CatacombBiome: Katakumby
+				SpookyBiome: Upiorny Las
+				SpookyBiomeUg: Upiorne Podziemie
+				SpookyHellBiome: Upiorne Piekło
+			}
+
+			// This mod is not finished cuz I don't know which biomes there actually are
+			StarsAbove: {
+				ObservatoryBiome: Obserwatorium Hyperborea
+				AstarteDriverBiome: Motorowy Astarte
+				BleachedWorldBiome: Wybielony Świat
+				CorvusBiome: Corvus
+				LyraBiome: Lyra
+				FriendlySpaceBiome: Pyxis
+				MoonBiome: Księżyc
+				SeaOfStarsBiome: Morze Gwiazd
+			}
+
+			TheDepths.DepthsBiome: Głębia
+
+			ThoriumMod: {
+				DepthsBiome: Głębiny Wodne
+				BloodChamber: Komora Krwi
+			}
+
+			Verdant: {
+				VerdantBiome: Zielenista Powierzchnia
+				VerdantUndergroundBiome: Zieleniejące Jaskinie
+			}
+		}
+	}
+
+	BTitles: {
+		Configs: {
+			GeneralConfig: {
+				DisplayName: Ogólna Konfiguracja
+
+				Headers: {
+					Visuals_Config: Konfiguracja Wizualizacji
+					Advanced_Customization: Zaawansowane Dostosowywanie
+					Animation: Animacja
+				}
+
+				Position: {
+					Label: Położenie
+					Tooltip: Wybierz położenia tytułu
+				}
+
+				CustomPositionX.Label: Niestandardowa Pozycja X
+				CustomPositionY.Label: Niestandardowa Pozycja Y
+
+				Scale: {
+					Label: Rozmiar
+					Tooltip: Ustaw rozmiar tytułu
+				}
+
+				UseCustomTextColors: {
+					Label: Kolorowe Tytuły
+					Tooltip: Włącz lub wyłącz niestandardowe kolory tytułów dla każdego biomu
+				}
+
+				ShowIcons: {
+					Label: Ikony Biomów
+					Tooltip: Włącz lub wyłącz niestandardową ikonę dla każdego biomu, jeśli możliwe
+				}
+
+				DisplaySubtitle: {
+					Label: Wyświetl Podtytuł
+					Tooltip: Włącz lub wyłącz podtytuł
+				}
+
+				EnableBackgrounds: {
+					Label: Tła Tytułu
+					Tooltip: Włącz widoczność teł dla tytułów i podtytułów
+				}
+
+				HideWhileInventoryOpen: {
+					Label: Ukryj Gdy Ekwipunek Jest Otwarty
+					Tooltip: Czy tytuły powinny być ukryte, gdy ekwipunek gracza jest otwarty
+				}
+
+				CustomBiomeNames: {
+					Label: Niestandardowe Nazwy Biomów
+					Tooltip: Ustawia niestandardowe nazwy biomów
+				}
+
+				EnableDraggableTitle: {
+					Label: Włącz Przeciągalny Tytuł
+					Tooltip: Włącz lub wyłącz przeciągalność tytułu, jeśli pozycja jest niestandardowa
+				}
+
+				BiomeCheckDelay: {
+					Label: Biome Check Interval
+					Tooltip: Interval between biome checks in seconds
+				}
+
+				TitleAnimation: {
+					Label: Typ Animacji
+					Tooltip: Animacja pojawiania się i znikania tytułu.
+				}
+
+				VisibilityDuration: {
+					Label: Czas Widoczności
+					Tooltip: Czas wyświetlania tytułów na ekranie w sekundach, 0 oznacza nieskończone
+
+					TransitionInDuration: {
+						/* Label: Mods.BTitles.Configs.GeneralConfig.VisibilityDuration.TransitionInDuration.Label */
+						/* Tooltip: Mods.BTitles.Configs.GeneralConfig.VisibilityDuration.TransitionInDuration.Tooltip */
+					}
+
+					TransitionOutDuration: {
+						/* Label: Mods.BTitles.Configs.GeneralConfig.VisibilityDuration.TransitionOutDuration.Label */
+						/* Tooltip: Mods.BTitles.Configs.GeneralConfig.VisibilityDuration.TransitionOutDuration.Tooltip */
+					}
+				}
+
+				TransitionInDuration: {
+					Label: Czas Trwania Pojawiania Się
+					Tooltip: Czas pojawiania się tytułów na ekranie w sekundach
+				}
+
+				TransitionOutDuration: {
+					Label: Czas Trwania Zniknięcia
+					Tooltip: Czas znikania tytułów z ekranu w sekundach
+				}
+
+				PositionOption: {
+					/* Tooltip: Mods.BTitles.Configs.GeneralConfig.PositionOption.Tooltip */
+					/* Top.Label: Mods.BTitles.Configs.GeneralConfig.PositionOption.Top.Label */
+					/* Bottom.Label: Mods.BTitles.Configs.GeneralConfig.PositionOption.Bottom.Label */
+					/* RPGStyle.Label: Mods.BTitles.Configs.GeneralConfig.PositionOption.RPGStyle.Label */
+					/* Custom.Label: Mods.BTitles.Configs.GeneralConfig.PositionOption.Custom.Label */
+				}
+
+				ScaleOption: {
+					/* Tooltip: Mods.BTitles.Configs.GeneralConfig.ScaleOption.Tooltip */
+					/* Small.Label: Mods.BTitles.Configs.GeneralConfig.ScaleOption.Small.Label */
+					/* Normal.Label: Mods.BTitles.Configs.GeneralConfig.ScaleOption.Normal.Label */
+					/* Big.Label: Mods.BTitles.Configs.GeneralConfig.ScaleOption.Big.Label */
+				}
+
+				BiomeNameMapping: {
+					/* Tooltip: Mods.BTitles.Configs.GeneralConfig.BiomeNameMapping.Tooltip */
+
+					CurrentName: {
+						/* Label: Mods.BTitles.Configs.GeneralConfig.BiomeNameMapping.CurrentName.Label */
+						/* Tooltip: Mods.BTitles.Configs.GeneralConfig.BiomeNameMapping.CurrentName.Tooltip */
+					}
+
+					NewName: {
+						/* Label: Mods.BTitles.Configs.GeneralConfig.BiomeNameMapping.NewName.Label */
+						/* Tooltip: Mods.BTitles.Configs.GeneralConfig.BiomeNameMapping.NewName.Tooltip */
+					}
+				}
+
+				TitleAnimationType: {
+					/* Tooltip: Mods.BTitles.Configs.GeneralConfig.TitleAnimationType.Tooltip */
+					/* None.Label: Mods.BTitles.Configs.GeneralConfig.TitleAnimationType.None.Label */
+					/* ShowFade.Label: Mods.BTitles.Configs.GeneralConfig.TitleAnimationType.ShowFade.Label */
+					/* ShowFadeSwipe.Label: Mods.BTitles.Configs.GeneralConfig.TitleAnimationType.ShowFadeSwipe.Label */
+				}
+			}
+
+			PositionOption: {
+				Top.Label: Góra
+				Bottom.Label: Dół
+				RPGStyle.Label: styl RPG
+				Custom.Label: Niestandardowe
+			}
+
+			ScaleOption: {
+				Small.Label: Małe
+				Normal.Label: Normalne
+				Big.Label: Duże
+			}
+
+			BiomeNameMapping: {
+				CurrentName: {
+					Label: Bieżące Imię
+					Tooltip: Bieżąca (oryginalna) nazwa biomu.
+				}
+
+				NewName: {
+					Label: Nowe Imię
+					Tooltip: Nowa niestandardowa nazwa biomu.
+				}
+			}
+
+			TitleAnimationType: {
+				None.Label: Brak animacji
+				ShowFade.Label: Pokaż/Zniknij
+				ShowFadeSwipe.Label: Pokaż/Zniknij z przesunięciem
+			}
+		}
+	}
+}

@@ -1,0 +1,63 @@
+Configs: {
+	GeneralConfig: {
+		Headers: {
+		}
+
+		Position: {
+		}
+
+		CustomPositionX.Tooltip: Niestandardowa pozycja w osi X dla tytułu
+		CustomPositionY.Tooltip: Niestandardowa pozycja w osi Y dla tytułu
+
+		Scale: {
+		}
+
+		UseCustomTextColors: {
+		}
+
+		ShowIcons: {
+		}
+
+		DisplaySubtitle: {
+		}
+
+		EnableBackgrounds: {
+		}
+
+		HideWhileInventoryOpen: {
+		}
+
+		CustomBiomeNames: {
+		}
+
+		EnableDraggableTitle: {
+		}
+
+		BiomeCheckDelay: {
+		}
+
+		TitleAnimation: {
+		}
+
+		VisibilityDuration: {
+		}
+
+		TransitionInDuration: {
+		}
+
+		TransitionOutDuration: {
+		}
+	}
+
+	// PositionOption.Tooltip: ""
+	// ScaleOption.Tooltip: ""
+	// BiomeNameMapping.Tooltip: ""
+
+	CurrentName: {
+	}
+
+	NewName: {
+	}
+
+	// TitleAnimationType.Tooltip: ""
+}

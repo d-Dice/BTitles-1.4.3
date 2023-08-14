@@ -54,7 +54,7 @@ namespace BTitles
         
         public override ConfigScope Mode => ConfigScope.ClientSide;
 
-        [Header("Visuals Config")]
+        [Header("Visuals_Config")]
         
         [Label("Position")]
         [Tooltip("Choose the position of the Title")]
@@ -103,7 +103,7 @@ namespace BTitles
         [DefaultValue(true)]
         public bool HideWhileInventoryOpen;
 
-        [Header("Advanced Customization")]
+        [Header("Advanced_Customization")]
         
         [Label("Custom Biome Names")]
         [Tooltip("Set custom names for the biomes")]

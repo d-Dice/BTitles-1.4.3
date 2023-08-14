@@ -1,0 +1,174 @@
+Mods: {
+	BiomeTitles: {
+		Title: {
+			Terraria: {
+				Meteor_Crash_Site: Local da Queda do Meteoro
+				Graveyard: Cemitério
+				Hive: Colmeia
+				The_Dungeon: A Masmorra
+				The_Temple: O Templo
+				Nebula_Pillar: Coluna de Nébula
+				Solar_Pillar: Coluna Solar
+				Stardust_Pillar: Coluna de Pó Estelar
+				Vortex_Pillar: Coluna de Vórtice
+				Granite_Cave: Caverna de Granito
+				Marble_Cave: Caverna de Mármore
+				Underground_Glowing_Mushroom: Campos de Cogumelos Brilhantes
+				Glowing_Mushroom: Cogumelos Brilhantes
+				Underground_Jungle: Selva Subterrânea
+				Corrupt_Cave_Desert: Deserto Subterrâneo Corrompido
+				Crimson_Cave_Desert: Deserto Subterrâneio Carmim
+				Hallow_Cave_Desert: Deserto Subterrâneo Consagrado
+				Cave_Desert: Deserto Subterrâneo
+				Corrupt_Ice_Caves: Caverna de Gelo Corrompida
+				Crimson_Ice_Caves: Caverna de Gelo Carmim
+				Hallow_Ice_Caves: Caverna de Gelo Consagrada
+				Ice_Caves: Caverna de Gelo
+				Underground_Corruption: Corrupção Subterrânea
+				Underground_Crimson: Carmim Subterrâneo
+				Underground_Hallow: Consagrado Subterrâneo
+				Ocean: Oceano
+				Sky: Céu
+				Underground: Subterrâneo
+				Caverns: Cavernas
+				Hell: Inferno
+				Jungle: Selva
+				Corrupt_Desert: Deserto Corrompido
+				Crimson_Desert: Deserto Carmim
+				Hallow_Desert: Deserto Consagrado
+				Desert: Deserto
+				Tundra: Tundra
+				Corruption: Corrupção 
+				Crimson: Carmim
+				Hallow: Consagrado
+				Forest: Floresta
+			}
+
+			Aequus: {
+				GlowingMossBiome: Musgo Brilhante
+				GoreNestBiome: Ninho de Sangue
+				RadonMossBiome: Musgo de Radônio
+				CrabCreviceBiome: Fenda do Caranguejo
+				FakeUnderworldBiome: Submundo Falso
+			}
+
+			Arbour.ArborBiome: Ilha da Árvore
+
+			BobBlender2: {
+				TreeBiome: Bioma da Árvore
+				VoidBiome: Vazio
+				BobBiome: Bioma Bob
+				BobsBobBiome: Ilha Bobs Bob
+				BobTowerBiome: Torre Bob
+				CorrodedBiome: Bioma Corroído
+				CursedBiome: Bioma Amaldiçoado
+				DarkmatterBiome: Bioma da Matéria Negra
+				MemeBiome: Meme
+				StrangeBiome: Bioma Estranho
+				StrangeDungeonBiome: Masmorra Estranha
+				StrangeUndergroundBiome: Subterrâneo Estranho
+				SurfaceBiome: Superfície Estranha
+			}
+
+			CalamityMod: {
+				UndergroundAstralBiome: Subterrâneo Astral
+				AbovegroundAstralDesertBiome: Deserto Astral
+				AbovegroundAstralSnowBiome: Tundra Astral
+				AbovegroundAstralBiome: Infecção Astral
+				BrimstoneCragsBiome: Rochedos de Enxofre
+				SulphurousSeaBiome: Mar Sulfúrico
+				SunkenSeaBiome: Mar Profundo
+				AbyssLayer1Biome: Profundezas Sulfúricas
+				AbyssLayer2Biome: Águas Turvas
+				AbyssLayer3Biome: Fissuras Hidrotermais
+				AbyssLayer4Biome: O Vazio
+			}
+
+			TheConfectionRebirth: {
+				IceConfectionUndergroundBiome: Cavernas de Sorvete
+				SandConfectionUndergroundBiome: Cavernas de Choolate
+				ConfectionUndergroundBiome: Subterrâneo Confeccionado 
+				IceConfectionSurfaceBiome: Tundra De Sorvete
+				SandConfectionSurfaceBiome: Deserto de Chocolate
+				ConfectionBiomeSurface: Confecção
+			}
+
+			CosmeticVariety: {
+				CelestialSurfaceBiome: Superfície Celestial
+				GardenBiome: Jardim
+				GardenSurfaceBiome: Superfície do Jardim
+			}
+
+			InfernumMode: {
+				LostColosseumBiome: Coliseu Perdido
+				ProfanedTempleBiome: Templo Profano
+			}
+
+			Redemption: {
+				BlazingBastionBiome: Bastião Ardente
+				LidenBiome: Liden
+				LidenBiomeAlpha: O Alfa
+				LidenBiomeOmega: O Ómega
+				SlayerShipBiome: Navio Assassino
+				LabBiome: Laboratório Abandonado
+				SoullessBiome: Cavernas Desalmadas
+				WastelandCorruptionBiome: Corrupção Devastada
+				WastelandCrimsonBiome: Carmim Devastado
+				WastelandDesertBiome: Deserto Devastado
+				WastelandPurityBiome: Pureza Devastada
+				WastelandSnowBiome: Tundra Devastada
+			}
+
+			Remnants: {
+				GoldenCity: Cidade Dourada
+				Growth: Natureza
+				OceanCave: Caverna Oceânica
+				Pyramid: Pirâmide
+				Hive: Colmeia Gigante
+				JungleTemple: Templo da Selva
+				MarbleCave: Caverna de Mármore
+				Vault: Cofre
+			}
+
+			SpiritMod: {
+				AsteroidBiome: Campo do Asteroide
+				SynthwaveSurfaceBiome: Hiperespaço
+				BriarSurfaceBiome: Floresta Selvagem
+				BriarUndergroundBiome: Subterrâneo Selvagem
+				SpiritSurfaceBiome: Superfície Espiritual
+				SpiritUndergroundBiome: Subterrâneo Espiritual
+			}
+
+			Spooky: {
+				CatacombBiome: Bioma dos Túmulos
+				SpookyBiome: Floresta Assustadora
+				SpookyBiomeUg: Subterrâneo Assustador
+				SpookyHellBiome: Inferno Assustador
+			}
+
+			// This mod is not finished cuz I don't know which biomes there actually are
+			StarsAbove: {
+				ObservatoryBiome: Observatório Hiperbória
+				AstarteDriverBiome: Astarte Driver
+				BleachedWorldBiome: Mundo Branqueado
+				CorvusBiome: Corvus
+				LyraBiome: Lyra
+				FriendlySpaceBiome: Pyxis
+				MoonBiome: Lua
+				SeaOfStarsBiome: Mar de Estrelas
+			}
+
+			TheDepths.DepthsBiome: Profundeza
+
+			ThoriumMod: {
+				DepthsBiome: Profundezas Aquatíca
+				BloodChamber: Câmara de Sangue
+			}
+
+			Verdant: {
+				VerdantBiome: Superfície Verdejante
+				VerdantUndergroundBiome: Cavernas Verdejantes
+			}
+		}
+	}
+}
