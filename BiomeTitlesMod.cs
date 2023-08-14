@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using BTitles.BuiltinModSupport;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,22 +9,37 @@ using Terraria.ModLoader;
 
 namespace BTitles
 {
+    internal enum LogType
+    {
+        Log,
+        Warning,
+        Fail
+    }
+    
     public class BiomeTitlesMod : Mod
     {
+        internal static BiomeTitlesMod Instance = null;
+        
         private BiomeTitlesUI _biomeTitlesUi;
         public GeneralConfig Config { get; private set; }
 
         private HashSet<Mod> _implementedMods = new HashSet<Mod>();
         
         internal Dictionary<string, BiomeEntry> BiomeDictionary = new Dictionary<string, BiomeEntry>();
+        internal List<Func<string, dynamic>> DynamicBiomeProviders = new List<Func<string, dynamic>>();
+        internal List<Func<Player, string>> DynamicBiomeCheckerFunctions = new List<Func<Player, string>>();
         internal List<Func<Player, string>> MiniBiomeCheckFunctions = new List<Func<Player, string>>();
         internal List<Func<Player, string>> BiomeCheckFunctions = new List<Func<Player, string>>();
         
         public override void Load()
         {
+            Instance = this;
+            
             if (!Main.dedServ)
             {
                 _biomeTitlesUi = new BiomeTitlesUI();
+                _biomeTitlesUi.DynamicBiomeProviders = DynamicBiomeProviders;
+                _biomeTitlesUi.DynamicBiomeCheckFunctions = DynamicBiomeCheckerFunctions;
                 _biomeTitlesUi.BiomeDictionary = BiomeDictionary;
                 _biomeTitlesUi.MiniBiomeCheckFunctions = MiniBiomeCheckFunctions;
                 _biomeTitlesUi.BiomeCheckFunctions = BiomeCheckFunctions;
@@ -45,6 +59,8 @@ namespace BTitles
         
         public override void Unload()
         {
+            Instance = null;
+            
             if (!Main.dedServ)
             {
                 Terraria.On_Main.DrawInterface_30_Hotbar -= Draw;
@@ -181,7 +197,7 @@ namespace BTitles
 
                 if (!ModContent.HasAsset(iconPath))
                 {
-                    BiomeTitlesMod.Log("Fail", "Icons", $"Failed to find icon for biome {title}");
+                    BiomeTitlesMod.Log(LogType.Fail, "Icons", $"Failed to find icon for biome {title}");
                 }
             };
             
@@ -200,7 +216,7 @@ namespace BTitles
             registerBiome("Granite Cave",                 Color.DarkSlateBlue,  Color.Black);
             registerBiome("Marble Cave",                  Color.LightGray,      Color.Black);
             
-            registerBiome("Underground Glowing Mushroom", Color.MediumBlue,     Color.Black);
+            registerBiome("Underground Glowing Mushroom", Color.LightBlue,      Color.Black);
             registerBiome("Glowing Mushroom",             Color.Blue,           Color.Black);
 
 
@@ -243,190 +259,19 @@ namespace BTitles
 
             registerBiome("Forest",                       Color.Green,          Color.Black);
 
-            BiomeTitlesMod.Log("Log", "Vanilla Support", $"Registering biomes for vanilla");
+            BiomeTitlesMod.Log(LogType.Log, "Vanilla Support", $"Registering biomes for vanilla");
             RegisterBiomes(biomes);
         }
-        
+
         private void ScanBiomesFromOtherMods()
         {
-            var BTitlesHook_GetBiome_Example1 = (int index, out string key, out string title, out string subTitle, out Color titleColor, out Color titleStroke, out Texture2D icon) =>
-            {
-                key = "";
-                title = "";
-                subTitle = "";
-                titleColor = Color.White;
-                titleStroke = Color.Black;
-                icon = null;
-        
-                return false;
-            };
-            
-            var BTitlesHook_GetBiome_Example2 = (int index, out string key, out string title, out string subTitle, out Color titleColor, out Color titleStroke, out Texture2D icon, out BiomeTitle titleWidget, out BiomeTitle subTitleWidget) =>
-            {
-                key = "";
-                title = "";
-                subTitle = "";
-                titleColor = Color.White;
-                titleStroke = Color.Black;
-                icon = null;
-                titleWidget = null;
-                subTitleWidget = null;
-        
-                return false;
-            };
-
-            var BTitlesHook_GetBiome_Example3 = (int index) =>
-            {
-                dynamic data = new ExpandoObject();
-                return data;
-            };
-
-            var BTitlesHook_SetupBiomeCheckers_Example = (out Func<Player, string> miniBiomeChecker, out Func<Player, string> biomeChecker) =>
-            {
-                miniBiomeChecker = null;
-                biomeChecker = null;
-            };
-
             foreach (Mod mod in ModLoader.Mods)
             {
-                Biomes biomes = new Biomes();
+                var biomes = Integration.IntegrateMod(mod);
 
-                var setupBiomeCheckersFunc = mod.GetType().GetMethod("BTitlesHook_SetupBiomeCheckers");
-                var getBiomeFunc = mod.GetType().GetMethod("BTitlesHook_GetBiome");
+                if (biomes.DynamicBiomeProvider == null && biomes.DynamicBiomeChecker == null && biomes.MiniBiomeChecker == null && biomes.BiomeChecker == null && (biomes.BiomeEntries?.Count ?? 0) == 0) continue;
 
-                if (setupBiomeCheckersFunc != null)
-                {
-                    if (setupBiomeCheckersFunc.CompareSignature(BTitlesHook_SetupBiomeCheckers_Example.Method))
-                    {
-                        object[] parameters = new object[] { null, null };
-                        setupBiomeCheckersFunc.Invoke(mod, parameters);
-
-                        Func<Player, string> miniBiomeChecker = (Func<Player, string>)parameters[0];
-                        Func<Player, string> biomeChecker = (Func<Player, string>)parameters[1];
-
-                        biomes.MiniBiomeChecker = miniBiomeChecker;
-                        biomes.BiomeChecker = biomeChecker;
-                    }
-                }
-                
-                if (getBiomeFunc != null)
-                {
-                    if (getBiomeFunc.CompareSignature(BTitlesHook_GetBiome_Example1.Method))
-                    {
-                        biomes.BiomeEntries = new Dictionary<string, BiomeEntry>();
-                        
-                        int biomeIndex = 0;
-                        while (true)
-                        {
-                            object[] parameters = new object[] { biomeIndex, null, null, null, null, null, null };
-                            if (!(bool)getBiomeFunc.Invoke(mod, parameters)) break;
-                            
-                            string key = (string)parameters[1];
-                            string title = (string)parameters[2];
-                            string subTitle = (string)parameters[3];
-                            Color titleColor = (Color)parameters[4];
-                            Color titleStroke = (Color)parameters[5];
-                            Texture2D icon = (Texture2D)parameters[6];
-                                
-                            biomes.BiomeEntries.Add(key, new BiomeEntry
-                            {
-                                Title = title,
-                                SubTitle = subTitle,
-                                TitleColor = titleColor,
-                                StrokeColor = titleStroke, 
-                                Icon = icon, 
-                                TitleWidget = null,
-                                SubTitleWidget = null,
-                                LocalizationScope = mod.Name
-                            });
-
-                            biomeIndex++;
-                        }
-                    }
-                    else if (getBiomeFunc.CompareSignature(BTitlesHook_GetBiome_Example2.Method))
-                    {
-                        biomes.BiomeEntries = new Dictionary<string, BiomeEntry>();
-                        
-                        int biomeIndex = 0;
-                        while (true)
-                        {
-                            object[] parameters = new object[] { biomeIndex, null, null, null, null, null, null, null, null };
-                            if (!(bool)getBiomeFunc.Invoke(mod, parameters)) break;
-                            
-                            string key = (string)parameters[1];
-                            string title = (string)parameters[2];
-                            string subTitle = (string)parameters[3];
-                            Color titleColor = (Color)parameters[4];
-                            Color titleStroke = (Color)parameters[5];
-                            Texture2D icon = (Texture2D)parameters[6];
-                            BiomeTitle titleWidget = (BiomeTitle)parameters[7];
-                            BiomeTitle subTitleWidget = (BiomeTitle)parameters[8];
-                                
-                            biomes.BiomeEntries.Add(key, new BiomeEntry
-                            {
-                                Title = title, 
-                                SubTitle = subTitle,
-                                TitleColor = titleColor,
-                                StrokeColor = titleStroke,
-                                Icon = icon,
-                                TitleWidget = titleWidget,
-                                SubTitleWidget = subTitleWidget,
-                                LocalizationScope = mod.Name
-                            });
-                                
-                            biomeIndex++;
-                        }
-                    }
-                    else if (getBiomeFunc.CompareSignature(BTitlesHook_GetBiome_Example3.Method))
-                    {
-                        biomes.BiomeEntries = new Dictionary<string, BiomeEntry>();
-                        
-                        int biomeIndex = 0;
-                        while (true)
-                        {
-                            dynamic obj = getBiomeFunc.Invoke(mod, new object []{ biomeIndex });
-
-                            if (obj is null) break;
-
-                            string key = Extensions.TryGetDynamicProperty<string>(obj, "Key", null);
-                            string title = Extensions.TryGetDynamicProperty<string>(obj, "Title", null);
-
-                            if (key == null && title == null)
-                            {
-                                BiomeTitlesMod.Log("Fail", "Native Integration", "Returned biome object must have at least Key or Title defined!");
-                                continue;
-                            }
-
-                            if (key == null) key = title;
-                            else if (title == null) title = key;
-                            
-                            string subTitle = Extensions.TryGetDynamicProperty<string>(obj, "SubTitle", mod.DisplayName);
-                            Color titleColor = Extensions.TryGetDynamicProperty<Color>(obj, "TitleColor", Color.White);
-                            Color titleStroke = Extensions.TryGetDynamicProperty<Color>(obj, "TitleStroke", Color.Black);
-                            Texture2D icon = Extensions.TryGetDynamicProperty<Texture2D>(obj, "Icon", null);
-                            BiomeTitle titleWidget = Extensions.TryGetDynamicProperty<BiomeTitle>(obj, "TitleWidget", null);
-                            BiomeTitle subTitleWidget = Extensions.TryGetDynamicProperty<BiomeTitle>(obj, "SubTitleWidget", null);
-
-                            biomes.BiomeEntries.Add(key, new BiomeEntry
-                            {
-                                Title = title, 
-                                SubTitle = subTitle,
-                                TitleColor = titleColor,
-                                StrokeColor = titleStroke,
-                                Icon = icon,
-                                TitleWidget = titleWidget,
-                                SubTitleWidget = subTitleWidget,
-                                LocalizationScope = mod.Name
-                            });
-                                
-                            biomeIndex++;
-                        }
-                    }
-                }
-                
-                if (biomes.MiniBiomeChecker == null && biomes.BiomeChecker == null && (biomes.BiomeEntries?.Count ?? 0) == 0) continue;
-
-                BiomeTitlesMod.Log("Log", "Native Support", $"Registering biomes for mod {mod.Name}");
+                BiomeTitlesMod.Log(LogType.Log, "Native Support", $"Registering biomes for mod {mod.Name}");
                 RegisterBiomes(biomes);
                 _implementedMods.Add(mod);
             }
@@ -448,16 +293,16 @@ namespace BTitles
                 
                 if (biomes == null) continue;
                 
-                BiomeTitlesMod.Log("Log", "Builtin Support", $"Registering biomes for mod {targetMod.Name}");
+                BiomeTitlesMod.Log(LogType.Log, "Builtin Support", $"Registering biomes for mod {targetMod.Name}");
                 RegisterBiomes(biomes);
             }
         }
 
         private void RegisterBiomes(Biomes biomes)
         {
-            if ((biomes.BiomeEntries?.Count ?? 0) == 0 && biomes.MiniBiomeChecker == null && biomes.BiomeChecker == null)
+            if ((biomes.BiomeEntries?.Count ?? 0) == 0 && biomes.DynamicBiomeProvider == null && biomes.DynamicBiomeChecker == null && biomes.MiniBiomeChecker == null && biomes.BiomeChecker == null)
             {
-                BiomeTitlesMod.Log("Fail", "Register Biomes", $"Nothing to register");
+                BiomeTitlesMod.Log(LogType.Fail, "Register Biomes", $"Nothing to register");
                 return;
             }
             
@@ -465,23 +310,35 @@ namespace BTitles
             {
                 foreach (var entry in biomes.BiomeEntries)
                 {
-                    bool overriding = _biomeTitlesUi.BiomeDictionary.ContainsKey(entry.Key);
-                    BiomeTitlesMod.Log("Log", "Register Biomes", $"{(overriding ? "Overriding" : "Registering")} biome {entry.Key}");
+                    bool overriding = BiomeDictionary.ContainsKey(entry.Key);
+                    BiomeTitlesMod.Log(LogType.Log, "Register Biomes", $"{(overriding ? "Overriding" : "Registering")} biome {entry.Key}");
                     entry.Value.Key = entry.Key;
-                    _biomeTitlesUi.BiomeDictionary[entry.Key] = entry.Value;
+                    BiomeDictionary[entry.Key] = entry.Value;
                 }
+            }
+
+            if (biomes.DynamicBiomeProvider != null)
+            {
+                BiomeTitlesMod.Log(LogType.Log, "Register Biomes", $"Registering dynamic biome provider");
+                DynamicBiomeProviders.Insert(0, biomes.DynamicBiomeProvider);
+            }
+
+            if (biomes.DynamicBiomeChecker != null)
+            {
+                BiomeTitlesMod.Log(LogType.Log, "Register Biomes", $"Registering dynamic biome check function");
+                DynamicBiomeCheckerFunctions.Insert(0, biomes.DynamicBiomeChecker);
             }
 
             if (biomes.MiniBiomeChecker != null)
             {
-                BiomeTitlesMod.Log("Log", "Register Biomes", $"Registering mini-biome check function");
-                _biomeTitlesUi.MiniBiomeCheckFunctions.Insert(0, biomes.MiniBiomeChecker);
+                BiomeTitlesMod.Log(LogType.Log, "Register Biomes", $"Registering mini-biome check function");
+                MiniBiomeCheckFunctions.Insert(0, biomes.MiniBiomeChecker);
             }
             
             if (biomes.BiomeChecker != null)
             {
-                BiomeTitlesMod.Log("Log", "Register Biomes", $"Registering biome check function");
-                _biomeTitlesUi.BiomeCheckFunctions.Insert(0, biomes.BiomeChecker);
+                BiomeTitlesMod.Log(LogType.Log, "Register Biomes", $"Registering biome check function");
+                BiomeCheckFunctions.Insert(0, biomes.BiomeChecker);
             }
         }
 
@@ -509,9 +366,27 @@ namespace BTitles
             orig(self, gameTime);
         }
 
-        internal static void Log(string type, string category, object message)
+        internal static void Log(LogType type, string category, object message)
         {
-            Console.WriteLine($"[BiomeTitles] [{type}] [{category}] {message}");
+            if (Instance != null)
+            {
+                switch (type)
+                {
+                    case LogType.Log:
+                        Instance.Logger.Info($"[{category}] {message}");
+                        break;
+                    case LogType.Warning:
+                        Instance.Logger.Warn($"[{category}] {message}");
+                        break;
+                    case LogType.Fail:
+                        Instance.Logger.Error($"[{category}] {message}");
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine($"[BTitles] [{type}] [{category}] {message}");
+            }
         }
     }
 }

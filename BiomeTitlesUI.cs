@@ -22,6 +22,8 @@ namespace BTitles
 
         // Data storage
         internal Dictionary<string, BiomeEntry> BiomeDictionary;
+        internal List<Func<string, dynamic>> DynamicBiomeProviders;
+        internal List<Func<Player, string>> DynamicBiomeCheckFunctions;
         internal List<Func<Player, string>> MiniBiomeCheckFunctions;
         internal List<Func<Player, string>> BiomeCheckFunctions;
 
@@ -38,7 +40,9 @@ namespace BTitles
         private AnimationConfig _animationConfig = new AnimationConfig();
         
         // UI State
-        private string _currentBiome;
+        private string _currentBiome = "";
+        private bool _currentBiomeDynamic = false;
+        private BiomeEntry _currentBiomeEntry = null;
         private bool _isDragging;
         private float _displayTimer;
         private float _biomeCheckTimer = float.PositiveInfinity;
@@ -205,6 +209,8 @@ namespace BTitles
                 DrawDebugString(spriteBatch, "Display timer: " + _displayTimer + " s");
                 DrawDebugString(spriteBatch, "Last biome check duration: " + _debugLastBiomeCheckDuration + " ms");
                 DrawDebugString(spriteBatch, "Last update duration: " + _debugLastUpdateDuration + " ms");
+                DrawDebugString(spriteBatch, "Current biome: " + _currentBiome);
+                DrawDebugString(spriteBatch, "Is dynamic biome: " + _currentBiomeDynamic);
             }
         }
 
@@ -301,14 +307,63 @@ namespace BTitles
         private void CheckNewBiome()
         {
             _biomeCheckTimer = 0;
+            _currentBiomeDynamic = false;
             
-            string newBiome = GetCurrentBiome();
+            Player player = Main.LocalPlayer;
+            string newBiome = "";
 
-            if (newBiome != _currentBiome && newBiome != "")
+            DateTime biomeCheckStart = DateTime.Now;
+
+            for (int i = 0; i < DynamicBiomeCheckFunctions.Count && newBiome == ""; i++)
             {
-                _displayTimer = 0;
+                newBiome = DynamicBiomeCheckFunctions[i](player);
+            }
+            
+            if (newBiome != "")
+            {
+                _currentBiomeDynamic = true;
+            }
+            
+            for (int i = 0; i < MiniBiomeCheckFunctions.Count && newBiome == ""; i++)
+            {
+                newBiome = MiniBiomeCheckFunctions[i](player);
+            }
+            
+            for (int i = 0; i < BiomeCheckFunctions.Count && newBiome == ""; i++)
+            {
+                newBiome = BiomeCheckFunctions[i](player);
+            }
+            
+            _debugLastBiomeCheckDuration = (DateTime.Now - biomeCheckStart).TotalMilliseconds;
 
+            if (newBiome != _currentBiome)
+            {
                 _currentBiome = newBiome;
+                
+                if (_currentBiomeDynamic)
+                {
+                    dynamic biome = null;
+                    for (int i = 0; i < DynamicBiomeProviders.Count && biome == null; i++)
+                    {
+                        biome = DynamicBiomeProviders[i](_currentBiome);
+                    }
+
+                    if (Integration.IntegrateBiome(biome, ignoreKey: true)?.Value is BiomeEntry validBiomeEntry)
+                    {
+                        _currentBiomeEntry = validBiomeEntry;
+                        _currentBiomeEntry.Key = _currentBiome;
+                    }
+                    else
+                    {
+                        _currentBiomeEntry = null;
+                    }
+                }
+                else
+                {
+                    BiomeDictionary.TryGetValue(_currentBiome, out _currentBiomeEntry);
+                }
+                
+                _displayTimer = 0;
 
                 RespawnTitle();
                 RespawnSubTitle();
@@ -318,42 +373,36 @@ namespace BTitles
                 Recalculate();
             }
         }
-
+        
         private void RespawnTitle()
         {
-            if (BiomeDictionary.TryGetValue(_currentBiome, out BiomeEntry currentBiomeEntry))
+            if (_biomeTitle != null)
             {
-                if (_biomeTitle != null)
-                {
-                    _biomeTitle.Remove();
-                    _biomeTitle = null;
-                }
+                _biomeTitle.Remove();
+                _biomeTitle = null;
+            }
 
-                if (_displayTimer < Config.VisibilityDuration || Config.VisibilityDuration == 0)
-                {
-                    _biomeTitle = currentBiomeEntry.TitleWidget ?? _biomeTitleDefault;
-                    _biomeTitle.Reset();
-                    Append(_biomeTitle);
-                }
+            if (_currentBiomeEntry != null && (_displayTimer < Config.VisibilityDuration || Config.VisibilityDuration == 0))
+            {
+                _biomeTitle = _currentBiomeEntry.TitleWidget ?? _biomeTitleDefault;
+                _biomeTitle.Reset();
+                Append(_biomeTitle);
             }
         }
 
         private void RespawnSubTitle()
         {
-            if (BiomeDictionary.TryGetValue(_currentBiome, out BiomeEntry currentBiomeEntry))
+            if (_biomeSubTitle != null)
             {
-                if (_biomeSubTitle != null)
-                {
-                    _biomeSubTitle.Remove();
-                    _biomeSubTitle = null;
-                }
+                _biomeSubTitle.Remove();
+                _biomeSubTitle = null;
+            }
                 
-                if (Config.DisplaySubtitle && (_displayTimer < Config.VisibilityDuration || Config.VisibilityDuration == 0))
-                {
-                    _biomeSubTitle = currentBiomeEntry.SubTitleWidget ?? _biomeSubTitleDefault;
-                    _biomeSubTitle.Reset();
-                    Append(_biomeSubTitle);
-                }
+            if (_currentBiomeEntry != null && Config.DisplaySubtitle && (_displayTimer < Config.VisibilityDuration || Config.VisibilityDuration == 0) && !string.IsNullOrWhiteSpace(_currentBiomeEntry.SubTitle))
+            {
+                _biomeSubTitle = _currentBiomeEntry.SubTitleWidget ?? _biomeSubTitleDefault;
+                _biomeSubTitle.Reset();
+                Append(_biomeSubTitle);
             }
         }
         
@@ -402,15 +451,15 @@ namespace BTitles
             
             float offset = 10 * exactScale;
 
-            if (!BiomeDictionary.TryGetValue(_currentBiome, out BiomeEntry currentBiomeEntry)) return;
+            if (_currentBiomeEntry == null) return;
 
             if (_biomeTitle != null)
             {
                 _biomeTitle.HAlign = 0.5f;
-                _biomeTitle.Text = GetActualTitleName(currentBiomeEntry);
-                _biomeTitle.TextColor = Config.UseCustomTextColors ? currentBiomeEntry.TitleColor : Color.White;
-                _biomeTitle.TextStrokeColor = Config.UseCustomTextColors ? currentBiomeEntry.StrokeColor : Color.Black;
-                _biomeTitle.Icon = Config.ShowIcons ? currentBiomeEntry.Icon : null;
+                _biomeTitle.Text = GetActualTitleName(_currentBiomeEntry);
+                _biomeTitle.TextColor = Config.UseCustomTextColors ? _currentBiomeEntry.TitleColor : Color.White;
+                _biomeTitle.TextStrokeColor = Config.UseCustomTextColors ? _currentBiomeEntry.StrokeColor : Color.Black;
+                _biomeTitle.Icon = Config.ShowIcons ? _currentBiomeEntry.Icon : null;
                 _biomeTitle.FontScale = 1.4f;
                 _biomeTitle.Scale = exactScale;
                 _biomeTitle.SetBackgroundEnabled(Config.EnableBackgrounds);
@@ -422,7 +471,7 @@ namespace BTitles
             {
                 _biomeSubTitle.Top.Set(_biomeTitle != null ? _biomeTitle.GetDimensions().Height + offset : 0, 0);
                 _biomeSubTitle.HAlign = 0.5f;
-                _biomeSubTitle.Text = currentBiomeEntry.SubTitle;
+                _biomeSubTitle.Text = _currentBiomeEntry.SubTitle;
                 _biomeSubTitle.TextColor = Color.White;
                 _biomeSubTitle.TextStrokeColor = Color.Black;
                 _biomeSubTitle.Scale = exactScale;
@@ -456,28 +505,6 @@ namespace BTitles
             }
 
             return biomeEntry.Title;
-        }
-
-        private string GetCurrentBiome()
-        {
-            Player player = Main.LocalPlayer;
-            string biome = "";
-
-            DateTime biomeCheckStart = DateTime.Now;
-            
-            for (int i = 0; i < MiniBiomeCheckFunctions.Count && biome == ""; i++)
-            {
-                biome = MiniBiomeCheckFunctions[i](player);
-            }
-            
-            for (int i = 0; i < BiomeCheckFunctions.Count && biome == ""; i++)
-            {
-                biome = BiomeCheckFunctions[i](player);
-            }
-            
-            _debugLastBiomeCheckDuration = (DateTime.Now - biomeCheckStart).TotalMilliseconds;
-
-            return biome;
         }
     }
 }

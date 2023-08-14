@@ -75,7 +75,7 @@ public abstract class AutoImplementedModSupport : ModSupport
                 var biome = mod.FindOrDefault<ModBiome>(pair.Key);
                 if (biome == null)
                 {
-                    BiomeTitlesMod.Log("Fail", "Auto-Implement", $"Biome {pair.Key} was not found in mod {mod.Name}");
+                    BiomeTitlesMod.Log(LogType.Fail, "Auto-Implement", $"Biome {pair.Key} was not found in mod {mod.Name}");
                     continue;
                 }
                 
