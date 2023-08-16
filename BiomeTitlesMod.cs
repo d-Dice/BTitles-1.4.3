@@ -89,6 +89,7 @@ namespace BTitles
                     if (player.ZoneMeteor) return "Meteor Crash Site";
                     if (player.ZoneGraveyard) return "Graveyard";
                     if (player.ZoneHive) return "Hive";
+                    if (player.ZoneShimmer) return "Aether";
                     
                     // Small
                     if (player.ZoneDungeon) return "The Dungeon";
@@ -204,6 +205,7 @@ namespace BTitles
             registerBiome("Meteor Crash Site",            Color.OrangeRed,      Color.Black);
             registerBiome("Graveyard",                    Color.Gray,           Color.Black);
             registerBiome("Hive",                         Color.Orange,         Color.Black);
+            registerBiome("Aether",                       Color.Violet,         Color.Black);
             
             registerBiome("The Dungeon",                  Color.DarkBlue,       Color.Black);
             registerBiome("The Temple",                   Color.OrangeRed,      Color.Black);
