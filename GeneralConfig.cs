@@ -103,6 +103,12 @@ namespace BTitles
         [DefaultValue(true)]
         public bool HideWhileInventoryOpen;
 
+        [Label("Hide While Boss Is Alive")]
+        [Tooltip("Should titles be hidden while a boss is alive")]
+        [DefaultValue(true)]
+        public bool HideWhileBossIsAlive;
+
+
         [Header("Advanced_Customization")]
         
         [Label("Custom Biome Names")]

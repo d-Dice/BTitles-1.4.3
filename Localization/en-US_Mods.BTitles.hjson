@@ -47,6 +47,11 @@ Configs: {
 
 		TransitionOutDuration: {
 		}
+
+		HideWhileBossIsAlive: {
+			Label: Hide While Boss Is Alive
+			Tooltip: Should titles be hidden while a boss is alive
+		}
 	}
 
 	PositionOption.Tooltip: ""

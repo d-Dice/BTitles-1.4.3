@@ -18,6 +18,7 @@ Supports all biomes and sub-biomes for the following:
 * Aequus
 * Friends, Furniture and Fun
 * Calamity Infernum
+* Homeward Journey
 
 Join our discord: https://discord.gg/te6MPuWbtD
 

@@ -10,6 +10,7 @@ using ReLogic.Content;
 using ReLogic.Graphics;
 using Terraria.GameContent;
 using Terraria.Localization;
+using Terraria.ID;
 
 namespace BTitles
 {
@@ -223,13 +224,13 @@ namespace BTitles
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            
+
             DateTime updateStart = DateTime.Now;
 
             UpdateDragging();
-            
+
             float timeDelta = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            
+
             // Update timers
             _biomeCheckTimer += timeDelta;
             _displayTimer += timeDelta;
@@ -239,35 +240,32 @@ namespace BTitles
                 CheckNewBiome();
             }
 
-            if (_displayTimer < _animationConfig.Duration || _animationConfig.Duration <= 0)
+            // Check if a boss is alive and the configuration to hide titles while a boss is alive is enabled
+            bool bossIsAlive = Main.npc.Any(npc => npc.active && npc.boss);
+            if (Config.HideWhileBossIsAlive && bossIsAlive)
             {
-                if (Config.HideWhileInventoryOpen && Main.playerInventory)
-                {
-                    _biomeTitle.Opacity = 0;
+                // Hide titles if a boss is alive
+                _biomeTitle.Opacity = 0;
 
-                    if (_biomeSubTitle != null)
-                    {
-                        _biomeSubTitle.Opacity = 0;
-                    }
-                }
-                else
+                if (_biomeSubTitle != null)
                 {
-                    _animateFunc(_displayTimer, _animationConfig, _biomeTitle, _biomeSubTitle);
+                    _biomeSubTitle.Opacity = 0;
+                }
+            }
+            else if (Config.HideWhileInventoryOpen && Main.playerInventory)
+            {
+                // Hide titles if the inventory is open
+                _biomeTitle.Opacity = 0;
+
+                if (_biomeSubTitle != null)
+                {
+                    _biomeSubTitle.Opacity = 0;
                 }
             }
             else
             {
-                if (_biomeTitle != null)
-                {
-                    _biomeTitle.Remove();
-                    _biomeTitle = null;
-                }
-
-                if (_biomeSubTitle != null)
-                {
-                    _biomeSubTitle.Remove();
-                    _biomeSubTitle = null;
-                }
+                // Show titles when neither condition is met
+                _animateFunc(_displayTimer, _animationConfig, _biomeTitle, _biomeSubTitle);
             }
 
             _debugLastUpdateDuration = (DateTime.Now - updateStart).TotalMilliseconds;
