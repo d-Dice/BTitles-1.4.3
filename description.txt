@@ -1,30 +1,47 @@
-This is a QOL (Quality of Life) RPG-like mod which Displays the Biome's name for a few seconds when entering a biome.
+﻿[b]This is an RPG-like mod which Displays the Biome's name for a few seconds when entering a biome.[/b]
+
+[img]https://raw.githubusercontent.com/MGTro/BTitles-1.4.3/master/ReadmeBanner.png[/img]
 
 Supports all biomes and sub-biomes for the following:
-* Vanilla
-* Thorium
-* Verdant
-* Remnants
-* The Stars Above
-* Calamity
-* Mod of Redemption
-* Spirit Mod
-* Arbour
-* Spooky
-* The Depths
-* Confection Rebaked
-* Starlight River
-* Bob Blender
-* Aequus
-* Friends, Furniture and Fun
-* Calamity Infernum
-* Homeward Journey
+[*] Vanilla
+[*] Thorium
+[*] Verdant
+[*] Remnants
+[*] The Stars Above
+[*] Calamity
+[*] Mod of Redemption
+[*] Spirit Mod
+[*] Arbour
+[*] Spooky
+[*] The Depths
+[*] Confection Rebaked
+[*] Starlight River
+[*] Bob Blender
+[*] Aequus
+[*] Friends, Furniture and Fun
+[*] Calamity Infernum
 
-Join our discord: https://discord.gg/te6MPuWbtD
+Join our discord for updates/annoncements: [url]https://discord.gg/te6MPuWbtD[/url]
 
-You can find the source code and helpful guides here: https://github.com/MGTro/BTitles-1.4.3
+You can find the source code and helpful guides here: [url]https://github.com/MGTro/BTitles-1.4.3[/url]
+
+Special thanks to:
+[b]Blooming Dragon - Reworking & Russian localization
+CoreInnocenti and MAScherteo - Italian localization
+deckenid - German localization
+Farmacias São João - Portuguese localization
+nextrg - Polish localization
+是鱼猫猫~！ - Simplified Chinese localization[/b]
 
 
+If you know any of the following languages and want to contribute to this mod, you can join the discord server and dm me:
+French, Spanish.
 
 You can find my other mods here:
-* Boss Intros: https://steamcommunity.com/sharedfiles/filedetails/?id=3003323203
+[*] [url]https://steamcommunity.com/id/DiceID/myworkshopfiles/?appid=1281930[/url]
+
+or official addon here:
+[*]https://steamcommunity.com/sharedfiles/filedetails/?id=3019670863
+
+[i]linktr.ee/Dice_Terraria[/i]
+[quote=tModLoader]Developed By Dice and Blooming Dragon[/quote]

@@ -1,1 +1,1 @@
-Re-introduced support for Starlight River and Aether Biome
+Fix nullpointer exception when changing config in-game and returning. Credits: audaki
