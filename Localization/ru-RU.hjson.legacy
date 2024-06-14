@@ -1,0 +1,157 @@
+﻿Mods: {
+    BiomeTitles: {
+        Title: {
+            Terraria: {
+                Meteor_Crash_Site: Метеорит
+                Graveyard: Кладбище
+                Hive: Улей
+                The_Dungeon: Данж
+                The_Temple: Храм Джунглей
+                Nebula_Pillar: Башня Туманности
+                Solar_Pillar: Башня Солнечной Вспышки
+                Stardust_Pillar: Башня Звездной Пыли
+                Vortex_Pillar: Башня Вихря
+                Granite_Cave: Гранитная Пещера
+                Marble_Cave: Мраморная Пещера
+                Underground_Glowing_Mushroom: Пещера Светящихся Грибов
+                Glowing_Mushroom: Светящиеся Грибы
+                Underground_Jungle: Подземные Джунгли
+                Corrupt_Cave_Desert: Искаженная Подземная Пустыня
+                Crimson_Cave_Desert: Багряная Подземная Пустыня
+                Hallow_Cave_Desert: Освященная Подземная Пустыня
+                Cave_Desert: Подземнаая Пустыня
+                Corrupt_Ice_Caves: Искаженные Ледяные Пещеры
+                Crimson_Ice_Caves: Багряные Ледяные Пещеры
+                Hallow_Ice_Caves: Освященные Ледяные Пещеры
+                Ice_Caves: Ледяные Пещеры
+                Underground_Corruption: Искаженное Подземелье
+                Underground_Crimson: Багряное Подземелье
+                Underground_Hallow: Освященное Подземелье
+                Ocean: Океан
+                Sky: Космос
+                Underground: Подземелье
+                Caverns: Пещеры
+                Hell: Преисподня
+                Jungle: Джунгли
+                Corrupt_Desert: Искаженная Пустыня
+                Crimson_Desert: Багряная Пустыня
+                Hallow_Desert: Освященная Пустыня
+                Desert: Пустыня
+                Tundra: Заснежье
+                Corruption: Искажение
+                Crimson: Багрянец
+                Hallow: Освященные Земли
+                Forest: Лес
+                Aether: Эфирная пещера
+            }
+            Aequus: {
+                GlowingMossBiome: Светящийся Мох
+                GoreNestBiome: Гнездо останков
+                RadonMossBiome: Радоновый Мох
+                CrabCreviceBiome: Крабовое Ущелье
+                FakeUnderworldBiome: Ложная Преисподня
+            }
+            Arbour: {
+                ArborBiome: Остров Святилища
+            }
+            BobBlender2: {
+                TreeBiome: Дерево
+                VoidBiome: Пустота
+                BobBiome: Биом Боба
+                BobsBobBiome: Остров Боба
+                BobTowerBiome: Башня Боба
+                CorrodedBiome: Разъеденые Земли
+                CursedBiome: Проклятые Земли
+                DarkmatterBiome: Темная Материя
+                MemeBiome: Мем
+                StrangeBiome: Странный Биом
+                StrangeDungeonBiome: Странный Данж
+                StrangeUndergroundBiome: Странное Подземелье
+                SurfaceBiome: Странные Земли
+            }
+            CalamityMod: {
+                UndergroundAstralBiome: Астральное Подземелье
+                AbovegroundAstralDesertBiome: Астральная Пустыня
+                AbovegroundAstralSnowBiome: Астральное Заснежье
+                AbovegroundAstralBiome: Астральная Инфекция
+                BrimstoneCragsBiome: Серные Скалы
+                SulphurousSeaBiome: Сернистое Море
+                SunkenSeaBiome: Затонувшее Море
+                AbyssLayer1Biome: Сернистые Глубины
+                AbyssLayer2Biome: Мутные Воды
+                AbyssLayer3Biome: Термальные Потоки
+                AbyssLayer4Biome: Пустота
+            }
+            TheConfectionRebirth: {
+                IceConfectionUndergroundBiome: Пломбирное подземелье
+                SandConfectionUndergroundBiome: Шоколадные модземелья
+                ConfectionUndergroundBiome: Пряничное подземелье
+                IceConfectionSurfaceBiome: Пломбирная тундра
+                SandConfectionSurfaceBiome: Шоколадная пустыня
+                ConfectionBiomeSurface: Пряничные земли
+            }
+            CosmeticVariety: {
+                CelestialSurfaceBiome: Небесные Земли
+                GardenBiome: Подземный Сад
+                GardenSurfaceBiome: Сад
+            }
+            InfernumMode: {
+                LostColosseumBiome: Утерянный Колизей
+                ProfanedTempleBiome: Оскверненный храм
+            }
+            Redemptiod: {
+                BlazingBastionBiome: Пылающий Бастион
+                LidenBiome: Лиден
+                LidenBiomeAlpha: Альфа
+                LidenBiomeOmega: Омега
+                SlayerShipBiome: Корабль Истрибителя
+                LabBiome: Заброшенная Лаборатория
+                SoullessBiome: Бездушные Пещеры
+                WastelandCorruptionBiome: Пустоши Искажение
+                WastelandCrimsonBiome: Пустоши Багрянец
+                WastelandDesertBiome: Песчаные Пустоши
+                WastelandPurityBiome: Пустоши
+                WastelandSnowBiome: Снежные Пустоши
+            }
+            Remnants: {
+                GoldenCity: Золотой Город
+                Growth: Заросли
+                OceanCave: Морская Пещера
+                Pyramid: Пирамида
+                Hive: Улей
+                JungleTemple: Храм Джунглей
+                MarbleCave: Мраморная Пещера
+                Vault: Хранилище
+            }
+            SpiritMod: {
+                AsteroidBiome: Астероидное Поле
+                SynthwaveSurfaceBiome: Гиперпространство
+                BriarSurfaceBiome: Терновый Лес
+                BriarUndergroundBiome: Терновые пещеры
+                SpiritSurfaceBiome: Лес Духов
+                SpiritUndergroundBiome: Пещеры духов
+            }
+            Spooky: {
+                CatacombBiome: Катакомбы
+                SpookyBiome: Пугающий Лес
+                SpookyBiomeUg: Пугающее Подземелье
+                SpookyHellBiome: Пугающая Преисподня
+            }
+            // This mod to be figured out
+            StarsAbove: {
+                ObservatoryBiome: Обсерватория Гиперборея
+            }
+            TheDepths: {
+                DepthsBiome: Глубины
+            }
+            ThoriumMod: {
+                DepthsBiome: Морские Глубины
+                BloodChamber: Кровавые Покои
+            }
+            Verdant: {
+                VerdantBiome: Зелень
+                VerdantUndergroundBiome: Зеленеющие Пещеры
+            }
+        }
+    }
+}

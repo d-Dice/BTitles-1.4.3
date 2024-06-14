@@ -46,8 +46,8 @@ namespace BTitles
                 
                 _biomeTitlesUi.Activate();
                 
-                On.Terraria.Main.DrawInterface_30_Hotbar += Draw;
-                On.Terraria.Main.Update += Update;
+                Terraria.On_Main.DrawInterface_30_Hotbar += Draw;
+                Terraria.On_Main.Update += Update;
 
                 ImplementVanillaBiomes();
                 ScanBiomesFromOtherMods();
@@ -63,8 +63,8 @@ namespace BTitles
             
             if (!Main.dedServ)
             {
-                On.Terraria.Main.DrawInterface_30_Hotbar -= Draw;
-                On.Terraria.Main.Update -= Update;
+                Terraria.On_Main.DrawInterface_30_Hotbar -= Draw;
+                Terraria.On_Main.Update -= Update;
                 
                 _biomeTitlesUi = null;
                 _implementedMods.Clear();
@@ -89,6 +89,7 @@ namespace BTitles
                     if (player.ZoneMeteor) return "Meteor Crash Site";
                     if (player.ZoneGraveyard) return "Graveyard";
                     if (player.ZoneHive) return "Hive";
+                    if (player.ZoneShimmer) return "Aether";
                     
                     // Small
                     if (player.ZoneDungeon) return "The Dungeon";
@@ -204,6 +205,7 @@ namespace BTitles
             registerBiome("Meteor Crash Site",            Color.OrangeRed,      Color.Black);
             registerBiome("Graveyard",                    Color.Gray,           Color.Black);
             registerBiome("Hive",                         Color.Orange,         Color.Black);
+            registerBiome("Aether",                       Color.Violet,         Color.Black);
             
             registerBiome("The Dungeon",                  Color.DarkBlue,       Color.Black);
             registerBiome("The Temple",                   Color.OrangeRed,      Color.Black);
@@ -342,7 +344,7 @@ namespace BTitles
             }
         }
 
-        private void Draw(On.Terraria.Main.orig_DrawInterface_30_Hotbar orig, Terraria.Main self)
+        private void Draw(Terraria.On_Main.orig_DrawInterface_30_Hotbar orig, Terraria.Main self)
         {
             if (!Main.gameMenu)
             {
@@ -352,7 +354,7 @@ namespace BTitles
             orig(self);
         }
 
-        private void Update(On.Terraria.Main.orig_Update orig, Terraria.Main self, GameTime gameTime)
+        private void Update(Terraria.On_Main.orig_Update orig, Terraria.Main self, GameTime gameTime)
         {
             if (!Main.gameMenu)
             {

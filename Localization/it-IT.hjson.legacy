@@ -1,0 +1,156 @@
+Mods: {
+    BiomeTitles: {
+        Title: {
+            Terraria: {
+                Meteor_Crash_Site: Sito D'Impatto Del Meteorite 
+                Graveyard: Cimitero
+                Hive: Alveare
+                The_Dungeon: La Cripta
+                The_Temple: Il Tempio
+                Nebula_Pillar: Pilastro Di Nebulosa
+                Solar_Pillar: Pilastro Solare
+                Stardust_Pillar: Pilastro Polvere Di Stelle
+                Vortex_Pillar: Pilastro Del Vortice
+                Granite_Cave: Caverna Di Granito
+                Marble_Cave: Caverna Di Marmo
+                Underground_Glowing_Mushroom: Caverna Dei Funghi Luminosi
+                Glowing_Mushroom: Funghi Luminosi
+                Underground_Jungle: Sottosuolo Della Giungla
+                Corrupt_Cave_Desert: Caverne Del Deserto Corrotto
+                Crimson_Cave_Desert: Caverne Del Deserto Cremisi
+                Hallow_Cave_Desert: Caverne Del Deserto Consacrate
+                Cave_Desert: Caverne Del Deserto
+                Corrupt_Ice_Caves: Caverne Di Ghiaccio Corrotto
+                Crimson_Ice_Caves: Caverne Di Ghiaccio Cremisi
+                Hallow_Ice_Caves: Caverne Di Ghiaccio Consacrato
+                Ice_Caves: Caverne Di Ghiaccio
+                Underground_Corruption: Sottosuolo Corrotto
+                Underground_Crimson: Sottosuolo Cremisi
+                Underground_Hallow: Sottosuolo Consacrato
+                Ocean: Oceano
+                Sky: Cielo
+                Underground: Sottosuolo
+                Caverns: Caverne
+                Hell: Inferno
+                Jungle: Giungla
+                Corrupt_Desert: Deserto Corrotto
+                Crimson_Desert: Deserto Cremisi
+                Hallow_Desert: Deserto Consacrato
+                Desert: Deserto
+                Tundra: Tundra
+                Corruption: Corruzione
+                Crimson: Cremisi
+                Hallow: Consacrato
+                Forest: Foresta
+                Aether: Etere
+            }
+            Aequus: {
+                GlowingMossBiome: Muschio Luminoso
+                GoreNestBiome: Nido Sanguigno
+                RadonMossBiome: Muschio Di Radon
+                CrabCreviceBiome: Caverna Dei Granchi
+                FakeUnderworldBiome: Finto Inferno
+            }
+            Arbour: {
+                ArborBiome: Bioma Arboreo
+            }
+            BobBlender2: {
+                TreeBiome: Bioma Degli Alberi
+                VoidBiome: Bioma Del Vuoto
+                BobBiome: Bioma Di Bob
+                BobsBobBiome: Bioma Del Bob Di Bob
+                BobTowerBiome: Torre Di Bob
+                CorrodedBiome: Bioma Corroso
+                CursedBiome: Bioma Maledetto
+                DarkmatterBiome: Bioma Della Materia Oscura
+                MemeBiome: Bioma Meme
+                StrangeBiome: Bioma Strano
+                StrangeDungeonBiome: Cripta Strana
+                StrangeUndergroundBiome: Sottosuolo Strano
+                SurfaceBiome: Superficie
+            }
+            CalamityMod: {
+                UndergroundAstralBiome: Sottosuolo Astrale
+                AbovegroundAstralDesertBiome: Superficie Del Deserto Astrale
+                AbovegroundAstralSnowBiome: Superficie Della Neve Astrale
+                AbovegroundAstralBiome: Superficie Astrale
+                BrimstoneCragsBiome: Rovine Di Fuoco Infernale
+                SulphurousSeaBiome: Mare Sulfureo
+                SunkenSeaBiome: Mare Sommerso
+                AbyssLayer1Biome: Abisso: I Strato
+                AbyssLayer2Biome: Abisso: II Strato
+                AbyssLayer3Biome: Abisso: III Strato
+                AbyssLayer4Biome: Abisso: IV Strato
+            }
+            TheConfectionRebirth: {
+                IceConfectionUndergroundBiome: Sottosuolo Di Ghiaccio Doldificato
+                SandConfectionUndergroundBiome: Sottosuolo Del Deserto Dolcificato
+                ConfectionUndergroundBiome: Sottosuolo Dolcificato
+                IceConfectionSurfaceBiome: Superficie Di Ghiaccio Dolcificata
+                SandConfectionSurfaceBiome: Superficie Del Deserto Dolcificato
+                ConfectionBiomeSurface: Dolcificazione
+            }
+            CosmeticVariety: {
+                CelestialSurfaceBiome: Superficie Celestiale
+                GardenBiome: Giardino
+                GardenSurfaceBiome: Giardino Superficie
+            }
+            InfernumMode: {
+                LostColosseumBiome: Colosseo Perduto
+                ProfanedTempleBiome: Tempio Profanato
+            }
+            Redemptiod: {
+                BlazingBastionBiome: Bastione Infuocato
+                LidenBiome: Liden
+                LidenBiomeAlpha: Liden Alpha
+                LidenBiomeOmega: Liden Omega
+                SlayerShipBiome: Astronave
+                LabBiome: Laboratorio
+                SoullessBiome: Bioma Senz'Anima
+                WastelandCorruptionBiome: Corruzione Irradiata
+                WastelandCrimsonBiome: Cremesi Irradiato
+                WastelandDesertBiome: Deserto Irradiato
+                WastelandPurityBiome: Purità Irradiata
+                WastelandSnowBiome: Neve Irradiata
+            }
+            Remnants: {
+                GoldenCity: Città Dorata
+                Growth: Cava
+                OceanCave: Cava Oceanica
+                Pyramid: Piramide
+                Hive: Alveare
+                JungleTemple: Tempio Della Giungla
+                MarbleCave: Caverna Di Marmo 
+                Vault: Cripta
+            }
+            SpiritMod: {
+                AsteroidBiome: Campo Di Asteroidi
+                SynthwaveSurfaceBiome: Bioma Synthwave
+                BriarSurfaceBiome: Superficie Di Briar
+                BriarUndergroundBiome: Sottosuolo Di Briar
+                SpiritSurfaceBiome: Superficie Spirituale
+                SpiritUndergroundBiome: Sottosuolo Spirituale
+            }
+            Spooky: {
+                CatacombBiome: Catacombe
+                SpookyBiome: Bioma Spaventoso
+                SpookyBiomeUg: Sottosuolo Spaventoso
+                SpookyHellBiome: Inferno Spaventoso
+            }
+            StarsAbove: {
+                ObservatoryBiome: Osservatorio
+            }
+            TheDepths: {
+                DepthsBiome: Le Profondità
+            }
+            ThoriumMod: {
+                DepthsBiome: Profondità Marine
+                BloodChamber: Camera Sanguigna
+            }
+            Verdant: {
+                VerdantBiome: Verdeggiante
+                VerdantUndergroundBiome: Sottosuolo Verdeggiante
+            }
+        }
+    }
+}

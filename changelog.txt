@@ -1,0 +1,1 @@
+Fix nullpointer exception when changing config in-game and returning. Credits: audaki

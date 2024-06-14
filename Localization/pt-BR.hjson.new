@@ -1,0 +1,339 @@
+
+Mods: {
+	BiomeTitles: {
+		Title: {
+			Terraria: {
+				Meteor_Crash_Site: Local da Queda do Meteoro
+				Graveyard: Cemitério
+				Hive: Colmeia
+				The_Dungeon: A Masmorra
+				The_Temple: O Templo
+				Nebula_Pillar: Coluna de Nébula
+				Solar_Pillar: Coluna Solar
+				Stardust_Pillar: Coluna de Pó Estelar
+				Vortex_Pillar: Coluna de Vórtice
+				Granite_Cave: Caverna de Granito
+				Marble_Cave: Caverna de Mármore
+				Underground_Glowing_Mushroom: Campos de Cogumelos Brilhantes
+				Glowing_Mushroom: Cogumelos Brilhantes
+				Underground_Jungle: Selva Subterrânea
+				Corrupt_Cave_Desert: Deserto Subterrâneo Corrompido
+				Crimson_Cave_Desert: Deserto Subterrâneio Carmim
+				Hallow_Cave_Desert: Deserto Subterrâneo Consagrado
+				Cave_Desert: Deserto Subterrâneo
+				Corrupt_Ice_Caves: Caverna de Gelo Corrompida
+				Crimson_Ice_Caves: Caverna de Gelo Carmim
+				Hallow_Ice_Caves: Caverna de Gelo Consagrada
+				Ice_Caves: Caverna de Gelo
+				Underground_Corruption: Corrupção Subterrânea
+				Underground_Crimson: Carmim Subterrâneo
+				Underground_Hallow: Consagrado Subterrâneo
+				Ocean: Oceano
+				Sky: Céu
+				Underground: Subterrâneo
+				Caverns: Cavernas
+				Hell: Inferno
+				Jungle: Selva
+				Corrupt_Desert: Deserto Corrompido
+				Crimson_Desert: Deserto Carmim
+				Hallow_Desert: Deserto Consagrado
+				Desert: Deserto
+				Tundra: Tundra
+				Corruption: Corrupção
+				Crimson: Carmim
+				Hallow: Consagrado
+				Forest: Floresta
+			}
+
+			Aequus: {
+				GlowingMossBiome: Musgo Brilhante
+				GoreNestBiome: Ninho de Sangue
+				RadonMossBiome: Musgo de Radônio
+				CrabCreviceBiome: Fenda do Caranguejo
+				FakeUnderworldBiome: Submundo Falso
+			}
+
+			Arbour.ArborBiome: Ilha da Árvore
+
+			BobBlender2: {
+				TreeBiome: Bioma da Árvore
+				VoidBiome: Vazio
+				BobBiome: Bioma Bob
+				BobsBobBiome: Ilha Bobs Bob
+				BobTowerBiome: Torre Bob
+				CorrodedBiome: Bioma Corroído
+				CursedBiome: Bioma Amaldiçoado
+				DarkmatterBiome: Bioma da Matéria Negra
+				MemeBiome: Meme
+				StrangeBiome: Bioma Estranho
+				StrangeDungeonBiome: Masmorra Estranha
+				StrangeUndergroundBiome: Subterrâneo Estranho
+				SurfaceBiome: Superfície Estranha
+			}
+
+			CalamityMod: {
+				UndergroundAstralBiome: Subterrâneo Astral
+				AbovegroundAstralDesertBiome: Deserto Astral
+				AbovegroundAstralSnowBiome: Tundra Astral
+				AbovegroundAstralBiome: Infecção Astral
+				BrimstoneCragsBiome: Rochedos de Enxofre
+				SulphurousSeaBiome: Mar Sulfúrico
+				SunkenSeaBiome: Mar Profundo
+				AbyssLayer1Biome: Profundezas Sulfúricas
+				AbyssLayer2Biome: Águas Turvas
+				AbyssLayer3Biome: Fissuras Hidrotermais
+				AbyssLayer4Biome: O Vazio
+			}
+
+			TheConfectionRebirth: {
+				IceConfectionUndergroundBiome: Cavernas de Sorvete
+				SandConfectionUndergroundBiome: Cavernas de Choolate
+				ConfectionUndergroundBiome: Subterrâneo Confeccionado
+				IceConfectionSurfaceBiome: Tundra De Sorvete
+				SandConfectionSurfaceBiome: Deserto de Chocolate
+				ConfectionBiomeSurface: Confecção
+			}
+
+			CosmeticVariety: {
+				CelestialSurfaceBiome: Superfície Celestial
+				GardenBiome: Jardim
+				GardenSurfaceBiome: Superfície do Jardim
+			}
+
+			InfernumMode: {
+				LostColosseumBiome: Coliseu Perdido
+				ProfanedTempleBiome: Templo Profano
+			}
+
+			Redemption: {
+				BlazingBastionBiome: Bastião Ardente
+				LidenBiome: Liden
+				LidenBiomeAlpha: O Alfa
+				LidenBiomeOmega: O Ómega
+				SlayerShipBiome: Navio Assassino
+				LabBiome: Laboratório Abandonado
+				SoullessBiome: Cavernas Desalmadas
+				WastelandCorruptionBiome: Corrupção Devastada
+				WastelandCrimsonBiome: Carmim Devastado
+				WastelandDesertBiome: Deserto Devastado
+				WastelandPurityBiome: Pureza Devastada
+				WastelandSnowBiome: Tundra Devastada
+			}
+
+			Remnants: {
+				GoldenCity: Cidade Dourada
+				Growth: Natureza
+				OceanCave: Caverna Oceânica
+				Pyramid: Pirâmide
+				Hive: Colmeia Gigante
+				JungleTemple: Templo da Selva
+				MarbleCave: Caverna de Mármore
+				Vault: Cofre
+			}
+
+			SpiritMod: {
+				AsteroidBiome: Campo do Asteroide
+				SynthwaveSurfaceBiome: Hiperespaço
+				BriarSurfaceBiome: Floresta Selvagem
+				BriarUndergroundBiome: Subterrâneo Selvagem
+				SpiritSurfaceBiome: Superfície Espiritual
+				SpiritUndergroundBiome: Subterrâneo Espiritual
+			}
+
+			Spooky: {
+				CatacombBiome: Bioma dos Túmulos
+				SpookyBiome: Floresta Assustadora
+				SpookyBiomeUg: Subterrâneo Assustador
+				SpookyHellBiome: Inferno Assustador
+			}
+
+			// This mod is not finished cuz I don't know which biomes there actually are
+			StarsAbove: {
+				ObservatoryBiome: Observatório Hiperbória
+				AstarteDriverBiome: Astarte Driver
+				BleachedWorldBiome: Mundo Branqueado
+				CorvusBiome: Corvus
+				LyraBiome: Lyra
+				FriendlySpaceBiome: Pyxis
+				MoonBiome: Lua
+				SeaOfStarsBiome: Mar de Estrelas
+			}
+
+			TheDepths.DepthsBiome: Profundeza
+
+			ThoriumMod: {
+				DepthsBiome: Profundezas Aquatíca
+				BloodChamber: Câmara de Sangue
+			}
+
+			Verdant: {
+				VerdantBiome: Superfície Verdejante
+				VerdantUndergroundBiome: Cavernas Verdejantes
+			}
+		}
+	}
+
+	BTitles: {
+		Configs: {
+			GeneralConfig: {
+				DisplayName: General Config
+
+				Headers: {
+					Visuals_Config: Configurações Visuais
+					Advanced_Customization: Customização Avançada
+					Animation: Animação
+				}
+
+				Position: {
+					Label: Posição
+					Tooltip: Escolha a Posição do Título
+				}
+
+				CustomPositionX.Label: Posição Customizada X
+				CustomPositionY.Label: Posição Customizada Y
+
+				Scale: {
+					Label: Escala
+					Tooltip: Escolha a Escala do Título
+				}
+
+				UseCustomTextColors: {
+					Label: Colorir Títulos
+					Tooltip: Habilitar ou Desabilitar Cores de Título para Biomas Diferentes
+				}
+
+				ShowIcons: {
+					Label: Ícones de Bioma
+					Tooltip: Habilitar ou Desabilitar o Ícone Personalizado para Cada Bioma, se Disponível
+				}
+
+				DisplaySubtitle: {
+					Label: Mostrar Legendas
+					Tooltip: Habilitar ou Desabilitar as Legendas do Título
+				}
+
+				EnableBackgrounds: {
+					Label: Planos de Fundo de Título
+					Tooltip: Habilitar a Visibilidade para Planos de Fundo de Títulos e Legendas
+				}
+
+				HideWhileInventoryOpen: {
+					Label: Esconder Enquanto Inventario Estiver Aberto
+					Tooltip: Títulos Deveram ser Escondidos com o Inventario Aberto
+				}
+
+				CustomBiomeNames: {
+					Label: Nomes Customizados de Bioma
+					Tooltip: Colocar Nomes Customizados Para Biomas
+				}
+
+				EnableDraggableTitle: {
+					Label: Habilitar Título Arrastável
+					Tooltip: Habilita ou Desativa o Título Arrastável se a Posição Estiver Definida como Customizada
+				}
+
+				BiomeCheckDelay: {
+					Label: Intervalo de Verificação do Bioma
+					Tooltip: Intervalo Entre Verificações de Bioma em Segundos
+				}
+
+				TitleAnimation: {
+					Label: Tipo de Animação
+					Tooltip: Animação de Desaparecer e Aparecer do Título
+				}
+
+				VisibilityDuration: {
+					Label: Duração de Visibilidade
+					Tooltip: Tempo Para os Títulos Serem Exibidos na Tela em Segundos, 0 Significa Infinito
+
+					TransitionInDuration: {
+						/* Label: Mods.BTitles.Configs.GeneralConfig.VisibilityDuration.TransitionInDuration.Label */
+						/* Tooltip: Mods.BTitles.Configs.GeneralConfig.VisibilityDuration.TransitionInDuration.Tooltip */
+					}
+
+					TransitionOutDuration: {
+						/* Label: Mods.BTitles.Configs.GeneralConfig.VisibilityDuration.TransitionOutDuration.Label */
+						/* Tooltip: Mods.BTitles.Configs.GeneralConfig.VisibilityDuration.TransitionOutDuration.Tooltip */
+					}
+				}
+
+				TransitionInDuration: {
+					Label: Transição em Duração
+					Tooltip: Tempo Para os Títulos Aparecerem na Tela em Segundos
+				}
+
+				TransitionOutDuration: {
+					Label: Duração da Transição
+					Tooltip: Tempo Para os Títulos Desaparecerem da Tela em Segundos
+				}
+
+				PositionOption: {
+					/* Tooltip: Mods.BTitles.Configs.GeneralConfig.PositionOption.Tooltip */
+					/* Top.Label: Mods.BTitles.Configs.GeneralConfig.PositionOption.Top.Label */
+					/* Bottom.Label: Mods.BTitles.Configs.GeneralConfig.PositionOption.Bottom.Label */
+					/* RPGStyle.Label: Mods.BTitles.Configs.GeneralConfig.PositionOption.RPGStyle.Label */
+					/* Custom.Label: Mods.BTitles.Configs.GeneralConfig.PositionOption.Custom.Label */
+				}
+
+				ScaleOption: {
+					/* Tooltip: Mods.BTitles.Configs.GeneralConfig.ScaleOption.Tooltip */
+					/* Small.Label: Mods.BTitles.Configs.GeneralConfig.ScaleOption.Small.Label */
+					/* Normal.Label: Mods.BTitles.Configs.GeneralConfig.ScaleOption.Normal.Label */
+					/* Big.Label: Mods.BTitles.Configs.GeneralConfig.ScaleOption.Big.Label */
+				}
+
+				BiomeNameMapping: {
+					/* Tooltip: Mods.BTitles.Configs.GeneralConfig.BiomeNameMapping.Tooltip */
+
+					CurrentName: {
+						/* Label: Mods.BTitles.Configs.GeneralConfig.BiomeNameMapping.CurrentName.Label */
+						/* Tooltip: Mods.BTitles.Configs.GeneralConfig.BiomeNameMapping.CurrentName.Tooltip */
+					}
+
+					NewName: {
+						/* Label: Mods.BTitles.Configs.GeneralConfig.BiomeNameMapping.NewName.Label */
+						/* Tooltip: Mods.BTitles.Configs.GeneralConfig.BiomeNameMapping.NewName.Tooltip */
+					}
+				}
+
+				TitleAnimationType: {
+					/* Tooltip: Mods.BTitles.Configs.GeneralConfig.TitleAnimationType.Tooltip */
+					/* None.Label: Mods.BTitles.Configs.GeneralConfig.TitleAnimationType.None.Label */
+					/* ShowFade.Label: Mods.BTitles.Configs.GeneralConfig.TitleAnimationType.ShowFade.Label */
+					/* ShowFadeSwipe.Label: Mods.BTitles.Configs.GeneralConfig.TitleAnimationType.ShowFadeSwipe.Label */
+				}
+			}
+
+			PositionOption: {
+				Top.Label: Cimba
+				Bottom.Label: Baixo
+				RPGStyle.Label: Estilo de RPG
+				Custom.Label: Customizado
+			}
+
+			ScaleOption: {
+				Small.Label: Pequeno
+				Normal.Label: Normal
+				Big.Label: Grande
+			}
+
+			BiomeNameMapping: {
+				CurrentName: {
+					Label: Nome Atual
+					Tooltip: O nome atual (original) do bioma.
+				}
+
+				NewName: {
+					Label: Novo Nome
+					Tooltip: O novo nome personalizado para o bioma.
+				}
+			}
+
+			TitleAnimationType: {
+				None.Label: Sem Animação
+				ShowFade.Label: Mostar/Desaparecer
+				ShowFadeSwipe.Label: Mostar/Desaparecer Com Deslize
+			}
+		}
+	}
+}

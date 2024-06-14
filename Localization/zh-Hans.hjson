@@ -1,0 +1,333 @@
+Mods: {
+	BiomeTitles: {
+		Title: {
+			Terraria: {
+				Meteor_Crash_Site: 陨石残骸
+				Graveyard: 墓地
+				Hive: 蜂巢
+				The_Dungeon: 地牢
+				The_Temple: 丛林神庙
+				Nebula_Pillar: 星云柱
+				Solar_Pillar: 日耀柱
+				Stardust_Pillar: 星尘柱
+				Vortex_Pillar: 星旋柱
+				Granite_Cave: 花岗岩洞穴
+				Marble_Cave: 大理石洞穴
+				Underground_Glowing_Mushroom: 地下发光蘑菇生物群落
+				Glowing_Mushroom: 地表发光蘑菇生物群落
+				Underground_Jungle: 地下丛林
+				Corrupt_Cave_Desert: 腐化沙漠洞穴
+				Crimson_Cave_Desert: 猩红沙漠洞穴
+				Hallow_Cave_Desert: 神圣沙漠洞穴
+				Cave_Desert: 沙漠洞穴
+				Corrupt_Ice_Caves: 腐化雪原洞穴
+				Crimson_Ice_Caves: 猩红雪原洞穴
+				Hallow_Ice_Caves: 神圣雪原洞穴
+				Ice_Caves: 雪原洞穴
+				Underground_Corruption: 地下腐化之地
+				Underground_Crimson: 地下猩红之地
+				Underground_Hallow: 地下神圣之地
+				Ocean: 海洋
+				Sky: 天空
+				Underground: 地下
+				Caverns: 洞穴
+				Hell: 地狱
+				Jungle: 丛林
+				Corrupt_Desert: 腐化沙漠
+				Crimson_Desert: 猩红沙漠
+				Hallow_Desert: 神圣沙漠
+				Desert: 沙漠
+				Tundra: 雪原
+				Corruption: 腐化
+				Crimson: 猩红
+				Hallow: 神圣
+				Forest: 森林
+			}
+
+			Aequus: {
+				GlowingMossBiome: 发光苔藓
+				GoreNestBiome: 血巢
+				RadonMossBiome: 氡苔藓
+				CrabCreviceBiome: 蟹伏岩隙
+				FakeUnderworldBiome: 地狱
+			}
+
+			Arbour.ArborBiome: Arbour 空岛
+
+			BobBlender2: {
+				TreeBiome: 树
+				VoidBiome: 虚空
+				BobBiome: Bob Biome
+				BobsBobBiome: Bobs Bob 岛
+				BobTowerBiome: Bob 塔
+				CorrodedBiome: 侵蚀之地
+				CursedBiome: 诅咒之地
+				DarkmatterBiome: 暗物质
+				MemeBiome: Meme
+				StrangeBiome: 诡异的生物群落
+				StrangeDungeonBiome: 诡异的地牢
+				StrangeUndergroundBiome: 诡异的地下
+				SurfaceBiome: 诡异的地表
+			}
+
+			CalamityMod: {
+				UndergroundAstralBiome: 地下星辉瘟疫
+				AbovegroundAstralDesertBiome: 星幻沙漠
+				AbovegroundAstralSnowBiome: 星幻雪地
+				AbovegroundAstralBiome: 星辉瘟疫
+				BrimstoneCragsBiome: 硫火之崖
+				SulphurousSeaBiome: 硫磺海
+				SunkenSeaBiome: 沉沦之海
+				AbyssLayer1Biome: 硫海深处
+				AbyssLayer2Biome: 浑浊污水
+				AbyssLayer3Biome: 热泉
+				AbyssLayer4Biome: 虚空
+			}
+
+			TheConfectionRebirth: {
+				IceConfectionUndergroundBiome: 冰激凌洞穴
+				SandConfectionUndergroundBiome: 巧克力洞穴
+				ConfectionUndergroundBiome: 地下糖果之地
+				IceConfectionSurfaceBiome: 冰激凌雪原
+				SandConfectionSurfaceBiome: 巧克力沙漠
+				ConfectionBiomeSurface: 糖果之地
+			}
+
+			CosmeticVariety: {
+				CelestialSurfaceBiome: 天堂地表
+				GardenBiome: 花园
+				GardenSurfaceBiome: 花园地表
+			}
+
+			InfernumMode: {
+				LostColosseumBiome: 失落竞技场
+				ProfanedTempleBiome: 亵渎神庙
+			}
+
+			Redemption: {
+				BlazingBastionBiome: 烈焰堡垒
+				LidenBiome: 利登
+				LidenBiomeAlpha: 利登Alpha
+				LidenBiomeOmega: 利登Omega
+				SlayerShipBiome: 弑君者的失事飞船
+				LabBiome: 废弃实验室
+				SoullessBiome: 失魂洞穴
+				WastelandCorruptionBiome: 腐化废土
+				WastelandCrimsonBiome: 猩红废土
+				WastelandDesertBiome: 废土沙漠
+				WastelandPurityBiome: 核废土
+				WastelandSnowBiome: 废土雪原
+			}
+
+			Remnants: {
+				GoldenCity: 黄金城
+				Growth: 生命树
+				OceanCave: 海洋洞穴
+				Pyramid: 金字塔
+				Hive: 巨型蜂巢
+				JungleTemple: 丛林神庙
+				MarbleCave: 大理石洞
+				Vault: 避难所
+			}
+
+			SpiritMod: {
+				AsteroidBiome: 小行星带
+				SynthwaveSurfaceBiome: 超时空
+				BriarSurfaceBiome: 荆棘之地
+				BriarUndergroundBiome: 地下荆棘之地
+				SpiritSurfaceBiome: 魂灵之地
+				SpiritUndergroundBiome: 地下魂灵之地
+			}
+
+			Spooky: {
+				CatacombBiome: 地下墓穴
+				SpookyBiome: 幽灵之森
+				SpookyBiomeUg: 地下幽灵之森
+				SpookyHellBiome: 眼球峡谷
+			}
+
+			// This mod is not finished cuz I don't know which biomes there actually are
+			StarsAbove: {
+				ObservatoryBiome: 观星台
+				AstarteDriverBiome: 深空
+				BleachedWorldBiome: 褪色世界
+				CorvusBiome: 乌鸦座
+				LyraBiome: 天琴座
+				FriendlySpaceBiome: 罗盘座
+				MoonBiome: 月球
+				SeaOfStarsBiome: 星海
+			}
+
+			TheDepths.DepthsBiome: 深渊
+
+			ThoriumMod: {
+				DepthsBiome: 水生深渊
+				BloodChamber: 血室
+			}
+
+			Verdant: {
+				VerdantBiome: 青翠地表
+				VerdantUndergroundBiome: 青翠洞穴
+			}
+		}
+	}
+
+	BTitles: {
+		Configs: {
+			GeneralConfig: {
+				DisplayName: 通用设置
+
+				Headers: {
+					Visuals_Config: 视觉设置
+					Advanced_Customization: 高级设置
+					Animation: 动画
+				}
+
+				Position: {
+					Label: 位置
+					Tooltip: 选择标题的位置
+				}
+
+				CustomPositionX.Label: 自定义X轴位置
+				CustomPositionY.Label: 自定义Y轴位置
+
+				Scale: {
+					Label: 缩放比例
+					Tooltip: 设置标题的缩放比例
+				}
+
+				UseCustomTextColors: {
+					Label: 彩色化标题
+					Tooltip: 启用或禁用每个生物群落的自定义标题颜色
+				}
+
+				ShowIcons: {
+					Label: 生物群落图标
+					Tooltip: 启用或禁用每个生物群落的自定义图标（如果可用）
+				}
+
+				DisplaySubtitle: {
+					Label: 显示生物群落来源
+					Tooltip: 启用或禁用生物群落来源副标题
+				}
+
+				EnableBackgrounds: {
+					Label: 标题背景
+					Tooltip: 是否显示标题和副标题背景
+				}
+
+				HideWhileInventoryOpen: {
+					Label: 背包打开时隐藏
+					Tooltip: 当玩家背包打开时，标题是否应该隐藏
+				}
+
+				CustomBiomeNames: {
+					Label: 自定义生物群落名称
+					Tooltip: 设置生物群落自定义名称
+				}
+
+				EnableDraggableTitle: {
+					Label: 可拖拽标题
+					Tooltip: 启用或禁用可拖拽标题（若位置已设为自定义）
+				}
+
+				BiomeCheckDelay: {
+					Label: 生物群落检查延时
+					Tooltip: 检查生物群落的时间间隔（单位：秒）
+				}
+
+				TitleAnimation: {
+					Label: 动画类型
+					Tooltip: 标题出现和消失的动画
+				}
+
+				VisibilityDuration: {
+					Label: 可见时长
+					Tooltip: 标题显示时长（单位：秒），0表示无限
+
+					TransitionInDuration: {
+						Label: 淡入时长
+						Tooltip: 标题淡入时长（单位：秒）
+					}
+
+					TransitionOutDuration: {
+						Label: 淡出时长
+						Tooltip: 标题淡出时长（单位：秒）
+					}
+				}
+
+				TransitionInDuration: {
+					Label: 淡入时长
+					Tooltip: 标题淡入时长（单位：秒）
+				}
+
+				TransitionOutDuration: {
+					Label: 淡出时长
+					Tooltip: 标题淡出时长（单位：秒）
+				}
+
+				PositionOption: {
+					Top.Label: 顶部
+					Bottom.Label: 底部
+					RPGStyle.Label: RPG风格
+					Custom.Label: 自定义
+				}
+
+				ScaleOption: {
+					Small.Label: 小
+					Normal.Label: 正常
+					Big.Label: 大
+				}
+
+				BiomeNameMapping: {
+					CurrentName: {
+						Label: 当前名称
+						Tooltip: 生物群落的当前（原始）名称
+					}
+
+					NewName: {
+						Label: 新名称
+						Tooltip: 生物群落的新自定义名称
+					}
+				}
+
+				TitleAnimationType: {
+					None.Label: 无动画
+					ShowFade.Label: 淡入/淡出
+					ShowFadeSwipe.Label: 滑动淡入/滑动淡出
+				}
+			}
+
+			PositionOption: {
+				Top.Label: 顶部
+				Bottom.Label: 底部
+				RPGStyle.Label: RPG风格
+				Custom.Label: 自定义
+			}
+
+			ScaleOption: {
+				Small.Label: 小
+				Normal.Label: 正常
+				Big.Label: 大
+			}
+
+			BiomeNameMapping: {
+				CurrentName: {
+					Label: 当前名称
+					Tooltip: 生物群落的当前（原始）名称
+				}
+
+				NewName: {
+					Label: 新名称
+					Tooltip: 生物群落的新自定义名称
+				}
+			}
+
+			TitleAnimationType: {
+				None.Label: 无动画
+				ShowFade.Label: 淡入/淡出
+				ShowFadeSwipe.Label: 滑动淡入/滑动淡出
+			}
+		}
+	}
+}
