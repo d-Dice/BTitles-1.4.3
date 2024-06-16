@@ -7,6 +7,8 @@
     <OutputType>Library</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="localization\es-ES.hjson" />
+    <None Remove="localization\fr-FR.hjson" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Textures\" />

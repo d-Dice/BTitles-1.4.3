@@ -73,7 +73,6 @@ namespace BTitles
                 BiomeCheckFunctions.Clear();
             }
         }
-
         private void ImplementVanillaBiomes()
         {
             Biomes biomes = new Biomes
