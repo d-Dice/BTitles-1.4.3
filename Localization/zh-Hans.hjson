@@ -1,5 +1,8 @@
 Mods: {
 	BiomeTitles: {
+		ChatAdvertisementPart1: "感谢使用 Biome Titles，也请查看我的另一个模组 "
+		ChatAdvertisementPart2: Global Chat！
+
 		Title: {
 			Terraria: {
 				Meteor_Crash_Site: 陨石残骸
@@ -166,8 +169,57 @@ Mods: {
 			}
 
 			Verdant: {
-				VerdantBiome: 青翠地表
-				VerdantUndergroundBiome: 青翠洞穴
+				VerdantBiome: 翠绿地表
+				VerdantUndergroundBiome: 翠绿洞穴
+			}
+
+			Stellamod: {
+				AbyssBiome: 深渊
+				AcidBiome: 酸性平原
+				IshtarBiome: 伊丝塔
+				MorrowUndergroundBiome: 莫罗地下
+				VeriplantUndergroundBiome: 维力植物地下
+				AlcadziaBiome: 阿尔卡迪亚
+				CathedralBiome: 大教堂
+				FableBiome: 寓言荒野
+				IlluriaBiome: 伊鲁里亚
+				MarrowSurfaceBiome: 莫罗地表
+				StarbloomBiome: 星之花
+				VeilBiome: 面纱
+				XixVillage: 西克斯村
+				AurelusBiome: 奥雷鲁斯神庙
+				CatacombFlames: 地下墓穴 - 火焰
+				CatacombTrap: 地下墓穴 - 陷阱
+				CatacombWater: 地下墓穴 - 水域
+				CindersparkBiome: 灰烬火花
+				DrakonicManor: 龙之庄园
+				EngineerShop: 工程师商店
+				GovheilCastle: 戈维尔城堡
+				Laboratory: 实验室
+				NaxtrinTemple: 纳克斯特林神庙
+				SeaTemple: 海洋神庙
+			}
+
+			MultidimensionMod: {
+				FrozenUnderworld: 冰冻地狱
+				ShroomForest: 蘑菇森林
+			}
+
+			SpiritReforged: {
+				SavannaBiome: 热带草原
+				HallowSavannaBiome: 神圣热带草原
+			}
+
+			RothurModRedux: {
+				CrystalSurfaceBiome: 水晶
+				CrystalUndergroundBiome: 水晶地下
+			}
+
+			JadeFables.JadeLakeBiome: 翡翠湖
+
+			ITD: {
+				BlueshroomGrovesBiome: 蓝蘑菇丛林
+				BlueshroomGrovesSurfaceBiome: 蓝蘑菇丛林
 			}
 		}
 	}
@@ -181,6 +233,8 @@ Mods: {
 					Visuals_Config: 视觉设置
 					Advanced_Customization: 高级设置
 					Animation: 动画
+					// Auto_Detection: Auto_ Detection Header
+					// System: System Header
 				}
 
 				Position: {
@@ -295,6 +349,26 @@ Mods: {
 					None.Label: 无动画
 					ShowFade.Label: 淡入/淡出
 					ShowFadeSwipe.Label: 滑动淡入/滑动淡出
+				}
+
+				AutoDetectBiomes: {
+					// Label: Automatically detect modded biomes
+					// Tooltip: Show titles for biomes from mods without explicit support
+				}
+
+				AutoDetectNewBiomes: {
+					// Label: Auto-Detect New Biomes
+					// Tooltip: Enable automatic detection of biomes from unsupported mods
+				}
+
+				HasShownAdvertisement: {
+					// Label: Has Shown Advertisement
+					// Tooltip: ""
+				}
+
+				HasShownFirstTimeMessage: {
+					// Label: First Time Message Shown
+					// Tooltip: Internal flag to track if the welcome message has been shown
 				}
 			}
 

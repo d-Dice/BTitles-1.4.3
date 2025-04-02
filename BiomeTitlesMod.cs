@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using BTitles.BuiltinModSupport;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
 namespace BTitles
 {
@@ -22,6 +26,8 @@ namespace BTitles
         
         private BiomeTitlesUI _biomeTitlesUi;
         public GeneralConfig Config { get; private set; }
+        public static bool HasShownFirstTimeMessage { get; private set; }
+        private static string DataFilePath;
 
         private HashSet<Mod> _implementedMods = new HashSet<Mod>();
         
@@ -34,6 +40,10 @@ namespace BTitles
         public override void Load()
         {
             Instance = this;
+            
+            DataFilePath = Path.Combine(ModLoader.ModPath, "BTitles_shown.dat");
+            
+            HasShownFirstTimeMessage = File.Exists(DataFilePath);
             
             if (!Main.dedServ)
             {
@@ -57,6 +67,22 @@ namespace BTitles
             Config = ModContent.GetInstance<GeneralConfig>();
         }
         
+        public static void MarkFirstTimeMessageAsShown()
+        {
+            if (!HasShownFirstTimeMessage)
+            {
+                HasShownFirstTimeMessage = true;
+                try
+                {
+                    File.WriteAllText(DataFilePath, "1");
+                }
+                catch (Exception ex)
+                {
+                    Instance?.Logger.Error($"Error saving advertisement state: {ex.Message}");
+                }
+            }
+        }
+        
         public override void Unload()
         {
             Instance = null;
@@ -73,6 +99,40 @@ namespace BTitles
                 BiomeCheckFunctions.Clear();
             }
         }
+
+        // Mod Calls
+        public override object Call(params object[] args)
+        {
+            try
+            {
+                if (args == null || args.Length == 0 || args[0] is not string message)
+                {
+                    Logger.Warn("Mod.Call received with invalid arguments.");
+                    return null;
+                }
+
+                switch (message)
+                {
+                    case "GetCurrentBiomeName":
+                        if (_biomeTitlesUi == null)
+                        {
+                            Logger.Info("Mod.Call 'GetCurrentBiomeName' received, but UI is not loaded (possibly server?). Returning null.");
+                            return null;
+                        }
+                        return _biomeTitlesUi._currentBiome; 
+
+                    default:
+                        Logger.Warn($"Mod.Call received with unknown message: {message}");
+                        return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.Error("Error handling Mod.Call", e);
+                return null;
+            }
+        }
+
         private void ImplementVanillaBiomes()
         {
             Biomes biomes = new Biomes
@@ -82,6 +142,10 @@ namespace BTitles
                 MiniBiomeChecker = player =>
                 {
                     Point playerTilePosition = player.Center.ToTileCoordinates();
+                    if (playerTilePosition.X < 0 || playerTilePosition.X >= Main.maxTilesX || 
+                        playerTilePosition.Y < 0 || playerTilePosition.Y >= Main.maxTilesY)
+                        return "";
+                        
                     var tileAtPlayeCenter = Main.tile[playerTilePosition.X, playerTilePosition.Y];
                     
                     // Extra-small
@@ -176,7 +240,6 @@ namespace BTitles
                     }
 
                     // ... other Terraria biome checks ...
-
                     return "Forest";
                 }
             };
@@ -387,6 +450,38 @@ namespace BTitles
             else
             {
                 Console.WriteLine($"[BTitles] [{type}] [{category}] {message}");
+            }
+        }
+    }
+    
+    // Advertisment
+    public class BTitlesSystem : ModSystem
+    {
+        private int _advertisementTimer = 0;
+        private const int ADVERTISEMENT_DELAY = 180;
+        
+        public override void OnWorldLoad()
+        {
+            _advertisementTimer = 0;
+        }
+        
+        public override void PostUpdateEverything()
+        {
+            if (!Main.gameMenu && !BiomeTitlesMod.HasShownFirstTimeMessage)
+            {
+                _advertisementTimer++;
+                
+                if (_advertisementTimer >= ADVERTISEMENT_DELAY)
+                {
+                    string part1 = Language.GetTextValue("Mods.BiomeTitles.ChatAdvertisementPart1");
+                    string part2 = Language.GetTextValue("Mods.BiomeTitles.ChatAdvertisementPart2");
+                    
+                    string message = $"[c/FFFF00:{part1}][c/00FFFF:{part2}]";
+                    
+                    Main.NewText(message);
+                    
+                    BiomeTitlesMod.MarkFirstTimeMessageAsShown();
+                }
             }
         }
     }

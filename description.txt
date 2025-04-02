@@ -23,10 +23,12 @@ Supports all biomes and sub-biomes for the following:
 [*] Rothur Mod
 [*] Everjade
 [*] Awakened Light
+[*] Spirit Reforged
+[*] Lunar Veil
 
 Join our discord for updates/annoncements: [url]https://discord.gg/te6MPuWbtD[/url]
 
-You can find the source code and helpful guides here: [url]https://github.com/MGTro/BTitles-1.4.3[/url]
+You can find the source code and helpful guides here: [url]https://github.com/d-Dice/BTitles-1.4.3/tree/1.4.4[/url]
 
 Special thanks to:
 [b]Blooming Dragon - Reworking & Russian localization
@@ -45,3 +47,5 @@ You can find my other mods here:
 
 or official addon here:
 [*]https://steamcommunity.com/sharedfiles/filedetails/?id=3019670863
+
+[url=https://ko-fi.com/v1dice][img]https://i.imgur.com/aEdpyjb.png[/img]Support my work[/url]

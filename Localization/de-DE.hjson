@@ -1,5 +1,8 @@
 Mods: {
 	BiomeTitles: {
+		ChatAdvertisementPart1: "Vielen Dank für die Verwendung von Biome Titles, schau dir auch meinen anderen Mod "
+		ChatAdvertisementPart2: Global Chat an!
+
 		Title: {
 			Terraria: {
 				Meteor_Crash_Site: Meteoritenabsturzstelle
@@ -169,6 +172,55 @@ Mods: {
 				VerdantBiome: Verdant Oberfläche
 				VerdantUndergroundBiome: Verdanthöhlen
 			}
+
+			Stellamod: {
+				AbyssBiome: Abgrund
+				AcidBiome: Säure-Ebenen
+				IshtarBiome: Ishtar
+				MorrowUndergroundBiome: Morrow Untergrund
+				VeriplantUndergroundBiome: Veriplant Untergrund
+				AlcadziaBiome: Alcadzia
+				CathedralBiome: Kathedrale
+				FableBiome: Fabelhafte Wildnis
+				IlluriaBiome: Illuria
+				MarrowSurfaceBiome: Morrow Oberfläche
+				StarbloomBiome: Sternenblüte
+				VeilBiome: Veil
+				XixVillage: Xix Dorf
+				AurelusBiome: Aurelus-Tempel
+				CatacombFlames: Katakomben - Flammen
+				CatacombTrap: Katakomben - Falle
+				CatacombWater: Katakomben - Wasser
+				CindersparkBiome: Zinderfunke
+				DrakonicManor: Drakonisches Herrenhaus
+				EngineerShop: Ingenieurladen
+				GovheilCastle: Govheil Schloss
+				Laboratory: Laboratorium
+				NaxtrinTemple: Naxtrin-Tempel
+				SeaTemple: Meerestempel
+			}
+
+			MultidimensionMod: {
+				FrozenUnderworld: Gefrorene Unterwelt
+				ShroomForest: Pilzwald
+			}
+
+			SpiritReforged: {
+				SavannaBiome: Savanne
+				HallowSavannaBiome: Heilige Savanne
+			}
+
+			RothurModRedux: {
+				CrystalSurfaceBiome: Kristall
+				CrystalUndergroundBiome: Kristall Untergrund
+			}
+
+			JadeFables.JadeLakeBiome: Jadesee
+
+			ITD: {
+				BlueshroomGrovesBiome: Blaupilzhaine
+				BlueshroomGrovesSurfaceBiome: Blaupilzhaine
+			}
 		}
 	}
 
@@ -181,6 +233,8 @@ Mods: {
 					Visuals_Config: Visuelle Konfigurationen
 					Advanced_Customization: Erweiterte Konfigurationen
 					Animation: Animation
+					// Auto_Detection: Auto_ Detection Header
+					// System: System Header
 				}
 
 				Position: {
@@ -295,6 +349,26 @@ Mods: {
 					None.Label: Keine Animation
 					ShowFade.Label: Einblenden/Ausblenden
 					ShowFadeSwipe.Label: Einblenden/Ausblenden mit Wischbewegung
+				}
+
+				AutoDetectBiomes: {
+					// Label: Automatically detect modded biomes
+					// Tooltip: Show titles for biomes from mods without explicit support
+				}
+
+				AutoDetectNewBiomes: {
+					// Label: Auto-Detect New Biomes
+					// Tooltip: Enable automatic detection of biomes from unsupported mods
+				}
+
+				HasShownAdvertisement: {
+					// Label: Has Shown Advertisement
+					// Tooltip: ""
+				}
+
+				HasShownFirstTimeMessage: {
+					// Label: First Time Message Shown
+					// Tooltip: Internal flag to track if the welcome message has been shown
 				}
 			}
 

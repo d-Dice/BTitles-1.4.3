@@ -1,5 +1,8 @@
 Mods: {
 	BiomeTitles: {
+		ChatAdvertisementPart1: "Grazie per usare Biome Titles, dai un'occhiata anche al mio altro mod "
+		ChatAdvertisementPart2: Global Chat!
+
 		Title: {
 			Terraria: {
 				Meteor_Crash_Site: Sito D'Impatto Del Meteorite
@@ -166,8 +169,57 @@ Mods: {
 			}
 
 			Verdant: {
-				VerdantBiome: Verdeggiante
-				VerdantUndergroundBiome: Sottosuolo Verdeggiante
+				VerdantBiome: Superficie Verdeggiante
+				VerdantUndergroundBiome: Grotte Verdeggianti
+			}
+
+			Stellamod: {
+				AbyssBiome: Abisso
+				AcidBiome: Pianure Acide
+				IshtarBiome: Ishtar
+				MorrowUndergroundBiome: Sotterraneo di Morrow
+				VeriplantUndergroundBiome: Sotterraneo di Veriplant
+				AlcadziaBiome: Alcadzia
+				CathedralBiome: Cattedrale
+				FableBiome: Terre Favolose
+				IlluriaBiome: Illuria
+				MarrowSurfaceBiome: Superficie di Morrow
+				StarbloomBiome: Fiorestellare
+				VeilBiome: Velo
+				XixVillage: Villaggio Xix
+				AurelusBiome: Tempio di Aurelus
+				CatacombFlames: Catacombe - Fiamme
+				CatacombTrap: Catacombe - Trappola
+				CatacombWater: Catacombe - Acqua
+				CindersparkBiome: Scintilla di Cenere
+				DrakonicManor: Maniero Draconico
+				EngineerShop: Negozio dell'Ingegnere
+				GovheilCastle: Castello Govheil
+				Laboratory: Laboratorio
+				NaxtrinTemple: Tempio di Naxtrin
+				SeaTemple: Tempio Marino
+			}
+
+			MultidimensionMod: {
+				FrozenUnderworld: Inferno Ghiacciato
+				ShroomForest: Foresta di Funghi
+			}
+
+			SpiritReforged: {
+				SavannaBiome: Savana
+				HallowSavannaBiome: Savana Sacra
+			}
+
+			RothurModRedux: {
+				CrystalSurfaceBiome: Cristallo
+				CrystalUndergroundBiome: Sotterraneo di Cristallo
+			}
+
+			JadeFables.JadeLakeBiome: Lago di Giada
+
+			ITD: {
+				BlueshroomGrovesBiome: Boschetti di Funghi Blu
+				BlueshroomGrovesSurfaceBiome: Boschetti di Funghi Blu
 			}
 		}
 	}
@@ -181,6 +233,8 @@ Mods: {
 					Visuals_Config: Configurazione Visuale
 					Advanced_Customization: Personalizzazione Avanzata
 					Animation: Animazione
+					// Auto_Detection: Auto_ Detection Header
+					// System: System Header
 				}
 
 				Position: {
@@ -295,6 +349,26 @@ Mods: {
 					// None.Label: No Animation
 					// ShowFade.Label: Show/Fade
 					// ShowFadeSwipe.Label: Show/Fade With Swipe
+				}
+
+				AutoDetectBiomes: {
+					// Label: Automatically detect modded biomes
+					// Tooltip: Show titles for biomes from mods without explicit support
+				}
+
+				AutoDetectNewBiomes: {
+					// Label: Auto-Detect New Biomes
+					// Tooltip: Enable automatic detection of biomes from unsupported mods
+				}
+
+				HasShownAdvertisement: {
+					// Label: Has Shown Advertisement
+					// Tooltip: ""
+				}
+
+				HasShownFirstTimeMessage: {
+					// Label: First Time Message Shown
+					// Tooltip: Internal flag to track if the welcome message has been shown
 				}
 			}
 

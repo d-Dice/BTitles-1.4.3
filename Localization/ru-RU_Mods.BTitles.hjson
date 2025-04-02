@@ -6,8 +6,8 @@ Configs: {
 		Position: {
 		}
 
-		// CustomPositionX.Tooltip: ""
-		// CustomPositionY.Tooltip: ""
+		CustomPositionX.Tooltip: ""
+		CustomPositionY.Tooltip: ""
 
 		Scale: {
 		}
@@ -49,14 +49,14 @@ Configs: {
 		}
 
 		HideWhileBossIsAlive: {
-			// Label: Hide While Boss Is Alive
-			// Tooltip: Should titles be hidden while a boss is alive
+			Label: Скрывать плашку, когда босс жив
+			Tooltip: Плашки биомов не будут появляться во время битвы с боссами
 		}
 	}
 
-	// PositionOption.Tooltip: ""
-	// ScaleOption.Tooltip: ""
-	// BiomeNameMapping.Tooltip: ""
+	PositionOption.Tooltip: ""
+	ScaleOption.Tooltip: ""
+	BiomeNameMapping.Tooltip: ""
 
 	CurrentName: {
 	}
@@ -64,5 +64,5 @@ Configs: {
 	NewName: {
 	}
 
-	// TitleAnimationType.Tooltip: ""
+	TitleAnimationType.Tooltip: ""
 }

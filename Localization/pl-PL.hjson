@@ -1,5 +1,8 @@
 Mods: {
 	BiomeTitles: {
+		ChatAdvertisementPart1: "Dziękujemy za korzystanie z Biome Titles, sprawdź także mój inny mod "
+		ChatAdvertisementPart2: Global Chat!
+
 		Title: {
 			Terraria: {
 				Meteor_Crash_Site: Meteor
@@ -169,6 +172,55 @@ Mods: {
 				VerdantBiome: Zielenista Powierzchnia
 				VerdantUndergroundBiome: Zieleniejące Jaskinie
 			}
+
+			Stellamod: {
+				AbyssBiome: Otchłań
+				AcidBiome: Równiny Kwasowe
+				IshtarBiome: Ishtar
+				MorrowUndergroundBiome: Podziemny Morrow
+				VeriplantUndergroundBiome: Podziemny Veriplant
+				AlcadziaBiome: Alcadzia
+				CathedralBiome: Katedra
+				FableBiome: Dzikie Baśnie
+				IlluriaBiome: Illuria
+				MarrowSurfaceBiome: Powierzchnia Morrow
+				StarbloomBiome: Gwiazdokwiat
+				VeilBiome: Zasłona
+				XixVillage: Wioska Xix
+				AurelusBiome: Świątynia Aurelusa
+				CatacombFlames: Katakumby - Płomienie
+				CatacombTrap: Katakumby - Pułapka
+				CatacombWater: Katakumby - Woda
+				CindersparkBiome: Iskra Popiołu
+				DrakonicManor: Dwór Drakoniczny
+				EngineerShop: Sklep Inżyniera
+				GovheilCastle: Zamek Govheil
+				Laboratory: Laboratorium
+				NaxtrinTemple: Świątynia Naxtrin
+				SeaTemple: Świątynia Morska
+			}
+
+			MultidimensionMod: {
+				FrozenUnderworld: Zamrożone Podziemie
+				ShroomForest: Las Grzybowy
+			}
+
+			SpiritReforged: {
+				SavannaBiome: Savanna
+				HallowSavannaBiome: Święta Savanna
+			}
+
+			RothurModRedux: {
+				CrystalSurfaceBiome: Kryształ
+				CrystalUndergroundBiome: Podziemny Kryształ
+			}
+
+			JadeFables.JadeLakeBiome: Jadeitowe Jezioro
+
+			ITD: {
+				BlueshroomGrovesBiome: Gaje Niebieskich Grzybów
+				BlueshroomGrovesSurfaceBiome: Gaje Niebieskich Grzybów
+			}
 		}
 	}
 
@@ -181,6 +233,8 @@ Mods: {
 					Visuals_Config: Konfiguracja Wizualizacji
 					Advanced_Customization: Zaawansowane Dostosowywanie
 					Animation: Animacja
+					// Auto_Detection: Auto_ Detection Header
+					// System: System Header
 				}
 
 				Position: {
@@ -295,6 +349,26 @@ Mods: {
 					None.Label: Brak animacji
 					ShowFade.Label: Pokaż/Zniknij
 					ShowFadeSwipe.Label: Pokaż/Zniknij z przesunięciem
+				}
+
+				AutoDetectBiomes: {
+					// Label: Automatically detect modded biomes
+					// Tooltip: Show titles for biomes from mods without explicit support
+				}
+
+				AutoDetectNewBiomes: {
+					// Label: Auto-Detect New Biomes
+					// Tooltip: Enable automatic detection of biomes from unsupported mods
+				}
+
+				HasShownAdvertisement: {
+					// Label: Has Shown Advertisement
+					// Tooltip: ""
+				}
+
+				HasShownFirstTimeMessage: {
+					// Label: First Time Message Shown
+					// Tooltip: Internal flag to track if the welcome message has been shown
 				}
 			}
 

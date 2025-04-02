@@ -41,7 +41,7 @@ namespace BTitles
         private AnimationConfig _animationConfig = new AnimationConfig();
         
         // UI State
-        private string _currentBiome = "";
+        internal string _currentBiome = "";
         private bool _currentBiomeDynamic = false;
         private BiomeEntry _currentBiomeEntry = null;
         private bool _isDragging;
