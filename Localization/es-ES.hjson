@@ -108,18 +108,18 @@ Mods: {
 			}
 
 			Redemption: {
-				BlazingBastionBiome: Bastión Ardiente
+				BlazingBastionBiome: Bastión Flameante
 				LidenBiome: Liden
 				LidenBiomeAlpha: El Alfa
 				LidenBiomeOmega: El Omega
-				SlayerShipBiome: Nave Asesina
+				SlayerShipBiome: Crucero Estrellado
 				LabBiome: Laboratorio Abandonado
-				SoullessBiome: Cavernas Sin Alma
-				WastelandCorruptionBiome: Corrupción del Yermo
-				WastelandCrimsonBiome: Carmesí del Yermo
-				WastelandDesertBiome: Desierto del Yermo
-				WastelandPurityBiome: Pureza del Yermo
-				WastelandSnowBiome: Nieve del Yermo
+				SoullessBiome: Cavernas sin Almas
+				WastelandCorruptionBiome: Páramo Corrupto
+				WastelandCrimsonBiome: Páramo Carmesí
+				WastelandDesertBiome: Páramo Desértico
+				WastelandPurityBiome: Páramo
+				WastelandSnowBiome: Páramo Nevado
 			}
 
 			Remnants: {
