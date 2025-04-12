@@ -25,6 +25,9 @@ Supports all biomes and sub-biomes for the following:
 [*] Awakened Light
 [*] Spirit Reforged
 [*] Lunar Veil
+[*] Rise of Ages
+[*] Valhalla Mod
+[*] Polarities
 
 Join our discord for updates/annoncements: [url]https://discord.gg/te6MPuWbtD[/url]
 
@@ -32,6 +35,7 @@ You can find the source code and helpful guides here: [url]https://github.com/d-
 
 Special thanks to:
 [b]Blooming Dragon - Reworking & Russian localization
+Alino4kaHvoshch - Russian localization
 CoreInnocenti and MAScherteo - Italian localization
 deckenid - German localization
 Farmacias São João - Portuguese localization
@@ -48,4 +52,5 @@ You can find my other mods here:
 or official addon here:
 [*]https://steamcommunity.com/sharedfiles/filedetails/?id=3019670863
 
-[url=https://ko-fi.com/v1dice][img]https://i.imgur.com/aEdpyjb.png[/img]Support my work[/url]
+[url=https://ko-fi.com/v1dice][img]https://i.imgur.com/aEdpyjb.png[/img]Support my work[/url][quote=tModLoader BTitles]
+Developed By Dice & Blooming Dragon[/quote]
