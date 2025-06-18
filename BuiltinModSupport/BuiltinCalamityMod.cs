@@ -13,10 +13,7 @@ public class BuiltinCalamityMod : AutoImplementedModSupport
 
         biomes = new Dictionary<string, BiomeEntry>
         {
-            {"UndergroundAstralBiome",       new BiomeEntry{ Title = "Astral Underground", SubTitle = "Calamity Mod", TitleColor = Color.Indigo,        StrokeColor = Color.Black }},
-            {"AbovegroundAstralDesertBiome", new BiomeEntry{ Title = "Astral Desert",      SubTitle = "Calamity Mod", TitleColor = Color.BlueViolet,    StrokeColor = Color.Black }},
-            {"AbovegroundAstralSnowBiome",   new BiomeEntry{ Title = "Astral Tundra",      SubTitle = "Calamity Mod", TitleColor = Color.Orchid,        StrokeColor = Color.Black }},
-            {"AbovegroundAstralBiome",       new BiomeEntry{ Title = "Astral Infection",   SubTitle = "Calamity Mod", TitleColor = Color.DarkViolet,    StrokeColor = Color.Black }},
+            {"AstralInfectionBiome",         new BiomeEntry{ Title = "Astral Infection",   SubTitle = "Calamity Mod", TitleColor = Color.DarkViolet,    StrokeColor = Color.Black }},
             {"BrimstoneCragsBiome",          new BiomeEntry{ Title = "Brimstone Crags",    SubTitle = "Calamity Mod", TitleColor = Color.OrangeRed,     StrokeColor = Color.Black }},
             {"SulphurousSeaBiome",           new BiomeEntry{ Title = "Sulphurous Sea",     SubTitle = "Calamity Mod", TitleColor = Color.LightSeaGreen, StrokeColor = Color.Black }},
             {"SunkenSeaBiome",               new BiomeEntry{ Title = "Sunken Sea",         SubTitle = "Calamity Mod", TitleColor = Color.Teal,          StrokeColor = Color.Black }},
