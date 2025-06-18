@@ -4,6 +4,7 @@
 
 Supports all biomes and sub-biomes for the following:
 [*] Vanilla
+[*] Brighter Days
 [*] Thorium
 [*] Verdant
 [*] Remnants

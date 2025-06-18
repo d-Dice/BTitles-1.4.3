@@ -469,19 +469,7 @@ namespace BTitles
         {
             if (!Main.gameMenu && !BiomeTitlesMod.HasShownFirstTimeMessage)
             {
-                _advertisementTimer++;
-                
-                if (_advertisementTimer >= ADVERTISEMENT_DELAY)
-                {
-                    string part1 = Language.GetTextValue("Mods.BiomeTitles.ChatAdvertisementPart1");
-                    string part2 = Language.GetTextValue("Mods.BiomeTitles.ChatAdvertisementPart2");
-                    
-                    string message = $"[c/FFFF00:{part1}][c/00FFFF:{part2}]";
-                    
-                    Main.NewText(message);
-                    
-                    BiomeTitlesMod.MarkFirstTimeMessageAsShown();
-                }
+                BiomeTitlesMod.MarkFirstTimeMessageAsShown();
             }
         }
     }
